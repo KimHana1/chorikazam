@@ -10,6 +10,7 @@ config_version=5
 
 [application]
 
+<<<<<<< HEAD
 config/name="Nuevo Proyecto de Juego"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -23,3 +24,8 @@ config/icon="res://icon.svg"
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+=======
+config/name="chorikazam"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
+>>>>>>> 195fec68513ad6ed4c01f4d11254d35bd3112100
