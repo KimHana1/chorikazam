@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dx1ttqry3nbej"]
+
+[node name="Cliente" type="CharacterBody2D" unique_id=1296700739]
+
+[node name="Cabello" type="Sprite2D" parent="." unique_id=517060788]
+
+[node name="Ropa" type="Sprite2D" parent="." unique_id=478865611]
+
+[node name="AreaRopa" type="Area2D" parent="." unique_id=342921838]
+
+[node name="AreaCabello" type="Area2D" parent="." unique_id=997024893]
