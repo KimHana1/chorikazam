@@ -1,0 +1,68 @@
+extends CharacterBody2D
+
+@onready var sprite = $Sprite2D
+@onready var boton_tomar_pedido = $ButtonTomarPedido
+
+var ticket_scene = preload("res://Escenas/ticket.tscn")
+
+var clientes = {
+	"mujer": {
+		"principal": preload("res://Sprites/clientes/mujer/principal.png"),
+		"medio": preload("res://Sprites/clientes/mujer/medio.png"),
+		"enojado": preload("res://Sprites/clientes/mujer/enojada.png"),
+		"feliz": preload("res://Sprites/clientes/mujer/feliz.png"),
+		"color": Color.BROWN
+	},
+
+	"hombre": {
+		"principal": preload("res://Sprites/clientes/hombre/principal.png"),
+		"medio": preload("res://Sprites/clientes/hombre/medio.png"),
+		"enojado": preload("res://Sprites/clientes/hombre/enojado.png"),
+		"feliz": preload("res://Sprites/clientes/hombre/feliz.png"),
+		"color": Color.GRAY
+	}
+}
+
+var pedidos = [
+	{
+		"nombre": "Choripán",
+		"pasos": ["cortar", "cocinar"],
+		"paciencia": 80
+	},
+	{
+		"nombre": "Ensalada",
+		"pasos": ["pelar", "cocinar"],
+		"paciencia": 60
+	}
+]
+
+var cliente_actual = ""
+var pedido_actual = {}
+
+func _ready():
+	randomize()
+	generar_cliente()
+
+func generar_cliente():
+	var lista_clientes = clientes.keys()
+	cliente_actual = lista_clientes[randi() % lista_clientes.size()]
+
+	sprite.texture = clientes[cliente_actual]["principal"]
+
+	var pedido_random = pedidos[randi() % pedidos.size()]
+	pedido_actual = pedido_random.duplicate()
+
+	pedido_actual["color"] = clientes[cliente_actual]["color"]
+
+	print("Cliente generado:")
+	print(cliente_actual)
+	print("Pedido:")
+	print(pedido_actual)
+
+func abrir_ticket():
+	var ticket = ticket_scene.instantiate()
+	get_tree().current_scene.add_child(ticket)
+	ticket.cargar_ticket(pedido_actual)
+
+func _on_button_tomar_pedido_pressed():
+	abrir_ticket()

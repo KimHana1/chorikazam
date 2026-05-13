@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dx1ttqry3nbej"]
+
+[ext_resource type="Script" uid="uid://b8i5u5miurqv4" path="res://Escenas/cliente.gd" id="1_w1gk8"]
+
+[node name="Cliente" type="CharacterBody2D" unique_id=1296700739]
+position = Vector2(428, 356)
+script = ExtResource("1_w1gk8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1384397834]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1660123799]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1076149343]
+
+[node name="Timer" type="Timer" parent="." unique_id=747590641]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=347178743]
+offset_left = -2.0
+offset_top = 142.0
+offset_right = 114.0
+offset_bottom = 182.0
+theme_override_constants/separation = 9
+
+[node name="ButtonTomarPedido" type="Button" parent="VBoxContainer" unique_id=761318629]
+layout_mode = 2
+text = "Tomar Pedido"
+
+[connection signal="pressed" from="VBoxContainer/ButtonTomarPedido" to="." method="_on_button_tomar_pedido_pressed"]

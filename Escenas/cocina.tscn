@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dxymuu1cg4gty"]
+
+[node name="Cocina" type="Control" unique_id=588022032]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line2D" type="Line2D" parent="." unique_id=2060014531]
+
+[node name="DrawManager" type="Node" parent="." unique_id=486436348]
+
+[node name="IngredientePapa" type="Area2D" parent="." unique_id=428765602]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IngredientePapa" unique_id=1656190948]
+
+[node name="Sprite2D" type="Sprite2D" parent="IngredientePapa" unique_id=550107753]
+
+[node name="IngradientePan" type="Area2D" parent="." unique_id=1676821856]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IngradientePan" unique_id=1095741162]
+
+[node name="Sprite2D" type="Sprite2D" parent="IngradientePan" unique_id=545059624]
+
+[node name="IngradienteChorizo" type="Area2D" parent="." unique_id=514855388]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IngradienteChorizo" unique_id=1347138081]
+
+[node name="Sprite2D" type="Sprite2D" parent="IngradienteChorizo" unique_id=1287625536]
+
+[node name="LabelEstado" type="Label" parent="." unique_id=71653673]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
