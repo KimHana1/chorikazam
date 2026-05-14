@@ -13,11 +13,18 @@ metadata/_edit_horizontal_guides_ = [197.0, 397.0]
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=231269263]
 
 [node name="ButtonTomarPedido" type="Button" parent="." unique_id=130144349]
-offset_right = 116.0
-offset_bottom = 31.0
+offset_left = 176.66666
+offset_top = 176.66666
+offset_right = 292.66666
+offset_bottom = 207.66666
+scale = Vector2(2.2, 2.2666667)
 theme = ExtResource("2_hd6bx")
 theme_override_colors/font_color = Color(0.0021761383, 0.00023052815, 0, 1)
 theme_override_colors/font_focus_color = Color(0.98342556, 0.9449602, 0.8779431, 1)
 text = "Tomar Pedido"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="." unique_id=897437607]
+offset_right = 8.0
+offset_bottom = 8.0
 
 [connection signal="pressed" from="ButtonTomarPedido" to="." method="_on_button_tomar_pedido_pressed"]

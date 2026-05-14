@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite = $Sprite2D
 @onready var boton_tomar_pedido = $ButtonTomarPedido
+@onready var selector_color = $ColorPickerButton
 
 var ticket_scene = preload("res://Escenas/ticket.tscn")
 
@@ -38,9 +39,11 @@ var pedidos = [
 
 var cliente_actual = ""
 var pedido_actual = {}
+var ticket_abierto = false
 
 func _ready():
 	randomize()
+	selector_color.color_changed.connect(_on_color_picker_button_color_changed)
 	generar_cliente()
 
 func generar_cliente():
@@ -53,6 +56,7 @@ func generar_cliente():
 	pedido_actual = pedido_random.duplicate()
 
 	pedido_actual["color"] = clientes[cliente_actual]["color"]
+	selector_color.color = pedido_actual["color"]
 
 	print("Cliente generado:")
 	print(cliente_actual)
@@ -60,9 +64,18 @@ func generar_cliente():
 	print(pedido_actual)
 
 func abrir_ticket():
+	if ticket_abierto:
+		return
+
+	ticket_abierto = true
+
 	var ticket = ticket_scene.instantiate()
 	get_tree().current_scene.add_child(ticket)
 	ticket.cargar_ticket(pedido_actual)
 
 func _on_button_tomar_pedido_pressed():
 	abrir_ticket()
+
+func _on_color_picker_button_color_changed(nuevo_color):
+	pedido_actual["color"] = nuevo_color
+	sprite.modulate = nuevo_color

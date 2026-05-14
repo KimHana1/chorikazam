@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://cxyactoho1jv4"]
 
-[ext_resource type="Script" path="res://Escenas/ticket.gd" id="1_e54rb"]
+[ext_resource type="Script" uid="uid://b4hdh5l2kllpb" path="res://Escenas/ticket.gd" id="1_e54rb"]
 [ext_resource type="Texture2D" uid="uid://dihgj8jfom5le" path="res://Sprites/DecoTicket/memo ticket.png" id="2_tvjgq"]
+[ext_resource type="FontFile" uid="uid://c1dgrcg0mmcth" path="res://fuente/Biro_Script_reduced.otf" id="3_mgkjk"]
 
-[sub_resource type="Theme" id="Theme_tvjgq"]
+[sub_resource type="LabelSettings" id="LabelSettings_i654v"]
+font = ExtResource("3_mgkjk")
+font_size = 25
+font_color = Color(0.20871013, 0.20871016, 0.20871013, 1)
 
 [node name="Ticket" type="Control" unique_id=343356264]
 layout_mode = 3
@@ -41,17 +45,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -31.0
-offset_top = -53.0
-offset_right = -21.0
-offset_bottom = 67.0
+offset_left = -30.0
+offset_top = -125.000015
+offset_right = 20.0
+offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.6399999, 1.25)
 theme_override_constants/separation = 16
 
 [node name="LabelPedido" type="Label" parent="VBoxContainer" unique_id=1221245139]
+clip_contents = true
 layout_mode = 2
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_i654v")
 
 [node name="ComidaCocinada" type="CenterContainer" parent="VBoxContainer" unique_id=1295441930]
 clip_contents = true
@@ -65,7 +72,6 @@ layout_mode = 2
 clip_contents = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-theme = SubResource("Theme_tvjgq")
 color = Color(1, 0.29411766, 1, 1)
 
 [node name="PacienciaCliente" type="ProgressBar" parent="VBoxContainer" unique_id=143320536]

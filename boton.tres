@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://6drm0i28x5t8"]
 
+[ext_resource type="FontFile" uid="uid://dfa42epdu4eao" path="res://fuente/Biro_Script_reduced.ttf" id="1_xgu5m"]
+
 [resource]
 default_base_scale = 0.24
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -15,3 +17,4 @@ Button/colors/icon_hover_color = Color(0, 0.46526366, 0.4654801, 1)
 Button/colors/icon_hover_pressed_color = Color(0, 0.37150973, 0.3718952, 1)
 Button/colors/icon_normal_color = Color(1.0588765e-06, 0.46096152, 0.4610508, 1)
 Button/colors/icon_pressed_color = Color(0, 0.16629922, 0.16629922, 1)
+Button/fonts/font = ExtResource("1_xgu5m")
