@@ -9,6 +9,12 @@ extends Control
 var paciencia_actual: float = 100.0
 var velocidad_paciencia: float = 1.0
 
+var color_verde = Color(0.65, 0.95, 0.72)
+var color_amarillo = Color(1.0, 0.92, 0.55)
+var color_rojo = Color(1.0, 0.55, 0.55)
+
+var estilo_barra = StyleBoxFlat.new()
+
 var comidas_cocinadas = {
 	"Choripán": preload("res://Sprites/cocinado/choripan.png"),
 	"Ensalada": preload("res://Sprites/cocinado/ensaladapatoma.png")
@@ -21,6 +27,8 @@ var iconos_pasos = {
 }
 
 func _ready():
+	configurar_barra()
+
 	var pedido_prueba = {
 		"nombre": "Choripán",
 		"pasos": ["cortar", "cocinar"],
@@ -29,6 +37,19 @@ func _ready():
 	}
 
 	cargar_ticket(pedido_prueba)
+
+func configurar_barra():
+	paciencia_cliente.show_percentage = false
+	paciencia_cliente.fill_mode = ProgressBar.FILL_BOTTOM_TO_TOP
+	paciencia_cliente.custom_minimum_size = Vector2(18, 90)
+
+	estilo_barra.bg_color = color_verde
+	estilo_barra.corner_radius_top_left = 8
+	estilo_barra.corner_radius_top_right = 8
+	estilo_barra.corner_radius_bottom_left = 8
+	estilo_barra.corner_radius_bottom_right = 8
+
+	paciencia_cliente.add_theme_stylebox_override("fill", estilo_barra)
 
 func cargar_ticket(datos):
 	label_pedido.text = datos["nombre"]
@@ -60,16 +81,29 @@ func cargar_ticket(datos):
 
 	paciencia_cliente.max_value = 100
 	paciencia_cliente.value = paciencia_actual
-	paciencia_cliente.custom_minimum_size = Vector2(50, 18)
+	actualizar_color_barra()
 
 func _process(delta):
 	if paciencia_actual > 0:
 		paciencia_actual -= velocidad_paciencia * delta
+		paciencia_actual = max(paciencia_actual, 0)
 		paciencia_cliente.value = paciencia_actual
+		actualizar_color_barra()
 
 		if paciencia_actual <= 0:
-			paciencia_actual = 0
 			print("Cliente insatisfecho")
+
+func actualizar_color_barra():
+	var porcentaje = paciencia_actual / 100.0
+
+	if porcentaje > 0.5:
+		var t = (porcentaje - 0.5) / 0.5
+		estilo_barra.bg_color = color_amarillo.lerp(color_verde, t)
+	else:
+		var t = porcentaje / 0.5
+		estilo_barra.bg_color = color_rojo.lerp(color_amarillo, t)
+
+	paciencia_cliente.add_theme_stylebox_override("fill", estilo_barra)
 
 func limpiar_contenedor(contenedor):
 	for hijo in contenedor.get_children():
