@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqp7a7ejar5no"]
 
-[ext_resource type="Script" uid="uid://vkp5x0a5gn80" path="res://chorizo.gd" id="1_be385"]
+[ext_resource type="Script" uid="uid://vkp5x0a5gn80" path="res://Script/chorizo.gd" id="1_be385"]
 [ext_resource type="Texture2D" uid="uid://dhw0d0jw1x6ks" path="res://Sprites/ingredientes/chorizo.png" id="2_b1g2m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b1g2m"]
@@ -13,7 +13,7 @@ script = ExtResource("1_be385")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1285245909]
 texture = ExtResource("2_b1g2m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=108284593]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=108284593]
 position = Vector2(34, 30)
 rotation = 0.87958235
 shape = SubResource("CapsuleShape2D_b1g2m")

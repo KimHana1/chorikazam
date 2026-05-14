@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6eyitsql3lea"]
 
-[ext_resource type="Script" uid="uid://cvaqcfcctnrdg" path="res://papa.gd" id="1_3hx03"]
+[ext_resource type="Script" uid="uid://cvaqcfcctnrdg" path="res://Script/papa.gd" id="1_3hx03"]
 [ext_resource type="Texture2D" uid="uid://dmopfrmf6phov" path="res://Sprites/ingredientes/papa.png" id="2_qivgk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qivgk"]
@@ -13,6 +13,7 @@ script = ExtResource("1_3hx03")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1739436327]
 texture = ExtResource("2_qivgk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=845656211]
-rotation = 0.77405506
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=845656211]
+position = Vector2(9, 14)
+rotation = 0.774055
 shape = SubResource("CapsuleShape2D_qivgk")

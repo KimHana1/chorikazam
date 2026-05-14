@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dxymuu1cg4gty"]
 
-[ext_resource type="Script" uid="uid://cknrka585n484" path="res://Escenas/draw_manager.gd" id="1_r5ydy"]
-[ext_resource type="Script" uid="uid://mo2j80exb42o" path="res://Escenas/cocina.gd" id="1_ti2xv"]
-[ext_resource type="PackedScene" uid="uid://cqp7a7ejar5no" path="res://chorizo.tscn" id="2_ti2xv"]
-[ext_resource type="PackedScene" uid="uid://b6eyitsql3lea" path="res://papa.tscn" id="3_jqnxx"]
-[ext_resource type="PackedScene" uid="uid://b7q5eshxv6mah" path="res://carne.tscn" id="4_b5anw"]
-[ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://pan.tscn" id="5_h561l"]
+[ext_resource type="Script" uid="uid://cknrka585n484" path="res://Script/draw_manager.gd" id="1_r5ydy"]
+[ext_resource type="Script" uid="uid://mo2j80exb42o" path="res://Script/cocina.gd" id="1_ti2xv"]
+[ext_resource type="PackedScene" uid="uid://cqp7a7ejar5no" path="res://Escenas/chorizo.tscn" id="2_ti2xv"]
+[ext_resource type="PackedScene" uid="uid://b6eyitsql3lea" path="res://Escenas/papa.tscn" id="3_jqnxx"]
+[ext_resource type="PackedScene" uid="uid://b7q5eshxv6mah" path="res://Escenas/carne.tscn" id="4_b5anw"]
+[ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://Escenas/pan.tscn" id="5_h561l"]
 
 [node name="Cocina" type="Control" unique_id=588022032]
 layout_mode = 3

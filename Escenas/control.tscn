@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://bxbmbwelwwv6b"]
+
+[ext_resource type="Script" uid="uid://bj5s6ogcfp6we" path="res://Script/control.gd" id="1_ee4bf"]
+[ext_resource type="Texture2D" uid="uid://cycxsipt3r1g4" path="res://baking-or-cooking-background-with-kitchen-utensils-flour-eggs-and-brown-apron-watercolor-illustration-vector.jpg" id="2_kbped"]
+[ext_resource type="FontFile" uid="uid://dfa42epdu4eao" path="res://fuente/Biro_Script_reduced.ttf" id="3_fj5cn"]
+[ext_resource type="FontFile" uid="uid://c1dgrcg0mmcth" path="res://fuente/Biro_Script_reduced.otf" id="4_iy58a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6a6wx"]
+font = ExtResource("3_fj5cn")
+font_size = 37
+font_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 0.73849064, 0.8990189, 1)
+shadow_offset = Vector2(5, 1)
+stacked_outline_count = 1
+stacked_shadow_count = 1
+stacked_outline_0/size = 4
+stacked_shadow_0/offset = Vector2(1, 1)
+stacked_shadow_0/outline_size = 6
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sky72"]
+light_mode = 1
+
+[sub_resource type="Theme" id="Theme_0ytqx"]
+
+[node name="Control" type="Control" unique_id=1314962120]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ee4bf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=797687351]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kbped")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1041482458]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -132.0
+offset_right = 214.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1307954329]
+layout_mode = 2
+text = "Chorikazam (Nombre a cambiar, den ideas)"
+label_settings = SubResource("LabelSettings_6a6wx")
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=481512459]
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_sky72")
+layout_mode = 2
+size_flags_vertical = 4
+theme = SubResource("Theme_0ytqx")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/h_separation = 24
+theme_override_constants/icon_max_width = 4
+theme_override_constants/align_to_largest_stylebox = -1
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("4_iy58a")
+theme_override_font_sizes/font_size = 55
+text = "Atender"
+flat = true
+autowrap_trim_flags = 192
+clip_text = true
+icon_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
