@@ -21,16 +21,20 @@ func iniciar_dibujo():
 	line.modulate = Color.WHITE
 	line.modulate.a = 1.0
 	dibujando = true
-	
 
 func finalizar_dibujo():
 	dibujando = false
-	get_tree().call_group("ingredientes", "reanudar_movimiento")
 
 	var hechizo = detectar_hechizo(puntos)
 
 	if hechizo != "error":
 		print("Hechizo detectado: ", hechizo)
+
+		var ingrediente = detectar_ingrediente()
+
+		if ingrediente != null and ingrediente.has_method("aplicar_hechizo"):
+			ingrediente.aplicar_hechizo(hechizo)
+
 		desvanecer(true)
 	else:
 		print("Hechizo incorrecto")
@@ -40,6 +44,25 @@ func agregar_punto(pos: Vector2):
 	if puntos.is_empty() or puntos[-1].distance_to(pos) > 6:
 		puntos.append(pos)
 		line.add_point(pos)
+
+func detectar_ingrediente():
+	if puntos.is_empty():
+		return null
+
+	var espacio = get_viewport().world_2d.direct_space_state
+	var ultimo_punto = puntos[puntos.size() - 1]
+
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = ultimo_punto
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+
+	var resultado = espacio.intersect_point(query)
+
+	if resultado.size() > 0:
+		return resultado[0].collider
+
+	return null
 
 func detectar_hechizo(p: Array) -> String:
 	if p.size() < 10:
@@ -74,33 +97,32 @@ func es_triangulo(p: Array) -> bool:
 	if p.size() < 5:
 		return false
 
-	var cambios = contar_cambios_direccion(p, 0.5)
-
-	if cambios != 1:
-		return false
-
 	var inicio = p[0]
-	var medio = p[int(p.size() / 2)]
 	var fin = p[-1]
+	var punto_mas_alto = p[0]
 
-	if medio.y >= inicio.y:
-		return false
-
-	if medio.y >= fin.y:
-		return false
+	for punto in p:
+		if punto.y < punto_mas_alto.y:
+			punto_mas_alto = punto
 
 	var ancho = abs(fin.x - inicio.x)
-	var alto = max(inicio.y, fin.y) - medio.y
+	var alto = max(inicio.y, fin.y) - punto_mas_alto.y
 
-	if ancho < 30:
+	if ancho < 25:
 		return false
 
-	if alto < 25:
+	if alto < 20:
+		return false
+
+	if punto_mas_alto.x < min(inicio.x, fin.x):
+		return false
+
+	if punto_mas_alto.x > max(inicio.x, fin.x):
 		return false
 
 	var proporcion = ancho / max(alto, 0.001)
 
-	if proporcion < 0.8 or proporcion > 3.0:
+	if proporcion < 0.7 or proporcion > 3.5:
 		return false
 
 	return true
