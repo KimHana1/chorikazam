@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var boton_tomar_pedido = $ButtonTomarPedido
 @onready var selector_color = $ColorPickerButton
+
 var cocina_scene = preload("res://Escenas/cocina.tscn")
 var ticket_scene = preload("res://Escenas/ticket.tscn")
 
@@ -27,11 +28,19 @@ var clientes = {
 var pedidos = [
 	{
 		"nombre": "Choripán",
+		"ingredientes": {
+			"pan": "linea_horizontal",
+			"chorizo": "triangulo"
+		},
 		"pasos": ["cortar", "cocinar"],
 		"paciencia": 80
 	},
 	{
 		"nombre": "Ensalada",
+		"ingredientes": {
+			"papa": "circulo",
+			"carne": "rayo"
+		},
 		"pasos": ["pelar", "cocinar"],
 		"paciencia": 60
 	}
@@ -44,19 +53,30 @@ var ticket_abierto = false
 func _ready():
 	randomize()
 	selector_color.color_changed.connect(_on_color_picker_button_color_changed)
-	generar_cliente()
+
+	if PedidoManager.pedido_completado:
+		mostrar_resultado_cliente()
+	else:
+		generar_cliente()
 
 func generar_cliente():
 	var lista_clientes = clientes.keys()
 	cliente_actual = lista_clientes[randi() % lista_clientes.size()]
 
+	sprite.modulate = Color.WHITE
 	sprite.texture = clientes[cliente_actual]["principal"]
 
 	var pedido_random = pedidos[randi() % pedidos.size()]
-	pedido_actual = pedido_random.duplicate()
+	pedido_actual = pedido_random.duplicate(true)
 
 	pedido_actual["color"] = clientes[cliente_actual]["color"]
+	pedido_actual["paciencia_actual"] = pedido_actual["paciencia"]
+
 	selector_color.color = pedido_actual["color"]
+
+	PedidoManager.cliente_actual = cliente_actual
+	PedidoManager.pedido_completado = false
+	PedidoManager.resultado_cliente = "normal"
 
 	print("Cliente generado:")
 	print(cliente_actual)
@@ -73,15 +93,32 @@ func abrir_ticket():
 	get_tree().current_scene.add_child(ticket)
 	ticket.cargar_ticket(pedido_actual)
 
+func mostrar_resultado_cliente():
+	cliente_actual = PedidoManager.cliente_actual
+
+	if cliente_actual == "" or not clientes.has(cliente_actual):
+		cliente_actual = "mujer"
+
+	var resultado = PedidoManager.resultado_cliente
+
+	if not clientes[cliente_actual].has(resultado):
+		resultado = "medio"
+
+	sprite.modulate = Color.WHITE
+	sprite.texture = clientes[cliente_actual][resultado]
+
+	boton_tomar_pedido.visible = false
+	selector_color.visible = false
+
 func _on_button_tomar_pedido_pressed():
 	abrir_ticket()
 
 func _on_color_picker_button_color_changed(nuevo_color):
 	pedido_actual["color"] = nuevo_color
 	sprite.modulate = nuevo_color
-	
-
 
 func _on_button_cocinar_pressed():
 	PedidoManager.pedido_actual = pedido_actual
+	PedidoManager.cliente_actual = cliente_actual
+	PedidoManager.pedido_completado = false
 	get_tree().change_scene_to_packed(cocina_scene)

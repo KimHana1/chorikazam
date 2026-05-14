@@ -9,6 +9,7 @@ func _ready():
 		print("No hay pedido activo")
 	else:
 		print("Pedido activo: ", PedidoManager.pedido_actual["nombre"])
+		print("Ingredientes pedidos: ", PedidoManager.pedido_actual["ingredientes"])
 
 func verificar_ingrediente(nombre_ingrediente: String, hechizo: String):
 	var pedido = PedidoManager.pedido_actual
@@ -32,9 +33,12 @@ func verificar_ingrediente(nombre_ingrediente: String, hechizo: String):
 			ingredientes_completados.append(nombre_ingrediente)
 
 		print(nombre_ingrediente, " correcto")
+		print("Completados: ", ingredientes_completados)
 		verificar_pedido_completo()
 	else:
 		print("Hechizo incorrecto para ", nombre_ingrediente)
+		print("Necesitaba: ", hechizo_necesario)
+		print("Hiciste: ", hechizo)
 
 func verificar_pedido_completo():
 	var pedido = PedidoManager.pedido_actual
@@ -42,7 +46,21 @@ func verificar_pedido_completo():
 
 	for ingrediente in ingredientes_necesarios:
 		if ingrediente not in ingredientes_completados:
+			print("Falta: ", ingrediente)
 			return
 
-	print("Pedido completado")
+	var paciencia = pedido.get("paciencia_actual", pedido.get("paciencia", 100))
+
+	if paciencia >= 70:
+		PedidoManager.resultado_cliente = "feliz"
+	elif paciencia >= 35:
+		PedidoManager.resultado_cliente = "medio"
+	else:
+		PedidoManager.resultado_cliente = "enojado"
+
 	PedidoManager.pedido_completado = true
+
+	print("Pedido completado")
+	print("Resultado cliente: ", PedidoManager.resultado_cliente)
+
+	get_tree().change_scene_to_file("res://Escenas/cliente.tscn")
