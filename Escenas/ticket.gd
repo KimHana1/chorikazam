@@ -108,3 +108,8 @@ func actualizar_color_barra():
 func limpiar_contenedor(contenedor):
 	for hijo in contenedor.get_children():
 		hijo.queue_free()
+		
+
+
+func _on_button_cerrar_pressed() -> void:
+	queue_free()

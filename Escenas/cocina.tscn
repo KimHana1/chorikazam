@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://dxymuu1cg4gty"]
 
+[ext_resource type="Script" uid="uid://cknrka585n484" path="res://Escenas/draw_manager.gd" id="1_r5ydy"]
+[ext_resource type="Script" uid="uid://mo2j80exb42o" path="res://Escenas/cocina.gd" id="1_ti2xv"]
+[ext_resource type="PackedScene" uid="uid://cqp7a7ejar5no" path="res://chorizo.tscn" id="2_ti2xv"]
+[ext_resource type="PackedScene" uid="uid://b6eyitsql3lea" path="res://papa.tscn" id="3_jqnxx"]
+[ext_resource type="PackedScene" uid="uid://b7q5eshxv6mah" path="res://carne.tscn" id="4_b5anw"]
+[ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://pan.tscn" id="5_h561l"]
+
 [node name="Cocina" type="Control" unique_id=588022032]
 layout_mode = 3
 anchors_preset = 15
@@ -7,30 +14,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ti2xv")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_vertical_guides_ = [1154.0]
+metadata/_edit_horizontal_guides_ = [653.0]
 
-[node name="Line2D" type="Line2D" parent="." unique_id=2060014531]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1291194659]
+custom_minimum_size = Vector2(1150, 653)
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 653.0
+color = Color(0.96772975, 0.74909925, 0.91764545, 1)
+
+[node name="chorizo" parent="." unique_id=1661543503 instance=ExtResource("2_ti2xv")]
+position = Vector2(566, 248)
+scale = Vector2(0.56000006, 0.52000034)
+
+[node name="papa" parent="." unique_id=1255283446 instance=ExtResource("3_jqnxx")]
+position = Vector2(580, 265)
+scale = Vector2(0.56000006, 0.52000034)
+
+[node name="carne" parent="." unique_id=1009550738 instance=ExtResource("4_b5anw")]
+position = Vector2(566, 248)
+scale = Vector2(0.56000006, 0.52000034)
+
+[node name="pan" parent="." unique_id=393561602 instance=ExtResource("5_h561l")]
+position = Vector2(566, 248)
+scale = Vector2(0.56000006, 0.52000034)
 
 [node name="DrawManager" type="Node" parent="." unique_id=486436348]
+script = ExtResource("1_r5ydy")
 
-[node name="IngredientePapa" type="Area2D" parent="." unique_id=428765602]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IngredientePapa" unique_id=1656190948]
-
-[node name="Sprite2D" type="Sprite2D" parent="IngredientePapa" unique_id=550107753]
-
-[node name="IngradientePan" type="Area2D" parent="." unique_id=1676821856]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IngradientePan" unique_id=1095741162]
-
-[node name="Sprite2D" type="Sprite2D" parent="IngradientePan" unique_id=545059624]
-
-[node name="IngradienteChorizo" type="Area2D" parent="." unique_id=514855388]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IngradienteChorizo" unique_id=1347138081]
-
-[node name="Sprite2D" type="Sprite2D" parent="IngradienteChorizo" unique_id=1287625536]
+[node name="Line2D" type="Line2D" parent="." unique_id=2060014531]
 
 [node name="LabelEstado" type="Label" parent="." unique_id=71653673]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="FlowContainer" type="FlowContainer" parent="." unique_id=1803215763]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
