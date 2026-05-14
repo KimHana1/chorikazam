@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cddrv0fyvuoo3"]
+
+[ext_resource type="Script" uid="uid://vud1exdyhmmf" path="res://cliente.gd" id="1_ov8ef"]
+[ext_resource type="Theme" uid="uid://6drm0i28x5t8" path="res://boton.tres" id="2_hd6bx"]
+
+[node name="Cliente" type="CharacterBody2D" unique_id=1181098271]
+position = Vector2(200, 360)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_ov8ef")
+metadata/_edit_vertical_guides_ = [201.0]
+metadata/_edit_horizontal_guides_ = [197.0, 397.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=231269263]
+
+[node name="ButtonTomarPedido" type="Button" parent="." unique_id=130144349]
+offset_right = 116.0
+offset_bottom = 31.0
+theme = ExtResource("2_hd6bx")
+theme_override_colors/font_color = Color(0.0021761383, 0.00023052815, 0, 1)
+theme_override_colors/font_focus_color = Color(0.98342556, 0.9449602, 0.8779431, 1)
+text = "Tomar Pedido"
+
+[connection signal="pressed" from="ButtonTomarPedido" to="." method="_on_button_tomar_pedido_pressed"]

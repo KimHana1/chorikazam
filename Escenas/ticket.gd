@@ -35,7 +35,7 @@ func cargar_ticket(datos):
 	if datos["nombre"] in comidas_cocinadas:
 		var icono_comida = TextureRect.new()
 		icono_comida.texture = comidas_cocinadas[datos["nombre"]]
-		icono_comida.custom_minimum_size = Vector2(30, 30)
+		icono_comida.custom_minimum_size = Vector2(45, 45)
 		icono_comida.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		icono_comida.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		comida_cocinada.add_child(icono_comida)
@@ -44,7 +44,7 @@ func cargar_ticket(datos):
 		if paso in iconos_pasos:
 			var icono = TextureRect.new()
 			icono.texture = iconos_pasos[paso]
-			icono.custom_minimum_size = Vector2(30, 30)
+			icono.custom_minimum_size = Vector2(45, 45)
 			icono.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			icono.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 			pasos_container.add_child(icono)

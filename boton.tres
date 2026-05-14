@@ -1,0 +1,17 @@
+[gd_resource type="Theme" format=3 uid="uid://6drm0i28x5t8"]
+
+[resource]
+default_base_scale = 0.24
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.84511966, 0.8914612, 0.83171713, 0.5019608)
+Button/colors/font_focus_color = Color(1, 0.7058824, 0.74509805, 1)
+Button/colors/font_hover_color = Color(0.87392443, 0.72346675, 0.63536835, 1)
+Button/colors/font_hover_pressed_color = Color(0.7416442, 0.5172512, 0.40979204, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(3.85046e-07, 0.92782027, 0.93008065, 1)
+Button/colors/icon_disabled_color = Color(0.7607843, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(0, 0.8135975, 0.81359726, 1)
+Button/colors/icon_hover_color = Color(0, 0.46526366, 0.4654801, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0.37150973, 0.3718952, 1)
+Button/colors/icon_normal_color = Color(1.0588765e-06, 0.46096152, 0.4610508, 1)
+Button/colors/icon_pressed_color = Color(0, 0.16629922, 0.16629922, 1)
