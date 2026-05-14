@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b7q5eshxv6mah"]
+
+[node name="carne" type="Area2D" unique_id=1009550738]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1906188385]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=246502203]
