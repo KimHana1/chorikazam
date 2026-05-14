@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var velocidad: float = 80.0
+@export var velocidad: float = 100.0
 @export var limite_abajo: float = 750.0
 @export var volver_arriba_y: float = -100.0
 @export var ancho_pantalla: float = 1280.0

@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cddrv0fyvuoo3"]
+
+[ext_resource type="Script" uid="uid://vud1exdyhmmf" path="res://Script/cliente.gd" id="1_ov8ef"]
+[ext_resource type="Theme" uid="uid://6drm0i28x5t8" path="res://boton.tres" id="2_hd6bx"]
+[ext_resource type="Texture2D" uid="uid://b6amdfvgkqsws" path="res://fondos con fila.png" id="2_mc5ak"]
+[ext_resource type="FontFile" uid="uid://c1dgrcg0mmcth" path="res://fuente/Biro_Script_reduced.otf" id="4_vo5fx"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l2mks"]
+
+[sub_resource type="Theme" id="Theme_dffsu"]
+default_base_scale = 0.48
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.84511966, 0.8914612, 0.83171713, 0.5019608)
+Button/colors/font_focus_color = Color(1, 0.7058824, 0.74509805, 1)
+Button/colors/font_hover_color = Color(0.87392443, 0.72346675, 0.63536835, 1)
+Button/colors/font_hover_pressed_color = Color(0.7416442, 0.5172512, 0.40979204, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(3.85046e-07, 0.92782027, 0.93008065, 1)
+Button/colors/icon_disabled_color = Color(0.7607843, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(0, 0.8135975, 0.81359726, 1)
+Button/colors/icon_hover_color = Color(0, 0.46526366, 0.4654801, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0.37150973, 0.3718952, 1)
+Button/colors/icon_normal_color = Color(1.0588765e-06, 0.46096152, 0.4610508, 1)
+Button/colors/icon_pressed_color = Color(0, 0.16629922, 0.16629922, 1)
+Button/font_sizes/font_size = 34
+Button/fonts/font = ExtResource("4_vo5fx")
+Button/icons/icon = SubResource("ViewportTexture_l2mks")
+
+[node name="Cliente" type="CharacterBody2D" unique_id=1181098271]
+position = Vector2(200, 360)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_ov8ef")
+metadata/_edit_vertical_guides_ = [201.0]
+metadata/_edit_horizontal_guides_ = [197.0, 397.0]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=279425443]
+offset_left = -316.66666
+offset_top = -493.33334
+offset_right = 1603.3334
+offset_bottom = 586.6666
+texture = ExtResource("2_mc5ak")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=231269263]
+
+[node name="ButtonCocinar" type="Button" parent="." unique_id=1641141922]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 346.0
+offset_top = 80.0
+offset_right = 445.0
+offset_bottom = 148.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.9105723, 1.7755573)
+theme = SubResource("Theme_dffsu")
+theme_override_font_sizes/font_size = 35
+text = "Cocinar"
+flat = true
+
+[node name="ButtonTomarPedido" type="Button" parent="." unique_id=130144349]
+offset_left = 306.66666
+offset_top = 169.99998
+offset_right = 433.66666
+offset_bottom = 217.99998
+scale = Vector2(2.2, 2.2666667)
+theme = ExtResource("2_hd6bx")
+theme_override_colors/font_color = Color(0.0021761383, 0.00023052815, 0, 1)
+theme_override_colors/font_focus_color = Color(0.98342556, 0.9449602, 0.8779431, 1)
+text = "Tomar Pedido"
+flat = true
+
+[node name="ButtonTomarPedido" type="Button" parent="ButtonTomarPedido" unique_id=1117866829]
+layout_mode = 0
+offset_left = 306.66666
+offset_top = 169.99998
+offset_right = 433.66666
+offset_bottom = 217.99998
+scale = Vector2(2.2, 2.2666667)
+theme = ExtResource("2_hd6bx")
+theme_override_colors/font_color = Color(0.0021761383, 0.00023052815, 0, 1)
+theme_override_colors/font_focus_color = Color(0.98342556, 0.9449602, 0.8779431, 1)
+text = "Tomar Pedido"
+flat = true
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="." unique_id=897437607]
+offset_left = 145.0
+offset_top = -95.0
+offset_right = 153.0
+offset_bottom = -87.0
+
+[connection signal="pressed" from="ButtonCocinar" to="." method="_on_button_cocinar_pressed"]
+[connection signal="pressed" from="ButtonTomarPedido" to="." method="_on_button_tomar_pedido_pressed"]

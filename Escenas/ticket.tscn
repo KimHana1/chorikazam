@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxyactoho1jv4"]
 
-[ext_resource type="Script" uid="uid://b4hdh5l2kllpb" path="res://Escenas/ticket.gd" id="1_e54rb"]
+[ext_resource type="Script" uid="uid://b4hdh5l2kllpb" path="res://Script/ticket.gd" id="1_e54rb"]
 [ext_resource type="Texture2D" uid="uid://dihgj8jfom5le" path="res://Sprites/DecoTicket/memo ticket.png" id="2_tvjgq"]
 [ext_resource type="FontFile" uid="uid://c1dgrcg0mmcth" path="res://fuente/Biro_Script_reduced.otf" id="3_mgkjk"]
 
