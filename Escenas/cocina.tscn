@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6eyitsql3lea" path="res://Escenas/papa.tscn" id="3_jqnxx"]
 [ext_resource type="PackedScene" uid="uid://b7q5eshxv6mah" path="res://Escenas/carne.tscn" id="4_b5anw"]
 [ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://Escenas/pan.tscn" id="5_h561l"]
+[ext_resource type="Texture2D" uid="uid://c1qm4ebfo56fc" path="res://Diseño sin título (1).png" id="7_jqnxx"]
 
 [node name="Cocina" type="Control" unique_id=588022032]
 layout_mode = 3
@@ -61,3 +62,12 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ayudaMemoria" type="TextureRect" parent="." unique_id=143527987]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 18.0
+offset_right = 331.0
+offset_bottom = 318.0
+scale = Vector2(0.84000015, 0.8000001)
+texture = ExtResource("7_jqnxx")
