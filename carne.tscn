@@ -1,7 +1,18 @@
 [gd_scene format=3 uid="uid://b7q5eshxv6mah"]
 
+[ext_resource type="Script" uid="uid://df3aosyey1xdg" path="res://carne.gd" id="1_upjlo"]
+[ext_resource type="Texture2D" uid="uid://bjv6tmtjmv0oa" path="res://Sprites/ingredientes/carne.png" id="2_aqp4g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aqp4g"]
+radius = 230.0
+height = 460.0
+
 [node name="carne" type="Area2D" unique_id=1009550738]
+script = ExtResource("1_upjlo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1906188385]
+texture = ExtResource("2_aqp4g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=246502203]
+position = Vector2(7, 73)
+shape = SubResource("CapsuleShape2D_aqp4g")

@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var boton_tomar_pedido = $ButtonTomarPedido
 @onready var selector_color = $ColorPickerButton
-
+var cocina_scene = preload("res://Escenas/cocina.tscn")
 var ticket_scene = preload("res://Escenas/ticket.tscn")
 
 var clientes = {
@@ -79,3 +79,9 @@ func _on_button_tomar_pedido_pressed():
 func _on_color_picker_button_color_changed(nuevo_color):
 	pedido_actual["color"] = nuevo_color
 	sprite.modulate = nuevo_color
+	
+
+
+func _on_button_cocinar_pressed():
+	PedidoManager.pedido_actual = pedido_actual
+	get_tree().change_scene_to_packed(cocina_scene)

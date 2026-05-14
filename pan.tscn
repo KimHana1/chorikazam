@@ -1,7 +1,22 @@
 [gd_scene format=3 uid="uid://co7qus1c8rpcm"]
 
+[ext_resource type="Script" uid="uid://bgtfdd1f73nju" path="res://pan.gd" id="1_bso80"]
+[ext_resource type="Texture2D" uid="uid://dvyjwqpp74ehv" path="res://Sprites/ingredientes/pan.png" id="2_bg2j3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bg2j3"]
+radius = 113.12834
+height = 530.64575
+
 [node name="pan" type="Area2D" unique_id=393561602]
+script = ExtResource("1_bso80")
+velocidad = 100.0
+limite_abajo = 800.0
+volver_arriba_y = -10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=45656818]
+texture = ExtResource("2_bg2j3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=2142269175]
+position = Vector2(-1.999999, 82)
+rotation = 1.0541544
+shape = SubResource("CapsuleShape2D_bg2j3")
