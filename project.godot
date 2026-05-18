@@ -11,12 +11,17 @@ config_version=5
 [application]
 
 config/name="juegochori"
+run/main_scene="uid://bxbmbwelwwv6b"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Sprites/icon.svg"
 
 [autoload]
 
 PedidoManager="*uid://danhfqfuljsa8"
+
+[display]
+
+window/size/viewport_width=950
 
 [physics]
 

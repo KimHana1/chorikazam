@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6eyitsql3lea" path="res://Escenas/papa.tscn" id="3_jqnxx"]
 [ext_resource type="PackedScene" uid="uid://b7q5eshxv6mah" path="res://Escenas/carne.tscn" id="4_b5anw"]
 [ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://Escenas/pan.tscn" id="5_h561l"]
-[ext_resource type="Texture2D" uid="uid://c1qm4ebfo56fc" path="res://Diseño sin título (1).png" id="7_jqnxx"]
+[ext_resource type="Texture2D" uid="uid://2cl5doa8xipp" path="res://Texto.png" id="7_jqnxx"]
 
 [node name="Cocina" type="Control" unique_id=588022032]
 layout_mode = 3
@@ -15,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.04, 1)
 script = ExtResource("1_ti2xv")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_vertical_guides_ = [1154.0]
@@ -29,19 +30,19 @@ color = Color(0.96772975, 0.74909925, 0.91764545, 1)
 
 [node name="chorizo" parent="." unique_id=1661543503 instance=ExtResource("2_ti2xv")]
 position = Vector2(566, 248)
-scale = Vector2(0.56000006, 0.52000034)
+scale = Vector2(0.3164233, 0.35585502)
 
 [node name="papa" parent="." unique_id=1255283446 instance=ExtResource("3_jqnxx")]
 position = Vector2(580, 265)
-scale = Vector2(0.56000006, 0.52000034)
+scale = Vector2(0.3164233, 0.35585502)
 
 [node name="carne" parent="." unique_id=1009550738 instance=ExtResource("4_b5anw")]
 position = Vector2(566, 248)
-scale = Vector2(0.56000006, 0.52000034)
+scale = Vector2(0.3164233, 0.35585502)
 
 [node name="pan" parent="." unique_id=393561602 instance=ExtResource("5_h561l")]
 position = Vector2(566, 248)
-scale = Vector2(0.56000006, 0.52000034)
+scale = Vector2(0.3164233, 0.35585502)
 
 [node name="DrawManager" type="Node" parent="." unique_id=486436348]
 script = ExtResource("1_r5ydy")
@@ -69,5 +70,5 @@ offset_left = 31.0
 offset_top = 18.0
 offset_right = 331.0
 offset_bottom = 318.0
-scale = Vector2(0.84000015, 0.8000001)
+scale = Vector2(1.0323077, 1.0000001)
 texture = ExtResource("7_jqnxx")

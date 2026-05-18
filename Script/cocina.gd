@@ -1,53 +1,36 @@
 extends Control
 
-var ingredientes_completados: Array[String] = []
+var pasos_completados = {}
 var listo_para_entregar: bool = false
 
 func _ready():
-	ingredientes_completados.clear()
+	pasos_completados.clear()
 	listo_para_entregar = false
 
 	var pedido = PedidoManager.pedido_actual
 
-	if not pedido.is_empty():
-		print("--- NUEVO PEDIDO RECIBIDO ---")
-		print("Plato: ", pedido["nombre"])
+	if pedido.is_empty():
+		print("No hay pedido activo en PedidoManager")
+		return
 
-		if pedido.has("ingredientes"):
-			for ingrediente in pedido["ingredientes"]:
-				var hechizo_necesario = pedido["ingredientes"][ingrediente]
+	print("Platillos")
+	print("Plato: ", pedido["nombre"])
 
-				print(
-					"Ingrediente: ",
-					ingrediente,
-					" | Hechizo: ",
-					hechizo_necesario
-				)
+	if pedido.has("ingredientes"):
+		for ingrediente in pedido["ingredientes"]:
+			print("Ingrediente: ", ingrediente, " | Pasos: ", pedido["ingredientes"][ingrediente])
 
-		print("-----------------------------")
-	else:
-		print("Error: No hay un pedido activo en PedidoManager")
+	print("-")
 
-func verificar_ingrediente(nombre_ingrediente: String, hechizo: String):
+func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 	var pedido = PedidoManager.pedido_actual
 
 	print("Llegó a cocina")
 	print("Ingrediente tocado: ", nombre_ingrediente)
-	print("Hechizo usado: ", hechizo)
+	print("Paso usado: ", paso)
 
 	if pedido.is_empty():
 		print("No hay pedido")
-		return
-
-	if hechizo == "circulo":
-		if listo_para_entregar:
-			print("Pedido entregado")
-			finalizar_pedido()
-		else:
-			print("Todavia faltan ingredientes")
-			print("Completados: ", ingredientes_completados)
-			print("Necesarios: ", pedido["ingredientes"].keys())
-
 		return
 
 	if not pedido.has("ingredientes"):
@@ -56,28 +39,33 @@ func verificar_ingrediente(nombre_ingrediente: String, hechizo: String):
 
 	if not pedido["ingredientes"].has(nombre_ingrediente):
 		print("Ingrediente no pertenece al pedido")
+		marcar_ingrediente_incorrecto(nombre_ingrediente)
 		return
 
-	var hechizo_necesario = pedido["ingredientes"][nombre_ingrediente]
+	var pasos_necesarios = pedido["ingredientes"][nombre_ingrediente]
 
-	print("Necesita: ", hechizo_necesario)
+	if paso in pasos_necesarios:
+		if not pasos_completados.has(nombre_ingrediente):
+			pasos_completados[nombre_ingrediente] = []
 
-	if hechizo == hechizo_necesario:
-		if nombre_ingrediente not in ingredientes_completados:
-			ingredientes_completados.append(nombre_ingrediente)
-
-			print(nombre_ingrediente, " CORRECTO")
+		if paso not in pasos_completados[nombre_ingrediente]:
+			pasos_completados[nombre_ingrediente].append(paso)
+			print(nombre_ingrediente, " paso correcto: ", paso)
+			marcar_ingrediente_correcto(nombre_ingrediente)
 
 		verificar_progreso()
 	else:
-		print(
-			"Hechizo INCORRECTO para ",
-			nombre_ingrediente,
-			" | Usaste: ",
-			hechizo,
-			" | Necesitas: ",
-			hechizo_necesario
-		)
+		print("Paso incorrecto para ", nombre_ingrediente)
+		print("Usaste: ", paso)
+		print("Necesitaba: ", pasos_necesarios)
+		marcar_ingrediente_incorrecto(nombre_ingrediente)
+
+func intentar_finalizar_pedido():
+	if listo_para_entregar:
+		finalizar_pedido()
+	else:
+		print("Todavia faltan pasos")
+		print("Completados: ", pasos_completados)
 
 func verificar_progreso():
 	var pedido = PedidoManager.pedido_actual
@@ -85,42 +73,51 @@ func verificar_progreso():
 	if pedido.is_empty():
 		return
 
-	var necesarios = pedido["ingredientes"].keys()
-
-	print("Ingredientes completados: ", ingredientes_completados)
-	print("Ingredientes necesarios: ", necesarios)
-
 	var todos_listos = true
 
-	for ing in necesarios:
-		if ing not in ingredientes_completados:
+	for ingrediente in pedido["ingredientes"]:
+		var pasos_necesarios = pedido["ingredientes"][ingrediente]
+
+		if not pasos_completados.has(ingrediente):
 			todos_listos = false
-			print("Falta ingrediente: ", ing)
+			print("Falta ingrediente: ", ingrediente)
+			continue
+
+		for paso in pasos_necesarios:
+			if paso not in pasos_completados[ingrediente]:
+				todos_listos = false
+				print("Falta paso: ", paso, " en ", ingrediente)
 
 	if todos_listos:
 		listo_para_entregar = true
-
-		print("¡TODOS LOS INGREDIENTES LISTOS!")
-		print("Dibuja un circulo para entregar")
+		print("Listo. Dibuja un circulo para emplatar")
 
 func finalizar_pedido():
 	var pedido = PedidoManager.pedido_actual
-
 	var paciencia = pedido.get("paciencia_actual", 100)
 
 	print("Paciencia final: ", paciencia)
 
 	if paciencia >= 70:
 		PedidoManager.resultado_cliente = "feliz"
-
 	elif paciencia >= 35:
 		PedidoManager.resultado_cliente = "medio"
-
 	else:
 		PedidoManager.resultado_cliente = "enojado"
 
 	print("Resultado cliente: ", PedidoManager.resultado_cliente)
 
 	PedidoManager.pedido_completado = true
-
 	get_tree().change_scene_to_file("res://Escenas/cliente.tscn")
+
+func marcar_ingrediente_correcto(nombre_ingrediente: String):
+	var nodo = get_node_or_null(nombre_ingrediente)
+
+	if nodo != null and nodo.has_method("correcto"):
+		nodo.correcto()
+
+func marcar_ingrediente_incorrecto(nombre_ingrediente: String):
+	var nodo = get_node_or_null(nombre_ingrediente)
+
+	if nodo != null and nodo.has_method("incorrecto"):
+		nodo.incorrecto()

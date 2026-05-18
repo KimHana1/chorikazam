@@ -28,16 +28,16 @@ var pedidos = [
 	{
 		"nombre": "Choripán",
 		"ingredientes": {
-			"Pan": "linea_horizontal",
-			"Chorizo": "triangulo"
+			"pan": ["cortar"],
+			"chorizo": ["cortar", "calentar"]
 		},
 		"paciencia": 80
 	},
 	{
 		"nombre": "Ensalada",
 		"ingredientes": {
-			"Papa": "linea_vertical",
-			"Carne": "rayo"
+			"papa": ["pelar", "calentar"],
+			"carne": ["calentar"]
 		},
 		"paciencia": 60
 	}
@@ -105,9 +105,6 @@ func mostrar_resultado_cliente():
 	boton_tomar_pedido.visible = false
 	selector_color.visible = false
 
-func _on_button_tomar_pedido_pressed():
-	abrir_ticket()
-
 func _on_color_picker_button_color_changed(nuevo_color):
 	if pedido_actual.is_empty():
 		return
@@ -122,3 +119,7 @@ func _on_button_cocinar_pressed():
 	PedidoManager.cliente_actual = cliente_actual
 	PedidoManager.pedido_completado = false
 	get_tree().change_scene_to_packed(cocina_scene)
+
+
+func _on_button_tomar_pedido_pressed() -> void:
+		abrir_ticket()

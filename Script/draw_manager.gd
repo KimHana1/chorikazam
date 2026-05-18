@@ -26,41 +26,53 @@ func finalizar_dibujo():
 	dibujando = false
 
 	var hechizo = detectar_hechizo(puntos)
+	var paso = convertir_hechizo_a_paso(hechizo)
 
-	if hechizo != "error":
-		print("Hechizo detectado: ", hechizo)
+	if paso != "error":
+		print("Paso detectado: ", paso)
 
-		if hechizo == "circulo":
+		if paso == "emplatar":
 			if get_tree().current_scene.has_method("intentar_finalizar_pedido"):
-				get_tree().current_scene.intentar_finalizar_pedido(hechizo)
-
+				get_tree().current_scene.intentar_finalizar_pedido()
 			desvanecer(true)
 			return
 
 		var ingrediente = detectar_ingrediente()
 
 		if ingrediente != null and ingrediente.has_method("aplicar_hechizo"):
-			ingrediente.aplicar_hechizo(hechizo)
+			ingrediente.aplicar_hechizo(paso)
 
 		desvanecer(true)
 	else:
 		print("Hechizo incorrecto")
 		desvanecer(false)
+
 func agregar_punto(pos: Vector2):
 	if puntos.is_empty() or puntos[-1].distance_to(pos) > 6:
 		puntos.append(pos)
 		line.add_point(pos)
 
 func detectar_ingrediente():
-	if puntos.is_empty(): return null
-	var espacio = get_viewport().world_2d.direct_space_state
-	var query = PhysicsPointQueryParameters2D.new()
-	query.position = puntos[-1]
-	query.collide_with_areas = true
-	query.collide_with_bodies = false
-	var resultado = espacio.intersect_point(query)
-	return resultado[0].collider if resultado.size() > 0 else null
+	if puntos.is_empty():
+		return null
 
+	var espacio = get_viewport().world_2d.direct_space_state
+
+	for punto in puntos:
+		var query = PhysicsPointQueryParameters2D.new()
+		query.position = punto
+		query.collide_with_areas = true
+		query.collide_with_bodies = false
+
+		var resultado = espacio.intersect_point(query)
+
+		for item in resultado:
+			var collider = item.collider
+
+			if collider != null and collider.has_method("aplicar_hechizo"):
+				return collider
+
+	return null
 
 func detectar_hechizo(p: Array) -> String:
 	if p.size() < 10:
@@ -97,42 +109,81 @@ func detectar_hechizo(p: Array) -> String:
 		return "rayo"
 
 	return "error"
+
+func convertir_hechizo_a_paso(hechizo: String) -> String:
+	if hechizo == "linea_horizontal":
+		return "cortar"
+	elif hechizo == "linea_vertical":
+		return "pelar"
+	elif hechizo == "triangulo" or hechizo == "rayo":
+		return "calentar"
+	elif hechizo == "circulo":
+		return "emplatar"
+
+	return "error"
+
 func contar_cambios_direccion(p: Array, umbral: float) -> int:
-	if p.size() < 3: return 0
+	if p.size() < 3:
+		return 0
+
 	var cambios = 0
 	var dir_anterior = (p[1] - p[0]).normalized()
 
 	for i in range(2, p.size()):
 		var dir_actual = (p[i] - p[i - 1]).normalized()
-		
+
 		if dir_anterior.dot(dir_actual) < umbral:
 			cambios += 1
 			dir_anterior = dir_actual
+
 	return cambios
 
 func simplificar_puntos(original: Array) -> Array:
 	var resultado = []
 	var paso = 4
+
 	for i in range(0, original.size(), paso):
 		resultado.append(original[i])
+
 	if original.size() % paso != 0:
 		resultado.append(original[-1])
+
 	return resultado
 
 func obtener_rango_x(p: Array) -> float:
-	var xs = p.map(func(v): return v.x)
-	return xs.max() - xs.min()
+	var min_x = p[0].x
+	var max_x = p[0].x
+
+	for punto in p:
+		if punto.x < min_x:
+			min_x = punto.x
+
+		if punto.x > max_x:
+			max_x = punto.x
+
+	return max_x - min_x
 
 func obtener_rango_y(p: Array) -> float:
-	var ys = p.map(func(v): return v.y)
-	return ys.max() - ys.min()
+	var min_y = p[0].y
+	var max_y = p[0].y
+
+	for punto in p:
+		if punto.y < min_y:
+			min_y = punto.y
+
+		if punto.y > max_y:
+			max_y = punto.y
+
+	return max_y - min_y
 
 func desvanecer(correcto: bool):
 	var tween = create_tween()
+
 	if correcto:
 		line.modulate = Color.GREEN
 		tween.tween_property(line, "modulate:a", 0.0, 0.6)
 	else:
 		line.modulate = Color.RED
 		tween.tween_property(line, "modulate:a", 0.0, 0.3)
-	tween.tween_callback(line.clear_points) 
+
+	tween.tween_callback(line.clear_points)

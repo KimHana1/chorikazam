@@ -2,7 +2,8 @@ extends Control
 
 @onready var label_pedido = $VBoxContainer/LabelPedido
 @onready var comida_cocinada = $VBoxContainer/ComidaCocinada
-@onready var ingredientes_container = $VBoxContainer/PasosContainer
+@onready var ingredientes_container = $VBoxContainer/IngredientesContainer
+@onready var pasos_container = $VBoxContainer/PasosContainer
 @onready var identificador_color = $VBoxContainer/IdentificadorColor
 @onready var paciencia_cliente = $VBoxContainer/PacienciaCliente
 
@@ -27,6 +28,12 @@ var iconos_ingredientes = {
 	"carne": preload("res://Sprites/ingredientes/carne.png")
 }
 
+var iconos_pasos = {
+	"cortar": preload("res://Sprites/pasos/cortar_icon.png"),
+	"pelar": preload("res://Sprites/pasos/pelar_icon.png"),
+	"calentar": preload("res://Sprites/pasos/calentar_icon.png")
+}
+
 func _ready():
 	configurar_barra()
 
@@ -36,7 +43,7 @@ func _ready():
 func configurar_barra():
 	paciencia_cliente.show_percentage = false
 	paciencia_cliente.fill_mode = ProgressBar.FILL_BOTTOM_TO_TOP
-	paciencia_cliente.custom_minimum_size = Vector2(18, 90)
+	paciencia_cliente.custom_minimum_size = Vector2(12, 12)
 
 	estilo_barra.corner_radius_top_left = 8
 	estilo_barra.corner_radius_top_right = 8
@@ -50,12 +57,15 @@ func cargar_ticket(datos):
 
 	limpiar_contenedor(comida_cocinada)
 	limpiar_contenedor(ingredientes_container)
+	limpiar_contenedor(pasos_container)
 
 	if datos.has("color"):
 		identificador_color.color = datos["color"]
 
+	identificador_color.custom_minimum_size = Vector2(18, 18)
+
 	if datos["nombre"] in comidas_cocinadas:
-		var icono_comida = crear_texture_rect(35)
+		var icono_comida = crear_texture_rect(75)
 		icono_comida.texture = comidas_cocinadas[datos["nombre"]]
 		comida_cocinada.add_child(icono_comida)
 
@@ -63,18 +73,31 @@ func cargar_ticket(datos):
 		for ingrediente in datos["ingredientes"]:
 			crear_icono_ingrediente(ingrediente)
 
+			var pasos = datos["ingredientes"][ingrediente]
+
+			for paso in pasos:
+				crear_icono_paso(paso)
+
 	paciencia_actual = datos.get("paciencia_actual", datos.get("paciencia", 100.0))
 	paciencia_cliente.max_value = 100
 	paciencia_cliente.value = paciencia_actual
 	actualizar_color_barra()
 
 func crear_icono_ingrediente(nombre_ingrediente: String):
-	var icono = crear_texture_rect(35)
+	var icono = crear_texture_rect(28)
 
 	if iconos_ingredientes.has(nombre_ingrediente):
 		icono.texture = iconos_ingredientes[nombre_ingrediente]
 
 	ingredientes_container.add_child(icono)
+
+func crear_icono_paso(nombre_paso: String):
+	var icono = crear_texture_rect(28)
+
+	if iconos_pasos.has(nombre_paso):
+		icono.texture = iconos_pasos[nombre_paso]
+
+	pasos_container.add_child(icono)
 
 func crear_texture_rect(tamano: int) -> TextureRect:
 	var icono = TextureRect.new()
