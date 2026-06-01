@@ -35,14 +35,17 @@ texture = ExtResource("2_b5anw")
 [node name="chorizo" parent="." unique_id=1661543503 instance=ExtResource("2_ti2xv")]
 position = Vector2(566, 248)
 scale = Vector2(0.3164233, 0.35585502)
+posicion_final = Vector2(500, 680)
 
 [node name="papa" parent="." unique_id=1255283446 instance=ExtResource("3_jqnxx")]
 position = Vector2(580, 265)
 scale = Vector2(0.3164233, 0.35585502)
+posicion_final = Vector2(400, 680)
 
 [node name="carne" parent="." unique_id=1009550738 instance=ExtResource("4_b5anw")]
 position = Vector2(566, 248)
 scale = Vector2(0.3164233, 0.35585502)
+posicion_final = Vector2(450, 680)
 
 [node name="pan" parent="." unique_id=393561602 instance=ExtResource("5_h561l")]
 position = Vector2(566, 248)
@@ -52,6 +55,7 @@ limite_abajo = 630.0
 [node name="Tomate" parent="." unique_id=2089289063 instance=ExtResource("6_jqnxx")]
 position = Vector2(388.46155, 256)
 scale = Vector2(3.2775996, 4.1541266)
+posicion_final = Vector2(550, 680)
 
 [node name="DrawManager" type="Node" parent="." unique_id=486436348]
 script = ExtResource("1_r5ydy")

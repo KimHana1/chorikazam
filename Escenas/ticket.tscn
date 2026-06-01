@@ -64,18 +64,20 @@ icon = ExtResource("2_tvjgq")
 flat = true
 
 [node name="PacienciaCliente" type="ProgressBar" parent="TicketGrande" unique_id=1776086657]
+custom_minimum_size = Vector2(0.5, 0)
 layout_mode = 0
-offset_left = 282.0
-offset_top = 390.0
-offset_right = 286.0
-offset_bottom = 417.0
+offset_left = 312.0
+offset_top = 410.0
+offset_right = 316.0
+offset_bottom = 437.0
+scale = Vector2(3.4800003, 6.28)
 
 [node name="IdentificadorColor" type="ColorRect" parent="TicketGrande" unique_id=1400119621]
 layout_mode = 0
-offset_left = 267.0
-offset_top = 458.0
-offset_right = 307.0
-offset_bottom = 498.0
+offset_left = 292.0
+offset_top = 320.0
+offset_right = 332.0
+offset_bottom = 360.0
 
 [connection signal="pressed" from="TicketMini" to="." method="_on_ticket_mini_pressed"]
 [connection signal="pressed" from="TicketGrande/ButtonCerrar" to="." method="_on_button_cerrar_pressed"]

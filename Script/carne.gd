@@ -12,15 +12,31 @@ extends Area2D
 
 var direccion: Vector2 = Vector2.ZERO
 var terminado: bool = false
-
-var congelado := false
-var cooldown_congelacion := false
+var congelado: bool = false
+var puede_congelarse: bool = true
 
 func _ready():
-	randomize()
-
 	add_to_group("ingredientes")
+	input_pickable = true
+	reiniciar_direccion_aleatoria()
 
+func _process(delta):
+	if terminado or congelado:
+		return
+
+	position += direccion * velocidad * delta
+
+	if position.x <= limite_izq:
+		direccion.x = abs(direccion.x)
+	elif position.x >= limite_der:
+		direccion.x = -abs(direccion.x)
+
+	if position.y <= limite_arriba:
+		direccion.y = abs(direccion.y)
+	elif position.y >= limite_abajo:
+		direccion.y = -abs(direccion.y)
+
+func reiniciar_direccion_aleatoria():
 	direccion = Vector2(
 		randf_range(-1.0, 1.0),
 		randf_range(-1.0, 1.0)
@@ -29,64 +45,58 @@ func _ready():
 	if direccion == Vector2.ZERO:
 		direccion = Vector2(1, 1).normalized()
 
-func _process(delta):
-
-	if terminado:
-		return
-
-	if congelado:
-		return
-
-	position += direccion * velocidad * delta
-
-	if position.x <= limite_izq or position.x >= limite_der:
-		direccion.x *= -1
-
-	if position.y <= limite_arriba or position.y >= limite_abajo:
-		direccion.y *= -1
-
 func aplicar_hechizo(paso: String):
 	var cocina = get_tree().current_scene
-
 	if cocina.has_method("verificar_ingrediente"):
 		cocina.verificar_ingrediente(nombre_ingrediente, paso)
 
 func correcto():
+	if terminado:
+		return
+
 	terminado = true
+	congelado = true
+	puede_congelarse = false
 
 	sprite.modulate = Color.GREEN
-
-	var tween = create_tween()
-	tween.tween_property(
-		self,
-		"position",
-		posicion_final,
-		0.5
-	)
+	position = posicion_final
 
 func incorrecto():
+	if terminado:
+		return
+
 	sprite.modulate = Color.RED
-
-	await get_tree().create_timer(0.4).timeout
-
-	if not terminado:
-		sprite.modulate = Color.WHITE
+	get_tree().create_timer(0.4).timeout.connect(func():
+		if not terminado:
+			sprite.modulate = Color.WHITE
+	)
 
 func _on_mouse_entered():
+	if terminado or congelado:
+		return
 
-	if terminado or congelado or cooldown_congelacion:
+	if not puede_congelarse:
 		return
 
 	congelado = true
-	cooldown_congelacion = true
-
+	puede_congelarse = false
 	sprite.scale = Vector2(1.15, 1.15)
 
-	await get_tree().create_timer(1.0).timeout
+	var posicion_inferior = Vector2(position.x, limite_abajo)
+	var tween = create_tween()
+	tween.tween_property(self, "position", posicion_inferior, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+	get_tree().create_timer(1.0).timeout.connect(_on_descongelar)
+
+func _on_descongelar():
+	if terminado:
+		return
 
 	congelado = false
 	sprite.scale = Vector2.ONE
+	reiniciar_direccion_aleatoria()
 
-	await get_tree().create_timer(2.0).timeout
+	get_tree().create_timer(2.0).timeout.connect(_on_cooldown_terminado)
 
-	cooldown_congelacion = false
+func _on_cooldown_terminado():
+	puede_congelarse = true
