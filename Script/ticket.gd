@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal ticket_minimizado
+
 @onready var ticket_mini = $TicketMini
 @onready var ticket_grande = $TicketGrande
 @onready var ticket_imagen = $TicketGrande/ImagenTicket
@@ -28,6 +30,7 @@ func _ready():
 	ticket_mini.size = Vector2(90, 130)
 
 	ticket_grande.position = Vector2(250, 60)
+	ticket_grande.scale = Vector2(0.5, 0.5)
 
 	ok1.visible = false
 	ok2.visible = false
@@ -35,6 +38,7 @@ func _ready():
 
 	if PedidoManager.pedido_actual and not PedidoManager.pedido_actual.is_empty():
 		cargar_ticket(PedidoManager.pedido_actual)
+
 func cargar_ticket(datos):
 	if datos == null or not datos.has("nombre"):
 		return
@@ -55,11 +59,13 @@ func _on_ticket_mini_pressed():
 func _on_button_cerrar_pressed():
 	ticket_grande.visible = false
 	ticket_mini.visible = true
+	ticket_minimizado.emit()
 
 func mostrar_mini():
 	ticket_grande.visible = false
 	ticket_mini.visible = true
 	ticket_mini.position = Vector2(20, 20)
+	ticket_mini.size = Vector2(90, 130)
 
 func marcar_ok(nombre_ingrediente: String):
 	match nombre_ingrediente:

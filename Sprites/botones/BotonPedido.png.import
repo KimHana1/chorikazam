@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dca8mdrysgbq4"
-path="res://.godot/imported/Ticket (1).png-d338f8362bb99f62d02ad81cd2986e93.ctex"
+uid="uid://mtwnf6ie8lit"
+path="res://.godot/imported/BotonPedido.png-315ae96704506ca58b220c780e5dd6ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://botones/Ticket (1).png"
-dest_files=["res://.godot/imported/Ticket (1).png-d338f8362bb99f62d02ad81cd2986e93.ctex"]
+source_file="res://Sprites/botones/BotonPedido.png"
+dest_files=["res://.godot/imported/BotonPedido.png-315ae96704506ca58b220c780e5dd6ec.ctex"]
 
 [params]
 

@@ -12,6 +12,11 @@ extends CharacterBody2D
 var cocina_scene = preload("res://Escenas/cocina.tscn")
 var ticket_scene = preload("res://Escenas/ticket.tscn")
 
+var cliente_actual = ""
+var pedido_actual = {}
+var ticket_abierto = false
+var tween_idle
+
 var comidas_cocinadas = {
 	"Choripán": preload("res://Sprites/cocinado/choripan.png"),
 	"Ensalada": preload("res://Sprites/cocinado/ensaladapatoma.png"),
@@ -61,18 +66,31 @@ var pedidos = [
 	}
 ]
 
-var cliente_actual = ""
-var pedido_actual = {}
-var ticket_abierto = false
-
 func _ready():
 	randomize()
 	globo_pedido.visible = false
+	boton_cocinar.visible = false
+
+	iniciar_idle_cliente()
 
 	if PedidoManager.pedido_completado:
 		mostrar_resultado_cliente()
 	else:
 		generar_cliente()
+
+func iniciar_idle_cliente():
+	if tween_idle:
+		tween_idle.kill()
+
+	var y_original = sprite.position.y
+
+	tween_idle = create_tween()
+	tween_idle.set_loops()
+	tween_idle.set_trans(Tween.TRANS_SINE)
+	tween_idle.set_ease(Tween.EASE_IN_OUT)
+
+	tween_idle.tween_property(sprite, "position:y", y_original - 5, 0.8)
+	tween_idle.tween_property(sprite, "position:y", y_original, 0.8)
 
 func generar_cliente():
 	ticket_abierto = false
@@ -96,7 +114,7 @@ func generar_cliente():
 	PedidoManager.resultado_cliente = "normal"
 
 	boton_tomar_pedido.visible = true
-	boton_cocinar.visible = true
+	boton_cocinar.visible = false
 
 func mostrar_globo_pedido():
 	globo_pedido.visible = true
@@ -117,6 +135,12 @@ func abrir_ticket():
 
 	if ticket.has_method("cargar_ticket"):
 		ticket.cargar_ticket(pedido_actual)
+
+	if ticket.has_signal("ticket_minimizado"):
+		ticket.ticket_minimizado.connect(_on_ticket_minimizado)
+
+func _on_ticket_minimizado():
+	boton_cocinar.visible = true
 
 func mostrar_resultado_cliente():
 	ticket_abierto = false
@@ -139,6 +163,7 @@ func mostrar_resultado_cliente():
 	boton_cocinar.visible = false
 
 func _on_button_tomar_pedido_pressed():
+	boton_tomar_pedido.visible = false
 	mostrar_globo_pedido()
 
 func _on_button_ticket_pressed():

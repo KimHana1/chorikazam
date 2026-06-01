@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cknrka585n484" path="res://Script/draw_manager.gd" id="1_r5ydy"]
 [ext_resource type="Script" uid="uid://mo2j80exb42o" path="res://Script/cocina.gd" id="1_ti2xv"]
+[ext_resource type="Texture2D" uid="uid://c85nj48xk1u55" path="res://Sprites/cocinaYTicket/cocinasinreceta.png" id="2_b5anw"]
 [ext_resource type="PackedScene" uid="uid://cqp7a7ejar5no" path="res://Escenas/chorizo.tscn" id="2_ti2xv"]
 [ext_resource type="PackedScene" uid="uid://b6eyitsql3lea" path="res://Escenas/papa.tscn" id="3_jqnxx"]
 [ext_resource type="PackedScene" uid="uid://b7q5eshxv6mah" path="res://Escenas/carne.tscn" id="4_b5anw"]
 [ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://Escenas/pan.tscn" id="5_h561l"]
 [ext_resource type="PackedScene" uid="uid://0et0ieu0v3re" path="res://tomate.tscn" id="6_jqnxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqnxx"]
 
 [node name="Cocina" type="Control" unique_id=588022032]
 layout_mode = 3
@@ -18,15 +21,16 @@ grow_vertical = 2
 scale = Vector2(1.04, 1)
 script = ExtResource("1_ti2xv")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_vertical_guides_ = [1154.0]
-metadata/_edit_horizontal_guides_ = [653.0]
+metadata/_edit_vertical_guides_ = [1154.0, 6.0, 921.0]
+metadata/_edit_horizontal_guides_ = [653.0, 629.0, 42.0]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1291194659]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=2031791963]
 custom_minimum_size = Vector2(1150, 653)
 layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 653.0
-color = Color(0.96772975, 0.74909925, 0.91764545, 1)
+offset_right = 1972.9198
+offset_bottom = 1164.2852
+scale = Vector2(0.46153775, 0.56000024)
+texture = ExtResource("2_b5anw")
 
 [node name="chorizo" parent="." unique_id=1661543503 instance=ExtResource("2_ti2xv")]
 position = Vector2(566, 248)
@@ -43,9 +47,10 @@ scale = Vector2(0.3164233, 0.35585502)
 [node name="pan" parent="." unique_id=393561602 instance=ExtResource("5_h561l")]
 position = Vector2(566, 248)
 scale = Vector2(0.3164233, 0.35585502)
+limite_abajo = 630.0
 
 [node name="Tomate" parent="." unique_id=2089289063 instance=ExtResource("6_jqnxx")]
-position = Vector2(395.19232, 59)
+position = Vector2(388.46155, 256)
 scale = Vector2(3.2775996, 4.1541266)
 
 [node name="DrawManager" type="Node" parent="." unique_id=486436348]
@@ -67,3 +72,33 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1808495487]
+position = Vector2(919.23083, 331)
+scale = Vector2(2.9673996, 32.8242)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=284189482]
+shape = SubResource("RectangleShape2D_jqnxx")
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=112995019]
+position = Vector2(-6.730769, 320.99997)
+scale = Vector2(2.9673996, 32.8242)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=807860612]
+shape = SubResource("RectangleShape2D_jqnxx")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1008569136]
+position = Vector2(437.5, 651.99994)
+rotation = -1.5711962
+scale = Vector2(2.9673996, 45.46348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=620437484]
+shape = SubResource("RectangleShape2D_jqnxx")
+
+[node name="Area2D4" type="Area2D" parent="." unique_id=1170804453]
+position = Vector2(437.5001, 5.999939)
+rotation = -1.5711962
+scale = Vector2(2.9673996, 45.46348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=305020257]
+shape = SubResource("RectangleShape2D_jqnxx")

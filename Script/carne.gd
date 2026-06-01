@@ -2,10 +2,10 @@ extends Area2D
 
 @export var nombre_ingrediente: String = ""
 @export var velocidad: float = 180.0
-@export var limite_izq: float = 40.0
-@export var limite_der: float = 1200.0
-@export var limite_arriba: float = 80.0
-@export var limite_abajo: float = 620.0
+@export var limite_izq: float = 6.0
+@export var limite_der: float = 921.0
+@export var limite_arriba: float = 39.0
+@export var limite_abajo: float = 629.0
 @export var posicion_final: Vector2 = Vector2(600, 680)
 
 @onready var sprite = $Sprite2D
@@ -74,10 +74,7 @@ func incorrecto():
 
 func _on_mouse_entered():
 
-	if terminado:
-		return
-
-	if cooldown_congelacion:
+	if terminado or congelado or cooldown_congelacion:
 		return
 
 	congelado = true

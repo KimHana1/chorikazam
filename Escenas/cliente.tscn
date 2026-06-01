@@ -3,9 +3,12 @@
 [ext_resource type="Script" uid="uid://vud1exdyhmmf" path="res://Script/cliente.gd" id="1_ov8ef"]
 [ext_resource type="Texture2D" uid="uid://b6amdfvgkqsws" path="res://fondos con fila.png" id="2_mc5ak"]
 [ext_resource type="Texture2D" uid="uid://ci6yql7nnvxn7" path="res://Sprites/Dialogo/burbujaDialogo.png" id="3_puucq"]
+[ext_resource type="Texture2D" uid="uid://xp5f1cdphr7d" path="res://Sprites/cocinaYTicket/mezon.png" id="3_yuvmj"]
 [ext_resource type="FontFile" uid="uid://c1dgrcg0mmcth" path="res://fuente/Biro_Script_reduced.otf" id="4_vo5fx"]
 [ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="4_wd6nn"]
-[ext_resource type="Texture2D" uid="uid://e2br7r74m24k" path="res://botones/Ticket.png" id="5_6rik3"]
+[ext_resource type="Texture2D" uid="uid://e2br7r74m24k" path="res://Sprites/botones/Ticket.png" id="5_6rik3"]
+[ext_resource type="Texture2D" uid="uid://mtwnf6ie8lit" path="res://Sprites/botones/BotonPedido.png" id="7_7uf5d"]
+[ext_resource type="Texture2D" uid="uid://cweq55ndmew2p" path="res://Sprites/botones/BotonCocinar.png" id="8_yuvmj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_puucq"]
 font = ExtResource("4_wd6nn")
@@ -13,9 +16,6 @@ font_size = 35
 font_color = Color(0.39540777, 0.19101903, 0.16719764, 1)
 
 [sub_resource type="Theme" id="Theme_5jc13"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_5jc13"]
-resource_local_to_scene = true
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_l2mks"]
 
@@ -53,6 +53,15 @@ offset_bottom = 586.6666
 texture = ExtResource("2_mc5ak")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=231269263]
+position = Vector2(558.3333, 106.666664)
+
+[node name="mezon" type="TextureRect" parent="." unique_id=616185621]
+offset_left = -298.33334
+offset_top = -2596.6667
+offset_right = 1621.6666
+offset_bottom = -690.0
+scale = Vector2(1, 1.7333338)
+texture = ExtResource("3_yuvmj")
 
 [node name="GloboPedido" type="Control" parent="." unique_id=343137024]
 z_index = 20
@@ -108,8 +117,8 @@ theme_override_colors/font_color = Color(0.0021761383, 0.00023052815, 0, 1)
 theme_override_colors/font_focus_color = Color(0.98342556, 0.9449602, 0.8779431, 1)
 theme_override_fonts/font = ExtResource("4_vo5fx")
 theme_override_font_sizes/font_size = 26
-text = "Tomar Pedido"
-icon = SubResource("ImageTexture_5jc13")
+icon = ExtResource("7_7uf5d")
+flat = true
 
 [node name="ButtonCocinar" type="Button" parent="." unique_id=1641141922]
 anchors_preset = 6
@@ -117,16 +126,16 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 338.3333
-offset_top = 179.99998
-offset_right = 437.3333
-offset_bottom = 247.99998
+offset_left = 306.6667
+offset_top = 59.999985
+offset_right = 614.6667
+offset_bottom = 368.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.9105723, 1.7755573)
 theme = SubResource("Theme_dffsu")
 theme_override_font_sizes/font_size = 35
-text = "Cocinar"
+icon = ExtResource("8_yuvmj")
 flat = true
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="." unique_id=897437607]
