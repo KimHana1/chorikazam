@@ -10,10 +10,18 @@ config_version=5
 
 [application]
 
-config/name="Nuevo Proyecto de Juego"
+config/name="juegochori"
+run/main_scene="uid://bxbmbwelwwv6b"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
-<<<<<<<HEADconfig/name="Nuevo Proyecto de Juego"
+config/icon="res://Sprites/icon.svg"
+
+[autoload]
+
+PedidoManager="*uid://danhfqfuljsa8"
+
+[display]
+
+window/size/viewport_width=950
 
 [physics]
 

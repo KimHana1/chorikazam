@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://cddrv0fyvuoo3"]
+
+[ext_resource type="Script" uid="uid://vud1exdyhmmf" path="res://Script/cliente.gd" id="1_ov8ef"]
+[ext_resource type="Texture2D" uid="uid://b6amdfvgkqsws" path="res://fondos con fila.png" id="2_mc5ak"]
+[ext_resource type="Texture2D" uid="uid://ci6yql7nnvxn7" path="res://Sprites/Dialogo/burbujaDialogo.png" id="3_puucq"]
+[ext_resource type="Texture2D" uid="uid://xp5f1cdphr7d" path="res://Sprites/cocinaYTicket/mezon.png" id="3_yuvmj"]
+[ext_resource type="FontFile" uid="uid://c1dgrcg0mmcth" path="res://fuente/Biro_Script_reduced.otf" id="4_vo5fx"]
+[ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="4_wd6nn"]
+[ext_resource type="Texture2D" uid="uid://e2br7r74m24k" path="res://Sprites/botones/Ticket.png" id="5_6rik3"]
+[ext_resource type="Texture2D" uid="uid://mtwnf6ie8lit" path="res://Sprites/botones/BotonPedido.png" id="7_7uf5d"]
+[ext_resource type="Texture2D" uid="uid://cweq55ndmew2p" path="res://Sprites/botones/BotonCocinar.png" id="8_yuvmj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_puucq"]
+font = ExtResource("4_wd6nn")
+font_size = 35
+font_color = Color(0.39540777, 0.19101903, 0.16719764, 1)
+
+[sub_resource type="Theme" id="Theme_5jc13"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l2mks"]
+
+[sub_resource type="Theme" id="Theme_dffsu"]
+default_base_scale = 0.48
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.84511966, 0.8914612, 0.83171713, 0.5019608)
+Button/colors/font_focus_color = Color(1, 0.7058824, 0.74509805, 1)
+Button/colors/font_hover_color = Color(0.87392443, 0.72346675, 0.63536835, 1)
+Button/colors/font_hover_pressed_color = Color(0.7416442, 0.5172512, 0.40979204, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(3.85046e-07, 0.92782027, 0.93008065, 1)
+Button/colors/icon_disabled_color = Color(0.7607843, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(0, 0.8135975, 0.81359726, 1)
+Button/colors/icon_hover_color = Color(0, 0.46526366, 0.4654801, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0.37150973, 0.3718952, 1)
+Button/colors/icon_normal_color = Color(1.0588765e-06, 0.46096152, 0.4610508, 1)
+Button/colors/icon_pressed_color = Color(0, 0.16629922, 0.16629922, 1)
+Button/font_sizes/font_size = 34
+Button/fonts/font = ExtResource("4_vo5fx")
+Button/icons/icon = SubResource("ViewportTexture_l2mks")
+
+[node name="Cliente" type="CharacterBody2D" unique_id=1181098271]
+position = Vector2(187, 293)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_ov8ef")
+metadata/_edit_vertical_guides_ = [201.0]
+metadata/_edit_horizontal_guides_ = [197.0, 397.0, 218.0]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=279425443]
+offset_left = -316.66666
+offset_top = -493.33334
+offset_right = 1603.3334
+offset_bottom = 586.6666
+texture = ExtResource("2_mc5ak")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=231269263]
+position = Vector2(558.3333, 106.666664)
+
+[node name="mezon" type="TextureRect" parent="." unique_id=616185621]
+offset_left = -298.33334
+offset_top = -2596.6667
+offset_right = 1621.6666
+offset_bottom = -690.0
+scale = Vector2(1, 1.7333338)
+texture = ExtResource("3_yuvmj")
+
+[node name="GloboPedido" type="Control" parent="." unique_id=343137024]
+z_index = 20
+layout_mode = 3
+anchors_preset = 0
+offset_left = -23.333334
+offset_top = -183.33333
+offset_right = 16.666666
+offset_bottom = -143.33333
+
+[node name="FondoGlobo" type="TextureRect" parent="GloboPedido" unique_id=1882024251]
+layout_mode = 0
+offset_left = 654.99994
+offset_top = -438.3333
+offset_right = 1356.6666
+offset_bottom = 375.00006
+texture = ExtResource("3_puucq")
+
+[node name="LabelPedido" type="Label" parent="GloboPedido" unique_id=1222921670]
+layout_mode = 0
+offset_left = 914.99994
+offset_top = -220.0
+offset_right = 955.0
+offset_bottom = -174.0
+label_settings = SubResource("LabelSettings_puucq")
+
+[node name="IconoComida" type="TextureRect" parent="GloboPedido" unique_id=1107040968]
+custom_minimum_size = Vector2(0.5, 0.5)
+layout_mode = 0
+offset_left = 934.99994
+offset_top = -193.33333
+offset_right = 939.99994
+offset_bottom = -188.33333
+scale = Vector2(0.2, 0.2)
+
+[node name="ButtonTicket" type="Button" parent="GloboPedido" unique_id=1542396859]
+layout_mode = 0
+offset_left = 838.3333
+offset_top = -200.0
+offset_right = 1146.3333
+offset_bottom = 108.0
+icon = ExtResource("5_6rik3")
+flat = true
+
+[node name="ButtonTomarPedido" type="Button" parent="." unique_id=130144349]
+offset_left = 263.33334
+offset_top = -36.66667
+offset_right = 409.33334
+offset_bottom = 16.333328
+scale = Vector2(2.2, 2.2666667)
+theme = SubResource("Theme_5jc13")
+theme_override_colors/font_color = Color(0.0021761383, 0.00023052815, 0, 1)
+theme_override_colors/font_focus_color = Color(0.98342556, 0.9449602, 0.8779431, 1)
+theme_override_fonts/font = ExtResource("4_vo5fx")
+theme_override_font_sizes/font_size = 26
+icon = ExtResource("7_7uf5d")
+flat = true
+
+[node name="ButtonCocinar" type="Button" parent="." unique_id=1641141922]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 306.6667
+offset_top = 59.999985
+offset_right = 614.6667
+offset_bottom = 368.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.9105723, 1.7755573)
+theme = SubResource("Theme_dffsu")
+theme_override_font_sizes/font_size = 35
+icon = ExtResource("8_yuvmj")
+flat = true
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="." unique_id=897437607]
+offset_left = 145.0
+offset_top = -95.0
+offset_right = 153.0
+offset_bottom = -87.0
+
+[connection signal="pressed" from="GloboPedido/ButtonTicket" to="." method="_on_button_ticket_pressed"]
+[connection signal="pressed" from="ButtonTomarPedido" to="." method="_on_button_tomar_pedido_pressed"]
+[connection signal="pressed" from="ButtonCocinar" to="." method="_on_button_cocinar_pressed"]

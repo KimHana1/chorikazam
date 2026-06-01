@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://0et0ieu0v3re"]
+
+[ext_resource type="Script" uid="uid://bgehcmd3ia4fd" path="res://area_2d.gd" id="1_imq1r"]
+[ext_resource type="Texture2D" uid="uid://cj5kfv0d3030t" path="res://Sprites/ingredientes/tomate.png" id="2_qujxq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i61qf"]
+
+[node name="Tomate" type="Area2D" unique_id=2089289063]
+script = ExtResource("1_imq1r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=907667066]
+position = Vector2(-0.013298035, -7.999981)
+scale = Vector2(0.1039468, 0.08000005)
+texture = ExtResource("2_qujxq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=424279399]
+position = Vector2(-0.01329422, -0.99998474)
+scale = Vector2(1.8801286, 1.671076)
+shape = SubResource("CircleShape2D_i61qf")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
