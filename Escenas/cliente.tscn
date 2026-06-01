@@ -2,7 +2,15 @@
 
 [ext_resource type="Script" uid="uid://vud1exdyhmmf" path="res://Script/cliente.gd" id="1_ov8ef"]
 [ext_resource type="Texture2D" uid="uid://b6amdfvgkqsws" path="res://fondos con fila.png" id="2_mc5ak"]
+[ext_resource type="Texture2D" uid="uid://ci6yql7nnvxn7" path="res://Sprites/Dialogo/burbujaDialogo.png" id="3_puucq"]
 [ext_resource type="FontFile" uid="uid://c1dgrcg0mmcth" path="res://fuente/Biro_Script_reduced.otf" id="4_vo5fx"]
+[ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="4_wd6nn"]
+[ext_resource type="Texture2D" uid="uid://e2br7r74m24k" path="res://botones/Ticket.png" id="5_6rik3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_puucq"]
+font = ExtResource("4_wd6nn")
+font_size = 35
+font_color = Color(0.39540777, 0.19101903, 0.16719764, 1)
 
 [sub_resource type="Theme" id="Theme_5jc13"]
 
@@ -31,11 +39,11 @@ Button/fonts/font = ExtResource("4_vo5fx")
 Button/icons/icon = SubResource("ViewportTexture_l2mks")
 
 [node name="Cliente" type="CharacterBody2D" unique_id=1181098271]
-position = Vector2(200, 360)
+position = Vector2(187, 293)
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_ov8ef")
 metadata/_edit_vertical_guides_ = [201.0]
-metadata/_edit_horizontal_guides_ = [197.0, 397.0]
+metadata/_edit_horizontal_guides_ = [197.0, 397.0, 218.0]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=279425443]
 offset_left = -316.66666
@@ -45,6 +53,49 @@ offset_bottom = 586.6666
 texture = ExtResource("2_mc5ak")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=231269263]
+
+[node name="GloboPedido" type="Control" parent="." unique_id=343137024]
+z_index = 20
+layout_mode = 3
+anchors_preset = 0
+offset_left = -23.333334
+offset_top = -183.33333
+offset_right = 16.666666
+offset_bottom = -143.33333
+
+[node name="FondoGlobo" type="TextureRect" parent="GloboPedido" unique_id=1882024251]
+layout_mode = 0
+offset_left = 654.99994
+offset_top = -438.3333
+offset_right = 1356.6666
+offset_bottom = 375.00006
+texture = ExtResource("3_puucq")
+
+[node name="LabelPedido" type="Label" parent="GloboPedido" unique_id=1222921670]
+layout_mode = 0
+offset_left = 914.99994
+offset_top = -220.0
+offset_right = 955.0
+offset_bottom = -174.0
+label_settings = SubResource("LabelSettings_puucq")
+
+[node name="IconoComida" type="TextureRect" parent="GloboPedido" unique_id=1107040968]
+custom_minimum_size = Vector2(0.5, 0.5)
+layout_mode = 0
+offset_left = 934.99994
+offset_top = -193.33333
+offset_right = 939.99994
+offset_bottom = -188.33333
+scale = Vector2(0.2, 0.2)
+
+[node name="ButtonTicket" type="Button" parent="GloboPedido" unique_id=1542396859]
+layout_mode = 0
+offset_left = 838.3333
+offset_top = -200.0
+offset_right = 1146.3333
+offset_bottom = 108.0
+icon = ExtResource("5_6rik3")
+flat = true
 
 [node name="ButtonTomarPedido" type="Button" parent="." unique_id=130144349]
 offset_left = 263.33334
@@ -84,5 +135,6 @@ offset_top = -95.0
 offset_right = 153.0
 offset_bottom = -87.0
 
+[connection signal="pressed" from="GloboPedido/ButtonTicket" to="." method="_on_button_ticket_pressed"]
 [connection signal="pressed" from="ButtonTomarPedido" to="." method="_on_button_tomar_pedido_pressed"]
 [connection signal="pressed" from="ButtonCocinar" to="." method="_on_button_cocinar_pressed"]

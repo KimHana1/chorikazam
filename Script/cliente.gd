@@ -2,10 +2,21 @@ extends CharacterBody2D
 
 @onready var sprite = $Sprite2D
 @onready var boton_tomar_pedido = $ButtonTomarPedido
-@onready var selector_color = $ColorPickerButton
+@onready var boton_cocinar = $ButtonCocinar
+
+@onready var globo_pedido = $GloboPedido
+@onready var label_globo = $GloboPedido/LabelPedido
+@onready var icono_comida = $GloboPedido/IconoComida
+@onready var boton_ticket = $GloboPedido/ButtonTicket
 
 var cocina_scene = preload("res://Escenas/cocina.tscn")
 var ticket_scene = preload("res://Escenas/ticket.tscn")
+
+var comidas_cocinadas = {
+	"Choripán": preload("res://Sprites/cocinado/choripan.png"),
+	"Ensalada": preload("res://Sprites/cocinado/ensaladapatoma.png"),
+	"Papa Frita": preload("res://Sprites/cocinado/papa frita.png")
+}
 
 var clientes = {
 	"mujer": {
@@ -40,6 +51,13 @@ var pedidos = [
 			"carne": ["calentar"]
 		},
 		"paciencia": 60
+	},
+	{
+		"nombre": "Papa Frita",
+		"ingredientes": {
+			"papa": ["pelar", "cortar", "calentar"]
+		},
+		"paciencia": 70
 	}
 ]
 
@@ -49,9 +67,7 @@ var ticket_abierto = false
 
 func _ready():
 	randomize()
-
-	if not selector_color.color_changed.is_connected(_on_color_picker_button_color_changed):
-		selector_color.color_changed.connect(_on_color_picker_button_color_changed)
+	globo_pedido.visible = false
 
 	if PedidoManager.pedido_completado:
 		mostrar_resultado_cliente()
@@ -60,6 +76,8 @@ func _ready():
 
 func generar_cliente():
 	ticket_abierto = false
+	globo_pedido.visible = false
+
 	var lista_clientes = clientes.keys()
 	cliente_actual = lista_clientes[randi() % lista_clientes.size()]
 
@@ -72,54 +90,71 @@ func generar_cliente():
 	pedido_actual["color"] = clientes[cliente_actual]["color"]
 	pedido_actual["paciencia_actual"] = pedido_actual["paciencia"]
 
-	selector_color.color = pedido_actual["color"]
-
 	PedidoManager.cliente_actual = cliente_actual
 	PedidoManager.pedido_actual = pedido_actual
 	PedidoManager.pedido_completado = false
 	PedidoManager.resultado_cliente = "normal"
 
 	boton_tomar_pedido.visible = true
-	selector_color.visible = true
+	boton_cocinar.visible = true
+
+func mostrar_globo_pedido():
+	globo_pedido.visible = true
+	label_globo.text = "Quiero " + pedido_actual["nombre"]
+
+	if comidas_cocinadas.has(pedido_actual["nombre"]):
+		icono_comida.texture = comidas_cocinadas[pedido_actual["nombre"]]
 
 func abrir_ticket():
 	if ticket_abierto:
 		return
+
 	ticket_abierto = true
+	globo_pedido.visible = false
+
 	var ticket = ticket_scene.instantiate()
 	get_tree().current_scene.add_child(ticket)
-	ticket.cargar_ticket(pedido_actual)
+	ticket.position = Vector2.ZERO
+
+	if ticket.has_method("cargar_ticket"):
+		ticket.cargar_ticket(pedido_actual)
+		
+	print("Ticket creado y cargado exitosamente.")
 
 func mostrar_resultado_cliente():
 	ticket_abierto = false
+	globo_pedido.visible = false
+
 	cliente_actual = PedidoManager.cliente_actual
+
 	if cliente_actual == "" or not clientes.has(cliente_actual):
 		cliente_actual = "mujer"
 
 	var resultado = PedidoManager.resultado_cliente
+
 	if not clientes[cliente_actual].has(resultado):
 		resultado = "medio"
 
 	sprite.modulate = Color.WHITE
 	sprite.texture = clientes[cliente_actual][resultado]
-	boton_tomar_pedido.visible = false
-	selector_color.visible = false
 
-func _on_color_picker_button_color_changed(nuevo_color):
-	if pedido_actual.is_empty():
-		return
-	pedido_actual["color"] = nuevo_color
-	PedidoManager.pedido_actual = pedido_actual
-	sprite.modulate = nuevo_color
+	boton_tomar_pedido.visible = false
+	boton_cocinar.visible = false
+
+func _on_button_tomar_pedido_pressed():
+	mostrar_globo_pedido()
+
+func _on_button_ticket_pressed():
+	print("Botón Ticket presionado")
+	abrir_ticket()
 
 func _on_button_cocinar_pressed():
 	if pedido_actual.is_empty():
 		return
+
 	PedidoManager.pedido_actual = pedido_actual
 	PedidoManager.cliente_actual = cliente_actual
 	PedidoManager.pedido_completado = false
+	PedidoManager.resultado_cliente = "normal"
+
 	get_tree().change_scene_to_packed(cocina_scene)
-
-
-func _on_button_tomar_pedido_pressed() -> void:
-		abrir_ticket()

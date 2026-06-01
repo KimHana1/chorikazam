@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bj5s6ogcfp6we" path="res://Script/control.gd" id="1_jffye"]
 [ext_resource type="Texture2D" uid="uid://cycxsipt3r1g4" path="res://baking-or-cooking-background-with-kitchen-utensils-flour-eggs-and-brown-apron-watercolor-illustration-vector.jpg" id="2_050l1"]
-[ext_resource type="FontFile" uid="uid://dfa42epdu4eao" path="res://fuente/Biro_Script_reduced.ttf" id="3_piirt"]
+[ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="3_jffye"]
 [ext_resource type="FontFile" uid="uid://c1dgrcg0mmcth" path="res://fuente/Biro_Script_reduced.otf" id="4_ef3n6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6a6wx"]
-font = ExtResource("3_piirt")
+font = ExtResource("3_jffye")
 font_size = 37
 font_color = Color(0.00069389754, 0.00069389766, 0.0006938976, 1)
 outline_color = Color(0, 0, 0, 1)
