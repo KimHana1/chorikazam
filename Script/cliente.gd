@@ -114,12 +114,9 @@ func abrir_ticket():
 
 	var ticket = ticket_scene.instantiate()
 	get_tree().current_scene.add_child(ticket)
-	ticket.position = Vector2.ZERO
 
 	if ticket.has_method("cargar_ticket"):
 		ticket.cargar_ticket(pedido_actual)
-		
-	print("Ticket creado y cargado exitosamente.")
 
 func mostrar_resultado_cliente():
 	ticket_abierto = false
@@ -145,7 +142,6 @@ func _on_button_tomar_pedido_pressed():
 	mostrar_globo_pedido()
 
 func _on_button_ticket_pressed():
-	print("Botón Ticket presionado")
 	abrir_ticket()
 
 func _on_button_cocinar_pressed():
