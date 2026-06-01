@@ -17,3 +17,5 @@ texture = ExtResource("2_b1g2m")
 position = Vector2(34, 30)
 rotation = 0.87958235
 shape = SubResource("CapsuleShape2D_b1g2m")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

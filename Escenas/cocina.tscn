@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6eyitsql3lea" path="res://Escenas/papa.tscn" id="3_jqnxx"]
 [ext_resource type="PackedScene" uid="uid://b7q5eshxv6mah" path="res://Escenas/carne.tscn" id="4_b5anw"]
 [ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://Escenas/pan.tscn" id="5_h561l"]
-[ext_resource type="Texture2D" uid="uid://2cl5doa8xipp" path="res://Texto.png" id="7_jqnxx"]
+[ext_resource type="PackedScene" uid="uid://0et0ieu0v3re" path="res://tomate.tscn" id="6_jqnxx"]
 
 [node name="Cocina" type="Control" unique_id=588022032]
 layout_mode = 3
@@ -44,6 +44,10 @@ scale = Vector2(0.3164233, 0.35585502)
 position = Vector2(566, 248)
 scale = Vector2(0.3164233, 0.35585502)
 
+[node name="Tomate" parent="." unique_id=2089289063 instance=ExtResource("6_jqnxx")]
+position = Vector2(395.19232, 59)
+scale = Vector2(3.2775996, 4.1541266)
+
 [node name="DrawManager" type="Node" parent="." unique_id=486436348]
 script = ExtResource("1_r5ydy")
 
@@ -63,12 +67,3 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ayudaMemoria" type="TextureRect" parent="." unique_id=143527987]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 18.0
-offset_right = 331.0
-offset_bottom = 318.0
-scale = Vector2(1.0323077, 1.0000001)
-texture = ExtResource("7_jqnxx")

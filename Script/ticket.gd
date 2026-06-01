@@ -55,3 +55,19 @@ func _on_ticket_mini_pressed():
 func _on_button_cerrar_pressed():
 	ticket_grande.visible = false
 	ticket_mini.visible = true
+
+func mostrar_mini():
+	ticket_grande.visible = false
+	ticket_mini.visible = true
+	ticket_mini.position = Vector2(20, 20)
+
+func marcar_ok(nombre_ingrediente: String):
+	match nombre_ingrediente:
+		"pan":
+			ok1.visible = true
+		"chorizo":
+			ok2.visible = true
+		"papa":
+			ok1.visible = true
+		"carne":
+			ok2.visible = true

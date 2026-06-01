@@ -28,23 +28,28 @@ func finalizar_dibujo():
 	var hechizo = detectar_hechizo(puntos)
 	var paso = convertir_hechizo_a_paso(hechizo)
 
-	if paso != "error":
-		print("Paso detectado: ", paso)
+	if paso == "error":
+		print("Hechizo incorrecto")
+		desvanecer(false)
+		return
 
-		if paso == "emplatar":
-			if get_tree().current_scene.has_method("intentar_finalizar_pedido"):
-				get_tree().current_scene.intentar_finalizar_pedido()
+	print("Paso detectado: ", paso)
+
+	if paso == "emplatar":
+		if get_tree().current_scene.has_method("intentar_finalizar_pedido"):
+			get_tree().current_scene.intentar_finalizar_pedido()
 			desvanecer(true)
-			return
+		else:
+			desvanecer(false)
+		return
 
-		var ingrediente = detectar_ingrediente()
+	var ingrediente = detectar_ingrediente()
 
-		if ingrediente != null and ingrediente.has_method("aplicar_hechizo"):
-			ingrediente.aplicar_hechizo(paso)
-
+	if ingrediente != null and ingrediente.has_method("aplicar_hechizo"):
+		ingrediente.aplicar_hechizo(paso)
 		desvanecer(true)
 	else:
-		print("Hechizo incorrecto")
+		print("No tocaste ningun ingrediente")
 		desvanecer(false)
 
 func agregar_punto(pos: Vector2):

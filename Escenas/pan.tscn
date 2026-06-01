@@ -10,7 +10,6 @@ height = 530.64575
 [node name="pan" type="Area2D" unique_id=393561602]
 script = ExtResource("1_bso80")
 limite_abajo = 800.0
-volver_arriba_y = -10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=45656818]
 texture = ExtResource("2_bg2j3")
@@ -20,3 +19,5 @@ position = Vector2(-1.999999, 82)
 rotation = 1.0541544
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_bg2j3")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
