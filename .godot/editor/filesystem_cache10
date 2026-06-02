@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1780362142
+::res://::1780409087
 area_2d.gd::GDScript::2816240483272240737::1780357401::0::1::::<>Area2D<><>0<>0<><>::
 baking-or-cooking-background-with-kitchen-utensils-flour-eggs-and-brown-apron-watercolor-illustration-vector.jpg::CompressedTexture2D::6462931449591271993::1780357401::1780357401::1::::<><><>0<>0<>8216661c14e7af89e0c16721dda65d13<>res://.godot/imported/baking-or-cooking-background-with-kitchen-utensils-flour-eggs-and-brown-apron-watercolor-illustration-vector.jpg-a5969183d4715d1c696632a17ea8207d.ctex::
 boton.tres::Theme::2183102231159055687::1780357401::0::1::::<><><>0<>0<><>::
@@ -11,22 +11,35 @@ hechizos.tscn::PackedScene::7075732245945593683::1780348079::0::1::::<><><>0<>0<
 icon.svg::CompressedTexture2D::5449552026346764089::1780348051::1780348079::0::::<><><>0<>0<>b119d049c4dfdc15ac28960ced2baed3<>::
 Texto.png::CompressedTexture2D::1899949173714897013::1780357401::1780357401::1::::<><><>0<>0<>39ca5110a9f75c550de85470b25af4cb<>res://.godot/imported/Texto.png-05f74851aec5c381e0abd09f6712f77e.ctex::
 tomate.tscn::PackedScene::1764177296986227950::1780357401::0::1::::<><><>0<>0<><>::uid://bgehcmd3ia4fd::::res://area_2d.gd<>uid://cj5kfv0d3030t::::res://Sprites/ingredientes/tomate.png
-::res://Autoload/::1780357401
+::res://Autoload/::1780407363
+Global.gd::GDScript::6613862344635458004::1780406570::0::1::::<>Node<><>0<>0<><>::
 pedido_manager.gd::GDScript::7186533758822377121::1780357401::0::1::::<>Node<><>0<>0<><>::
-::res://Escenas/::1780357401
+::res://Escenas/::1780408901
 carne.tscn::PackedScene::4667323334441950879::1780357401::0::1::::<><><>0<>0<><>::uid://df3aosyey1xdg::::res://Script/carne.gd<>uid://bjv6tmtjmv0oa::::res://Sprites/ingredientes/carne.png
 chorizo.tscn::PackedScene::5928773163010188136::1780357401::0::1::::<><><>0<>0<><>::uid://vkp5x0a5gn80::::res://Script/chorizo.gd<>uid://dhw0d0jw1x6ks::::res://Sprites/ingredientes/chorizo.png
 cliente.tscn::PackedScene::4990672044038602976::1780357401::0::1::::<><><>0<>0<><>::uid://vud1exdyhmmf::::res://Script/cliente.gd<>uid://b6amdfvgkqsws::::res://fondos con fila.png<>uid://ci6yql7nnvxn7::::res://Sprites/Dialogo/burbujaDialogo.png<>uid://xp5f1cdphr7d::::res://Sprites/cocinaYTicket/mezon.png<>uid://c1dgrcg0mmcth::::res://fuente/Biro_Script_reduced.otf<>uid://dudv2hdvdaykx::::res://fuente/Vanilla Caramel.otf<>uid://e2br7r74m24k::::res://Sprites/botones/Ticket.png<>uid://mtwnf6ie8lit::::res://Sprites/botones/BotonPedido.png<>uid://cweq55ndmew2p::::res://Sprites/botones/BotonCocinar.png
-cocina.tscn::PackedScene::8823915931374732094::1780357401::0::1::::<><><>0<>0<><>::uid://cknrka585n484::::res://Script/draw_manager.gd<>uid://mo2j80exb42o::::res://Script/cocina.gd<>uid://c85nj48xk1u55::::res://Sprites/cocinaYTicket/cocinasinreceta.png<>uid://cqp7a7ejar5no::::res://Escenas/chorizo.tscn<>uid://b6eyitsql3lea::::res://Escenas/papa.tscn<>uid://b7q5eshxv6mah::::res://Escenas/carne.tscn<>uid://co7qus1c8rpcm::::res://Escenas/pan.tscn<>uid://0et0ieu0v3re::::res://tomate.tscn
+cocina.tscn::PackedScene::8823915931374732094::1780406824::0::1::::<><><>0<>0<><>::uid://cknrka585n484::::res://Script/draw_manager.gd<>uid://mo2j80exb42o::::res://Script/cocina.gd<>uid://c85nj48xk1u55::::res://Sprites/cocinaYTicket/cocinasinreceta.png<>uid://cqp7a7ejar5no::::res://Escenas/chorizo.tscn<>uid://b6eyitsql3lea::::res://Escenas/papa.tscn<>uid://b7q5eshxv6mah::::res://Escenas/carne.tscn<>uid://co7qus1c8rpcm::::res://Escenas/pan.tscn<>uid://0et0ieu0v3re::::res://tomate.tscn
 control.tscn::PackedScene::4003560017052008035::1780357401::0::1::::<><><>0<>0<><>::uid://bj5s6ogcfp6we::::res://Script/control.gd<>uid://cycxsipt3r1g4::::res://baking-or-cooking-background-with-kitchen-utensils-flour-eggs-and-brown-apron-watercolor-illustration-vector.jpg<>uid://dudv2hdvdaykx::::res://fuente/Vanilla Caramel.otf<>uid://c1dgrcg0mmcth::::res://fuente/Biro_Script_reduced.otf
+EstaCasi.tscn::PackedScene::3192844920226177691::1780408901::0::1::::<><><>0<>0<><>::
 pan.tscn::PackedScene::5822553439931802596::1780357401::0::1::::<><><>0<>0<><>::uid://bgtfdd1f73nju::::res://Script/pan.gd<>uid://dvyjwqpp74ehv::::res://Sprites/ingredientes/pan.png
 papa.tscn::PackedScene::4572004868158890436::1780357401::0::1::::<><><>0<>0<><>::uid://cvaqcfcctnrdg::::res://Script/papa.gd<>uid://dmopfrmf6phov::::res://Sprites/ingredientes/papa.png
 ticket.tscn::PackedScene::6436734428654895643::1780357401::0::1::::<><><>0<>0<><>::uid://b4hdh5l2kllpb::::res://Script/ticket.gd<>uid://dca8mdrysgbq4::::res://Sprites/botones/Ticket (1).png
-::res://fuente/::1780357401
+::res://fuente/::1780408889
 Biro_Script_reduced.otf::FontFile::6604339211158128469::1780357401::1780357401::1::::<><><>0<>0<>fb5373ffbd021c63231b2e2d46510104<>res://.godot/imported/Biro_Script_reduced.otf-fc9f19ad4833594a1fbe56274226c2c8.fontdata::
 Biro_Script_reduced.ttf::FontFile::7512015511924768998::1780357401::1780357401::1::::<><><>0<>0<>a45b30b7dd3afe0b94354fdf4ba21d97<>res://.godot/imported/Biro_Script_reduced.ttf-7cdd5bf9837e163b0afd25f43d0bc732.fontdata::
+Pencilant Script.otf::FontFile::8996083747131932992::1780260935::1780408889::1::::<><><>0<>0<>071d29364001324dfcebd3b441162e7d<>res://.godot/imported/Pencilant Script.otf-2ed6beb4b793c616a79aaa4ac0f2a255.fontdata::
 Vanilla Caramel.otf::FontFile::8570555703641703387::1780357401::1780357401::1::::<><><>0<>0<>bda397ee139fc59733114469eb181ea3<>res://.godot/imported/Vanilla Caramel.otf-6a50ba697d112bcc6279980118f9148a.fontdata::
-::res://Script/::1780357401
+::res://Script/::1780407363
+barra_comercio.gd::GDScript::2360183080951935611::1780406570::0::1::::<>Control<><>0<>0<><>::
+boton_carne.gd::GDScript::1647097275200806066::1780406570::0::1::::<>Area2D<><>0<>0<><>::
+boton_comercio.gd::GDScript::7424969503914630919::1780406570::0::1::::<>TextureButton<><>0<>0<><>::
+boton_der.gd::GDScript::5065579790984719523::1780406570::0::1::::<>Area2D<><>0<>0<><>::
+boton_descuento.gd::GDScript::6964309229460504073::1780406570::0::1::::<>Area2D<><>0<>0<><>::
+boton_izq.gd::GDScript::7094866018925966::1780406570::0::1::::<>Area2D<><>0<>0<><>::
+boton_pan.gd::GDScript::5136951307688004721::1780406570::0::1::::<>Area2D<><>0<>0<><>::
+boton_papa.gd::GDScript::1544757110191623856::1780406570::0::1::::<>Area2D<><>0<>0<><>::
+boton_salchicha.gd::GDScript::4596538366457101470::1780406570::0::1::::<>Area2D<><>0<>0<><>::
+boton_tomate.gd::GDScript::5343998770653349027::1780406570::0::1::::<>Area2D<><>0<>0<><>::
 button.gd::GDScript::4078857871438937226::1780357401::0::1::::<>Button<><>0<>0<><>::
 carne.gd::GDScript::7568034830208278296::1780357401::0::1::::<>Area2D<><>0<>0<><>::
 chorizo.gd::GDScript::1495575069345427455::1780357401::0::1::::<>Area2D<><>0<>0<><>::
@@ -34,6 +47,10 @@ cliente.gd::GDScript::1515482098892272165::1780357401::0::1::::<>CharacterBody2D
 cocina.gd::GDScript::872824615266280400::1780357401::0::1::::<>Control<><>0<>0<><>::
 control.gd::GDScript::3081200619231941108::1780357401::0::1::::<>Control<><>0<>0<><>::
 draw_manager.gd::GDScript::5502616809269519067::1780357401::0::1::::<>Node<><>0<>0<><>::
+escena_trade.gd::GDScript::2479413107366389505::1780406570::0::1::::<>Node<><>0<>0<><>::
+flecha.gd::GDScript::5381255242306960335::1780406570::0::1::::<>Area2D<><>0<>0<><>::
+GestorComercio.gd::GDScript::6287311459837569145::1780406824::0::1::::<>Node<><>0<>0<><>::
+ingredientes.gd::GDScript::5347975796665478168::1780406570::0::1::::<>Node2D<><>0<>0<><>::
 pan.gd::GDScript::2847086063199999098::1780357401::0::1::::<>Area2D<><>0<>0<><>::
 papa.gd::GDScript::6247782393080106888::1780357401::0::1::::<>Area2D<><>0<>0<><>::
 ticket.gd::GDScript::4436544038944010563::1780357401::0::1::::<>CanvasLayer<><>0<>0<><>::
@@ -72,15 +89,18 @@ papa frita.png::CompressedTexture2D::4396136662067498493::1780357401::1780357401
 cocinasinreceta.png::CompressedTexture2D::7151811508329296250::1780357401::1780357401::1::::<><><>0<>0<>ae3a0026360e24e698e2a8f78c7c5c3f<>res://.godot/imported/cocinasinreceta.png-717af35b0a74d0b05e7482bbe926286f.ctex::
 istockphoto-1138089771-1024x1024.jpg::CompressedTexture2D::5565008865493983292::1780357401::1780357401::1::::<><><>0<>0<>5ee258e52cd03a18c561cd025b116e92<>res://.godot/imported/istockphoto-1138089771-1024x1024.jpg-22d8f5b1379f968e776890a33c4c7366.ctex::
 mezon.png::CompressedTexture2D::1647140877591519631::1780357401::1780357401::1::::<><><>0<>0<>ac6766356a6167663e900763032d99c4<>res://.godot/imported/mezon.png-62f6c3bb82165ef8a44113831dbff89f.ctex::
-::res://Sprites/Comercio/::1780357401
+::res://Sprites/Comercio/::1780408728
 Barra de fondo.png::CompressedTexture2D::7943764747473431806::1780357401::1780357401::1::::<><><>0<>0<>59e8802fd9b808a8d24e84908bab649f<>res://.godot/imported/Barra de fondo.png-348d9ff12113d6606a2e49ab01b5431a.ctex::
 BotonCarne.png::CompressedTexture2D::2915358721037447490::1780357401::1780357401::1::::<><><>0<>0<>c2cf59bf22af84653222438f269fcbce<>res://.godot/imported/BotonCarne.png-9c2c5b4fbe5869f438859514615a5cba.ctex::
 BotonChorizo.png::CompressedTexture2D::3950622664988094623::1780357401::1780357401::1::::<><><>0<>0<>bf8bdae4558c503a288cbf23143764a1<>res://.godot/imported/BotonChorizo.png-1be935746f970f2b27e96e482c9728ee.ctex::
 BotonComerciar.png::CompressedTexture2D::1734901317426291763::1780357401::1780357401::1::::<><><>0<>0<>ca2cc5523f719fcc82f4687ad91e67e2<>res://.godot/imported/BotonComerciar.png-186b3791c629078723c99f977ec94fa9.ctex::
 BotonDescuento.png::CompressedTexture2D::7477207979914553830::1780357401::1780357401::1::::<><><>0<>0<>bdc54289c34c03c620be6aede9883d6a<>res://.godot/imported/BotonDescuento.png-02626fd608e1723e3e461d7c488abdb9.ctex::
+BotonPan.png::CompressedTexture2D::4998588516038198319::1779974357::1780408508::1::::<><><>0<>0<>f1b60da4a54a032939ba42ac0c4c8b3e<>res://.godot/imported/BotonPan.png-630c5af85c49e5d21bbee19c3f535733.ctex::
+BotonPapa.png::CompressedTexture2D::7383337864577559309::1779974357::1780408728::1::::<><><>0<>0<>b872e102941715c2809bc52db9c88ef7<>res://.godot/imported/BotonPapa.png-5b692ff55054e67ecd85a6a5025d4a29.ctex::
 BotonTomate.png::CompressedTexture2D::7288802951995802275::1780357401::1780357401::1::::<><><>0<>0<>0068dadd7fa9fa0df241351d6b61f87e<>res://.godot/imported/BotonTomate.png-54fd840e2d2e83718942e4ad4186887c.ctex::
 BotonTrato der.png::CompressedTexture2D::3217409069211480402::1780357401::1780357401::1::::<><><>0<>0<>03d82f3dad93ce49da085177a7bc7f34<>res://.godot/imported/BotonTrato der.png-27fadae6597f6bb123c4190be85e69a9.ctex::
 BotonTrato izq.png::CompressedTexture2D::5504896982290469500::1780357401::1780357401::1::::<><><>0<>0<>68ab2b96dfafd830d8b8dd4d69d86959<>res://.godot/imported/BotonTrato izq.png-f1ff780236073b977138731fd9b175ba.ctex::
+Flecha_03_03.png::CompressedTexture2D::2610562958475222730::1780407330::1780407330::1::::<><><>0<>0<>68089407aba20448b8adb923d2396b93<>res://.godot/imported/Flecha_03_03.png-7936167c5c5f484718fca787a9a28f54.ctex::
 FONDO COMERCIO.png::CompressedTexture2D::3321221787899068207::1780357401::1780357401::1::::<><><>0<>0<>0609f237063c828825aa32de54d1bbe0<>res://.godot/imported/FONDO COMERCIO.png-4dc68f3022c9099b5a2288ac82e50d6b.ctex::
 papel fondo.png::CompressedTexture2D::7859876754151048251::1780357401::1780357401::1::::<><><>0<>0<>2aee5ef93eef4611bf6a690bcabff170<>res://.godot/imported/papel fondo.png-81afe166d5fde6fa67fdb8604b0d2dff.ctex::
 ::res://Sprites/DecoTicket/::1780357401
