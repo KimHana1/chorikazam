@@ -23,7 +23,7 @@ extends Node
 @onready var flecha = $BarraComercio/Flecha
 
 @onready var boton_comercio = $UI/BotonComercio
-
+@onready var ui = $UI
 @onready var info_jugador = $UI/InfoJugador
 @onready var info_vendedor = $UI/InfoVendedor
 @onready var info_total = $UI/InfoTotal
@@ -31,8 +31,6 @@ extends Node
 @onready var label_cooldown = $UI/Cooldown
 
 
-var monedas_jugador := 0.0
-var monedas_vendedor := 0.0
 var total_actual := 0.0
 var multiplicador_precios := 1.0
 var cantidad_fallos_click := 0
@@ -63,7 +61,6 @@ func _ready():
 	boton_comercio.comercio_iniciado.connect(iniciar_comercio)
 
 
-	monedas_vendedor = monedas_iniciales_vendedor
 
 	flecha.desactivar()
 	actualizar_ui()
@@ -220,20 +217,29 @@ func confirmar_compra():
 
 func registrar_fallo_click():
 	cantidad_fallos_click += 1
+	flecha.velocidad *=1.26
 	if cantidad_fallos_click >= 3:
 		multiplicador_precios += aumento_fallo_click / 100.0
 
 
 func actualizar_cooldown(delta):
+	
 	if not cooldown_activo:
 		return
 
 	cooldown -= delta
-	label_cooldown.text = "Cooldown: " + str(round(cooldown))
+
+	ui.actualizar_cooldown(
+		cooldown
+	)
 
 	if cooldown <= 0:
+
 		cooldown_activo = false
-		label_cooldown.text = ""
+
+		cooldown = 0
+
+		ui.limpiar_cooldown()
 
 #UI
 func actualizar_ui():
@@ -243,10 +249,8 @@ func actualizar_ui():
 	print("Monedas vendedor: ", Global.monedas_vendedor)
 	print("Total actual: ", total_actual)
 
-	info_jugador.text = "Tus Monedas: $" + str(round(Global.monedas_jugador))
-
-	info_vendedor.text = "Monedas del Vendedor: $" +str(round(Global.monedas_vendedor))
-
-	info_total.text = "Total a Pagar: $" +str(round(total_actual))
-
-	print("Label total: ", info_total.text)
+	ui.actualizar_datos(
+		Global.monedas_jugador,
+		Global.monedas_vendedor,
+		total_actual
+	)

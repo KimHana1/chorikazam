@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://blqvxo5o08rd0"]
 
 [ext_resource type="Script" uid="uid://cvtvdo63f1fs8" path="res://Script/GestorComercio.gd" id="1_wpudi"]
+[ext_resource type="Script" uid="uid://vbd24cchmsev" path="res://Escenas/ui.gd" id="2_vykfh"]
 [ext_resource type="FontFile" uid="uid://d1f1gj3dm3l5y" path="res://fuente/Pencilant Script.otf" id="2_ylp33"]
 [ext_resource type="Texture2D" uid="uid://yyntolpso6w2" path="res://Sprites/Comercio/BotonComerciar.png" id="3_vykfh"]
 [ext_resource type="Script" uid="uid://dd1yfslymdbkx" path="res://Script/boton_comercio.gd" id="4_5r6nt"]
@@ -65,6 +66,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_vykfh")
 
 [node name="InfoJugador" type="Label" parent="UI" unique_id=1862505946 groups=["UI_Fonts"]]
 modulate = Color(0, 0, 0, 1)
