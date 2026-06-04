@@ -3,6 +3,9 @@ extends Control
 @onready var info_vendedor=$InfoVendedor
 @onready var info_total=$InfoTotal
 @onready var cooldown=$Cooldown
+@onready var que_voy_a_comprar=$"Que voy a Comprar"
+
+
 func actualizar_datos(
 	monedas_jugador,
 	monedas_vendedor,
@@ -34,3 +37,8 @@ func actualizar_cooldown(
 func limpiar_cooldown():
 
 	cooldown.text = ""
+func actualizar_carrito(carrito):
+
+	que_voy_a_comprar.actualizar_carrito(
+		carrito
+	)

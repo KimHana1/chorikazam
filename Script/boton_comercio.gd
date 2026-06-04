@@ -3,7 +3,7 @@ extends TextureButton
 signal comercio_iniciado
 
 @export var escala_click := 1.05
-@export var rotacion_click := 5.0
+@export var rotacion_click := 1.0
 @export var duracion_animacion := 0.08
 
 func _ready():

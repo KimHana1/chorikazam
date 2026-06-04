@@ -9,6 +9,7 @@ extends Node
 @export var porcentaje_descuento := 10.0
 @export var aumento_fallo_click := 1.0
 
+
 @export var monedas_iniciales_jugador :=100.0
 @export var monedas_iniciales_vendedor := 100.0
 
@@ -41,7 +42,7 @@ var primer_comercio := true
 
 var carrito := {
 	"carne": 0,
-	"salchicha": 0,
+	"chorizo": 0,
 	"pan": 0,
 	"papa": 0,
 	"tomate": 0
@@ -117,7 +118,7 @@ func procesar_click():
 		objetivo.TipoBoton.CARNE:
 			agregar_item("carne", precio_carne)
 		objetivo.TipoBoton.SALCHICHA:
-			agregar_item("salchicha", precio_salchicha)
+			agregar_item("chorizo", precio_salchicha)
 		objetivo.TipoBoton.PAN:
 			agregar_item("pan", precio_pan)
 		objetivo.TipoBoton.PAPA:
@@ -171,7 +172,7 @@ func aplicar_descuento():
 
 #Compra
 func confirmar_compra():
-
+	
 	print("-Compro-")
 	print("Total compra: ", total_actual)
 	print("Monedas jugador antes: ", Global.monedas_jugador)
@@ -180,7 +181,7 @@ func confirmar_compra():
 
 		print("No hay plata diria el presi")
 		return
-
+	flecha.velocidad = 500
 	Global.quitar_monedas_jugador(total_actual)
 
 	print("Monedas jugador despues: ", Global.monedas_jugador)
@@ -217,7 +218,7 @@ func confirmar_compra():
 
 func registrar_fallo_click():
 	cantidad_fallos_click += 1
-	flecha.velocidad *=1.26
+	flecha.velocidad *=1.36
 	if cantidad_fallos_click >= 3:
 		multiplicador_precios += aumento_fallo_click / 100.0
 
@@ -254,3 +255,6 @@ func actualizar_ui():
 		Global.monedas_vendedor,
 		total_actual
 	)
+	ui.actualizar_carrito(carrito)
+
+	

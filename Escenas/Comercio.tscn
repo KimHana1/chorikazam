@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://d1f1gj3dm3l5y" path="res://fuente/Pencilant Script.otf" id="2_ylp33"]
 [ext_resource type="Texture2D" uid="uid://yyntolpso6w2" path="res://Sprites/Comercio/BotonComerciar.png" id="3_vykfh"]
 [ext_resource type="Script" uid="uid://dd1yfslymdbkx" path="res://Script/boton_comercio.gd" id="4_5r6nt"]
+[ext_resource type="Script" uid="uid://bqd2ojy5etttc" path="res://Escenas/que_voy_a_comprar.gd" id="4_vykfh"]
 [ext_resource type="Script" uid="uid://8vj4uk1fky3d" path="res://Script/barra_comercio.gd" id="5_qwwni"]
 [ext_resource type="Texture2D" uid="uid://dlgav6m6hbkdy" path="res://Sprites/Comercio/Barra de fondo.png" id="6_4dnlp"]
 [ext_resource type="Script" uid="uid://ciwyqtx17b30f" path="res://Script/flecha.gd" id="7_2au20"]
@@ -68,15 +69,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_vykfh")
 
-[node name="InfoJugador" type="Label" parent="UI" unique_id=1862505946 groups=["UI_Fonts"]]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 533.0
-offset_top = 65.0
-offset_right = 573.0
-offset_bottom = 107.00003
-theme_override_font_sizes/font_size = 30
-
 [node name="InfoVendedor" type="Label" parent="UI" unique_id=365356764 groups=["UI_Fonts"]]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
@@ -84,6 +76,15 @@ offset_left = 522.0
 offset_top = 146.0
 offset_right = 562.0
 offset_bottom = 188.00006
+theme_override_font_sizes/font_size = 30
+
+[node name="InfoJugador" type="Label" parent="UI" unique_id=1862505946 groups=["UI_Fonts"]]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 533.0
+offset_top = 65.0
+offset_right = 573.0
+offset_bottom = 107.00003
 theme_override_font_sizes/font_size = 30
 
 [node name="InfoTotal" type="Label" parent="UI" unique_id=42384776 groups=["UI_Fonts"]]
@@ -104,6 +105,47 @@ offset_right = 333.0
 offset_bottom = 146.0
 theme_override_fonts/font = ExtResource("2_ylp33")
 theme_override_font_sizes/font_size = 30
+
+[node name="Que voy a Comprar" type="Control" parent="UI" unique_id=34498803 groups=["UI_Fonts"]]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_vykfh")
+
+[node name="PapaCantidad" type="Label" parent="UI/Que voy a Comprar" unique_id=537920931 groups=["UI_Fonts"]]
+layout_mode = 0
+offset_left = 1102.0
+offset_top = 197.0
+offset_right = 1142.0
+offset_bottom = 220.0
+
+[node name="CarneCantidad" type="Label" parent="UI/Que voy a Comprar" unique_id=862877283 groups=["UI_Fonts"]]
+layout_mode = 0
+offset_left = 1102.0
+offset_top = 21.0
+offset_right = 1142.0
+offset_bottom = 44.0
+
+[node name="ChorizoCantidad" type="Label" parent="UI/Que voy a Comprar" unique_id=1796575792 groups=["UI_Fonts"]]
+layout_mode = 0
+offset_left = 1102.0
+offset_top = 79.0
+offset_right = 1142.0
+offset_bottom = 102.0
+
+[node name="TomateCantidad" type="Label" parent="UI/Que voy a Comprar" unique_id=365561030 groups=["UI_Fonts"]]
+layout_mode = 0
+offset_left = 1102.0
+offset_top = 240.0
+offset_right = 1142.0
+offset_bottom = 263.0
+
+[node name="PanCantidad" type="Label" parent="UI/Que voy a Comprar" unique_id=606979090 groups=["UI_Fonts"]]
+layout_mode = 0
+offset_left = 1102.0
+offset_top = 122.0
+offset_right = 1142.0
+offset_bottom = 145.0
 
 [node name="BotonComercio" type="TextureButton" parent="UI" unique_id=509069308]
 layout_mode = 0
