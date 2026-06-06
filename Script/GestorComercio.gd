@@ -29,6 +29,8 @@ extends Node
 @onready var info_vendedor = $UI/InfoVendedor
 @onready var info_total = $UI/InfoTotal
 
+@onready var ui_inventario_Global =$"../UI  Inventario Global"
+
 @onready var label_cooldown = $UI/Cooldown
 
 
@@ -40,7 +42,7 @@ var cooldown_activo := false
 var usos_comercio := 0
 var primer_comercio := true
 
-var carrito := {
+var carrito : Dictionary [String,int]= {
 	"carne": 0,
 	"chorizo": 0,
 	"pan": 0,
@@ -215,7 +217,7 @@ func confirmar_compra():
 	flecha.desactivar()
 
 	actualizar_ui()
-
+	ui_inventario_Global.actualizar_inventario()
 func registrar_fallo_click():
 	cantidad_fallos_click += 1
 	flecha.velocidad *=1.36
