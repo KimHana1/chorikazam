@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://e7xc1xcaym4m"]
+
+[ext_resource type="Script" uid="uid://cwi4kqn7wvopj" path="res://Script/ui_ingrediente_inventario.gd" id="1_8xcdo"]
+[ext_resource type="Texture2D" uid="uid://dhw0d0jw1x6ks" path="res://Sprites/ingredientes/chorizo.png" id="2_8xcdo"]
+[ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="3_lso8q"]
+
+[node name="UI ingrediente inventario" type="PanelContainer" unique_id=991094107]
+custom_minimum_size = Vector2(220, 220)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -120.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8xcdo")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=352211584]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1733661662]
+layout_mode = 2
+texture = ExtResource("2_8xcdo")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=614238358]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/outline_size = 63
+theme_override_fonts/font = ExtResource("3_lso8q")
+theme_override_font_sizes/font_size = 80
+text = "null
+"

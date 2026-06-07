@@ -5,18 +5,17 @@ var tiempo_dia := 300.0
 
 
 
-var monedas_jugador := 300.0
+var monedas_jugador := 1000000.0
 var monedas_vendedor := 100.0
 
 
-
-var ingredientes := {
-	"carne": 0,
-	"salchicha": 0,
-	"pan": 0,
-	"papa": 0,
-	"tomate": 0
-}
+var ingredientes : Dictionary[String,int] = {
+	"carne": 1,
+	"chorizo": 2,
+	"pan": 3,
+	"papa": 4,
+	"tomate": 5
+	}
 
 
 
