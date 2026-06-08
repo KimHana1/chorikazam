@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b7q5eshxv6mah" path="res://Escenas/carne.tscn" id="4_b5anw"]
 [ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://Escenas/pan.tscn" id="5_h561l"]
 [ext_resource type="PackedScene" uid="uid://0et0ieu0v3re" path="res://tomate.tscn" id="6_jqnxx"]
+[ext_resource type="Texture2D" uid="uid://bm6rh1l7fubce" path="res://Sprites/botones/BotonComprar.png" id="9_h561l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqnxx"]
 
@@ -18,10 +19,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.04, 1)
+scale = Vector2(0.9999992, 1)
 script = ExtResource("1_ti2xv")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_vertical_guides_ = [1154.0, 6.0, 921.0]
+metadata/_edit_vertical_guides_ = [1742.0, 6.0, 1092.0]
 metadata/_edit_horizontal_guides_ = [653.0, 629.0, 42.0]
 
 [node name="ColorRect" type="TextureRect" parent="." unique_id=2031791963]
@@ -29,38 +30,50 @@ custom_minimum_size = Vector2(1150, 653)
 layout_mode = 0
 offset_right = 1972.9198
 offset_bottom = 1164.2852
-scale = Vector2(0.46153775, 0.56000024)
+scale = Vector2(0.9815377, 0.92000055)
 texture = ExtResource("2_b5anw")
 
 [node name="chorizo" parent="." unique_id=1661543503 instance=ExtResource("2_ti2xv")]
-position = Vector2(566, 248)
+position = Vector2(1256.001, 248)
 scale = Vector2(0.3164233, 0.35585502)
+limite_izq = 1091.0
+limite_der = 1742.0
 posicion_final = Vector2(500, 680)
 
 [node name="papa" parent="." unique_id=1255283446 instance=ExtResource("3_jqnxx")]
-position = Vector2(580, 265)
+position = Vector2(1479.5394, 340)
 scale = Vector2(0.3164233, 0.35585502)
+limite_izq = 1091.0
+limite_der = 1742.0
 posicion_final = Vector2(400, 680)
 
 [node name="carne" parent="." unique_id=1009550738 instance=ExtResource("4_b5anw")]
-position = Vector2(566, 248)
+position = Vector2(1465.5394, 323)
 scale = Vector2(0.3164233, 0.35585502)
+limite_izq = 1091.0
+limite_der = 1742.0
 posicion_final = Vector2(450, 680)
 
 [node name="pan" parent="." unique_id=393561602 instance=ExtResource("5_h561l")]
-position = Vector2(566, 248)
+position = Vector2(1465.5394, 323)
 scale = Vector2(0.3164233, 0.35585502)
+limite_der = 1091.0
+limite_arriba = 1742.0
 limite_abajo = 630.0
 
 [node name="Tomate" parent="." unique_id=2089289063 instance=ExtResource("6_jqnxx")]
-position = Vector2(388.46155, 256)
+position = Vector2(1288.001, 331)
 scale = Vector2(3.2775996, 4.1541266)
+limite_izq = 1091.0
+limite_der = 1742.0
 posicion_final = Vector2(550, 680)
 
 [node name="DrawManager" type="Node" parent="." unique_id=486436348]
 script = ExtResource("1_r5ydy")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=2060014531]
+position = Vector2(487.00073, 246)
+scale = Vector2(0.80339783, 1.2278367)
 
 [node name="LabelEstado" type="Label" parent="." unique_id=71653673]
 layout_mode = 0
@@ -78,7 +91,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1808495487]
-position = Vector2(919.23083, 331)
+position = Vector2(1904.0015, 531)
 scale = Vector2(2.9673996, 32.8242)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=284189482]
@@ -106,3 +119,14 @@ scale = Vector2(2.9673996, 45.46348)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=305020257]
 shape = SubResource("RectangleShape2D_jqnxx")
+
+[node name="Botoncompra" type="Button" parent="." unique_id=644952575]
+layout_mode = 0
+offset_left = 1.0000008
+offset_top = 840.0
+offset_right = 309.0
+offset_bottom = 1148.0
+icon = ExtResource("9_h561l")
+flat = true
+
+[connection signal="pressed" from="Botoncompra" to="." method="_on_botoncompra_pressed"]

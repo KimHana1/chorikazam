@@ -2,7 +2,8 @@ extends Node
 
 @onready var line: Line2D = $"../Line2D"
 
-var puntos: Array[Vector2] = []
+var puntos_linea: Array[Vector2] = []
+var puntos_mundo: Array[Vector2] = []
 var dibujando: bool = false
 
 func _input(event):
@@ -13,19 +14,22 @@ func _input(event):
 			finalizar_dibujo()
 
 	if event is InputEventMouseMotion and dibujando:
-		agregar_punto(event.position)
+		agregar_punto_mouse()
 
 func iniciar_dibujo():
-	puntos.clear()
+	puntos_linea.clear()
+	puntos_mundo.clear()
 	line.clear_points()
 	line.modulate = Color.WHITE
 	line.modulate.a = 1.0
 	dibujando = true
 
+	agregar_punto_mouse()
+
 func finalizar_dibujo():
 	dibujando = false
 
-	var hechizo = detectar_hechizo(puntos)
+	var hechizo = detectar_hechizo(puntos_linea)
 	var paso = convertir_hechizo_a_paso(hechizo)
 
 	if paso == "error":
@@ -52,18 +56,22 @@ func finalizar_dibujo():
 		print("No tocaste ningun ingrediente")
 		desvanecer(false)
 
-func agregar_punto(pos: Vector2):
-	if puntos.is_empty() or puntos[-1].distance_to(pos) > 6:
-		puntos.append(pos)
-		line.add_point(pos)
+func agregar_punto_mouse():
+	var mouse_mundo = get_viewport().get_camera_2d().get_global_mouse_position() if get_viewport().get_camera_2d() != null else get_viewport().get_mouse_position()
+	var mouse_linea = line.to_local(mouse_mundo)
+
+	if puntos_linea.is_empty() or puntos_linea[-1].distance_to(mouse_linea) > 6:
+		puntos_linea.append(mouse_linea)
+		puntos_mundo.append(mouse_mundo)
+		line.add_point(mouse_linea)
 
 func detectar_ingrediente():
-	if puntos.is_empty():
+	if puntos_mundo.is_empty():
 		return null
 
 	var espacio = get_viewport().world_2d.direct_space_state
 
-	for punto in puntos:
+	for punto in puntos_mundo:
 		var query = PhysicsPointQueryParameters2D.new()
 		query.position = punto
 		query.collide_with_areas = true
@@ -162,7 +170,6 @@ func obtener_rango_x(p: Array) -> float:
 	for punto in p:
 		if punto.x < min_x:
 			min_x = punto.x
-
 		if punto.x > max_x:
 			max_x = punto.x
 
@@ -175,7 +182,6 @@ func obtener_rango_y(p: Array) -> float:
 	for punto in p:
 		if punto.y < min_y:
 			min_y = punto.y
-
 		if punto.y > max_y:
 			max_y = punto.y
 

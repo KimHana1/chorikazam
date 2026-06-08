@@ -39,8 +39,8 @@ Button/fonts/font = ExtResource("4_vo5fx")
 Button/icons/icon = SubResource("ViewportTexture_l2mks")
 
 [node name="Cliente" type="CharacterBody2D" unique_id=1181098271]
-position = Vector2(187, 293)
-scale = Vector2(0.6, 0.6)
+position = Vector2(306.00003, 369)
+scale = Vector2(0.9999992, 1.0000004)
 script = ExtResource("1_ov8ef")
 metadata/_edit_vertical_guides_ = [201.0]
 metadata/_edit_horizontal_guides_ = [197.0, 397.0, 218.0]

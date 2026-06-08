@@ -1,5 +1,6 @@
 extends Control
 
+var escena_comercio = "res://Comercio/comer/EscenasComercio/Comercio.tscn"
 var pasos_completados = {}
 var listo_para_entregar: bool = false
 
@@ -196,3 +197,7 @@ func marcar_ingrediente_incorrecto(nombre_ingrediente: String):
 
 func _on_mouse_entered() -> void:
 	pass # Replace with function body.
+
+
+func _on_botoncompra_pressed() -> void:
+	get_tree().change_scene_to_file(escena_comercio)

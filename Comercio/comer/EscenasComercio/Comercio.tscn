@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dj8na0g1eg5at" path="res://Comercio/comer/AssetsComercio/papel fondo.png" id="26_8vhwn"]
 [ext_resource type="Script" uid="uid://dww730ydf8720" path="res://Comercio/comer/EscenasComercio/boton_descuento.gd" id="27_lj3h8"]
 [ext_resource type="Texture2D" uid="uid://bnk3bjqh03dgh" path="res://Comercio/comer/AssetsComercio/FONDO COMERCIO.png" id="27_whchm"]
+[ext_resource type="Texture2D" uid="uid://ccv2eh1mh5nq3" path="res://Sprites/botones/Volver.png" id="29_hg2im"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_38ijt"]
 radius = 14.0
@@ -346,3 +347,11 @@ texture = ExtResource("25_icino")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ingredientes/BotonDescuento" unique_id=1074277301]
 shape = SubResource("RectangleShape2D_leto1")
+
+[node name="BotonVolver" type="Button" parent="." unique_id=39162685]
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("29_hg2im")
+flat = true
+
+[connection signal="pressed" from="BotonVolver" to="MiniJuegoComercio" method="_on_boton_volver_pressed"]

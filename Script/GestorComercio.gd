@@ -1,5 +1,7 @@
 extends Node
 
+var volver_a_cocina = "res://Escenas/cocina.tscn"
+
 @export var precio_carne := 30.0
 @export var precio_chorizo := 20.0
 @export var precio_pan := 15.0
@@ -38,6 +40,7 @@ var carrito: Dictionary = {
 var precios: Dictionary = {}
 
 func _ready():
+
 	precios = {
 		"carne": precio_carne,
 		"chorizo": precio_chorizo,
@@ -56,6 +59,7 @@ func _process(delta):
 	actualizar_cooldown(delta)
 
 func _input(event):
+
 	if not flecha.activa:
 		return
 
@@ -63,6 +67,7 @@ func _input(event):
 		procesar_click()
 
 func iniciar_comercio():
+
 	if cooldown_activo:
 		print("Comercio en cooldown")
 		return
@@ -70,7 +75,11 @@ func iniciar_comercio():
 	var costo := 0.0
 
 	if not primer_comercio:
-		costo = costo_base_comercio * pow(multiplicador_costo_comercio, usos_comercio)
+
+		costo = costo_base_comercio * pow(
+			multiplicador_costo_comercio,
+			usos_comercio
+		)
 
 		if not Global.tiene_monedas_jugador(costo):
 			print("No hay monedas para iniciar comercio")
@@ -92,6 +101,7 @@ func iniciar_comercio():
 	actualizar_ui()
 
 func procesar_click():
+
 	var objetivo = flecha.obtener_objetivo()
 
 	if objetivo == null:
@@ -100,24 +110,31 @@ func procesar_click():
 		return
 
 	if not "tipo_boton" in objetivo:
-		print("El objetivo no es boton de comercio: ", objetivo.name)
+		print("El objetivo no es boton de comercio")
 		registrar_fallo_click()
 		actualizar_ui()
 		return
 
 	match objetivo.tipo_boton:
+
 		objetivo.TipoBoton.CARNE:
 			agregar_item("carne")
+
 		objetivo.TipoBoton.SALCHICHA:
 			agregar_item("chorizo")
+
 		objetivo.TipoBoton.PAN:
 			agregar_item("pan")
+
 		objetivo.TipoBoton.PAPA:
 			agregar_item("papa")
+
 		objetivo.TipoBoton.TOMATE:
 			agregar_item("tomate")
+
 		objetivo.TipoBoton.DESCUENTO:
 			aplicar_descuento()
+
 		objetivo.TipoBoton.TRATO:
 			confirmar_compra()
 
@@ -130,6 +147,7 @@ func procesar_click():
 	actualizar_ui()
 
 func agregar_item(nombre_item: String):
+
 	if not precios.has(nombre_item):
 		print("No existe precio para: ", nombre_item)
 		return
@@ -143,13 +161,16 @@ func agregar_item(nombre_item: String):
 	carrito[nombre_item] += 1
 	total_actual += precio_final
 
-	print("Agregado: ", nombre_item, " Total: ", total_actual)
+	print("Agregado: ", nombre_item)
 
 func aplicar_descuento():
+
 	total_actual *= 1.0 - porcentaje_descuento / 100.0
-	print("Descuento aplicado. Total: ", total_actual)
+
+	print("Descuento aplicado")
 
 func confirmar_compra():
+
 	if total_actual <= 0:
 		print("Carrito vacio")
 		return
@@ -162,33 +183,46 @@ func confirmar_compra():
 	Global.agregar_monedas_vendedor(total_actual)
 
 	for item in carrito.keys():
+
 		if carrito[item] > 0:
-			Global.agregar_ingrediente(item, carrito[item])
+			Global.agregar_ingrediente(
+				item,
+				carrito[item]
+			)
 
 	limpiar_carrito()
 
 	flecha.desactivar()
 	actualizar_ui()
 
-	if ui_inventario_global != null and ui_inventario_global.has_method("actualizar_inventario"):
-		ui_inventario_global.actualizar_inventario()
+	if ui_inventario_global != null:
+
+		if ui_inventario_global.has_method(
+			"actualizar_inventario"
+		):
+
+			ui_inventario_global.actualizar_inventario()
 
 func limpiar_carrito():
+
 	total_actual = 0.0
 
 	for key in carrito.keys():
 		carrito[key] = 0
 
 func registrar_fallo_click():
+
 	cantidad_fallos_click += 1
+
 	flecha.velocidad *= 1.36
 
 	if cantidad_fallos_click >= 3:
 		multiplicador_precios += aumento_fallo_click / 100.0
 
-	print("Fallo click. Fallos: ", cantidad_fallos_click)
+	print("Fallo click")
 
 func actualizar_cooldown(delta):
+
 	if not cooldown_activo:
 		return
 
@@ -198,6 +232,7 @@ func actualizar_cooldown(delta):
 		ui.actualizar_cooldown(cooldown)
 
 	if cooldown <= 0:
+
 		cooldown_activo = false
 		cooldown = 0
 
@@ -205,7 +240,9 @@ func actualizar_cooldown(delta):
 			ui.limpiar_cooldown()
 
 func actualizar_ui():
+
 	if ui.has_method("actualizar_datos"):
+
 		ui.actualizar_datos(
 			Global.monedas_jugador,
 			Global.monedas_vendedor,
@@ -214,3 +251,11 @@ func actualizar_ui():
 
 	if ui.has_method("actualizar_carrito"):
 		ui.actualizar_carrito(carrito)
+
+func _on_boton_volver_pressed() -> void:
+
+	print("Volviendo a cocina")
+
+	get_tree().change_scene_to_file(
+		volver_a_cocina
+	)
