@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bjahk0e8c34q7"]
+
+[ext_resource type="Texture2D" uid="uid://ektwy5dp3ppi" path="res://Comercio/comer/AssetsComercio/moneda.png" id="1_ptyle"]
+[ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="3_sncc4"]
+
+[node name="PanelContainer" type="PanelContainer" unique_id=838206148 groups=["ingrediente_global"]]
+offset_left = 862.0
+offset_top = 140.0
+offset_right = 1062.0
+offset_bottom = 190.0
+scale = Vector2(2.2582967, 2.221293)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=353890108]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1742650605]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("1_ptyle")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1944336993]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/paragraph_spacing = 4
+theme_override_constants/outline_size = 41
+theme_override_fonts/font = ExtResource("3_sncc4")
+theme_override_font_sizes/font_size = 60
+text = "100"
