@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ldesc7fy78pa"]
 
-[ext_resource type="PackedScene" uid="uid://e7xc1xcaym4m" path="res://Escenas/ui_ingrediente_inventario.tscn" id="1_migqq"]
+[ext_resource type="PackedScene" uid="uid://e7xc1xcaym4m" path="res://Comercio/comer/EscenasComercio/ui_ingrediente_inventario.tscn" id="1_migqq"]
 [ext_resource type="Script" uid="uid://c6dkwhihnb2p8" path="res://Script/escena_principal.gd" id="1_yg8mm"]
 [ext_resource type="Texture2D" uid="uid://dvyjwqpp74ehv" path="res://Sprites/ingredientes/pan.png" id="3_yg8mm"]
 [ext_resource type="Texture2D" uid="uid://dmopfrmf6phov" path="res://Sprites/ingredientes/papa.png" id="4_2s3y2"]
@@ -19,7 +19,6 @@ script = ExtResource("1_yg8mm")
 
 [node name="UI Pan2" parent="." unique_id=991094107 groups=["ingrediente_global"] instance=ExtResource("1_migqq")]
 layout_mode = 2
-ingrediente_stringname = "carne"
 
 [node name="MarginContainer" parent="UI Pan2" index="0" unique_id=352211584]
 material = SubResource("CanvasItemMaterial_yg8mm")
@@ -32,7 +31,6 @@ text = "1"
 
 [node name="UI Pan" parent="." unique_id=1690099950 groups=["ingrediente_global"] instance=ExtResource("1_migqq")]
 layout_mode = 2
-ingrediente_stringname = "pan"
 
 [node name="TextureRect" parent="UI Pan/MarginContainer" parent_id_path=PackedInt32Array(1690099950, 352211584) index="0" unique_id=1733661662]
 texture = ExtResource("3_yg8mm")
@@ -42,7 +40,6 @@ text = "1"
 
 [node name="UI Chorizo" parent="." unique_id=756679913 groups=["ingrediente_global"] instance=ExtResource("1_migqq")]
 layout_mode = 2
-ingrediente_stringname = "chorizo"
 
 [node name="Label" parent="UI Chorizo/MarginContainer" parent_id_path=PackedInt32Array(756679913, 352211584) index="1" unique_id=614238358]
 text = "1
@@ -50,7 +47,6 @@ text = "1
 
 [node name="UI Pan3" parent="." unique_id=42190810 groups=["ingrediente_global"] instance=ExtResource("1_migqq")]
 layout_mode = 2
-ingrediente_stringname = "papa"
 
 [node name="TextureRect" parent="UI Pan3/MarginContainer" parent_id_path=PackedInt32Array(42190810, 352211584) index="0" unique_id=1733661662]
 texture = ExtResource("4_2s3y2")
@@ -61,7 +57,6 @@ text = "1"
 
 [node name="UI Pan4" parent="." unique_id=1445486424 groups=["ingrediente_global"] instance=ExtResource("1_migqq")]
 layout_mode = 2
-ingrediente_stringname = "tomate"
 
 [node name="TextureRect" parent="UI Pan4/MarginContainer" parent_id_path=PackedInt32Array(1445486424, 352211584) index="0" unique_id=1733661662]
 texture = ExtResource("6_s7vg2")

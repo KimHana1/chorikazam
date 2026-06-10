@@ -1,4 +1,4 @@
-extends Node2D
+extends PanelContainer
 
 @onready var sprite = $Sprite2D if has_node("Sprite2D") else null
 

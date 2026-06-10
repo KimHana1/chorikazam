@@ -27,6 +27,10 @@ window/size/viewport_height=1080
 window/size/mode=2
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+ingrediente_global=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
