@@ -18,7 +18,7 @@ config/icon="res://Sprites/icon.svg"
 [autoload]
 
 PedidoManager="*uid://danhfqfuljsa8"
-Global="*uid://po1tpi6f0cvj"
+Global="*uid://dqm3lma626gqc"
 
 [display]
 

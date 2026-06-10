@@ -1,4 +1,4 @@
-extends Label
+extends PanelContainer
 
 @onready var label = $MarginContainer/Label
 

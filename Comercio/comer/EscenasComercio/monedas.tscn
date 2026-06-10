@@ -26,7 +26,7 @@ texture = ExtResource("1_ptyle")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="MarginContainer" unique_id=1944336993 groups=["ingrediente_global"]]
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1944336993]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -35,4 +35,3 @@ theme_override_constants/outline_size = 41
 theme_override_fonts/font = ExtResource("3_sncc4")
 theme_override_font_sizes/font_size = 60
 text = "100"
-script = ExtResource("1_oyl53")
