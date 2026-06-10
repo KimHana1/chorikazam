@@ -1,15 +1,14 @@
-extends Control
+extends PanelContainer
 
-@export var nombre_ingrediente: String = ""
+@export var ingrediente_stringname : String
 
-@onready var label_cantidad = $LabelCantidad if has_node("LabelCantidad") else null
+@onready var label = $MarginContainer/Label
+
 
 func _ready():
-	actualizar()
+	actualizar_info()
 
-func actualizar():
-	if label_cantidad == null:
-		return
-
-	var cantidad = Global.cantidad_ingrediente(nombre_ingrediente)
-	label_cantidad.text = str(cantidad)
+func actualizar_info() -> void:
+	if Global.ingredientes.has(ingrediente_stringname):
+		label.text = " x"+ str( Global.ingredientes[ingrediente_stringname] )
+	else: print("No existe el elemento: " + str(ingrediente_stringname))

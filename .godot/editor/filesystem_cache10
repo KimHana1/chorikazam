@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1781123176
+::res://::1781124098
 area_2d.gd::GDScript::2816240483272240737::1780422600::0::1::::<>Area2D<><>0<>0<><>::
 baking-or-cooking-background-with-kitchen-utensils-flour-eggs-and-brown-apron-watercolor-illustration-vector.jpg::CompressedTexture2D::6462931449591271993::1780422600::1780588331::1::::<><><>0<>0<>8216661c14e7af89e0c16721dda65d13<>res://.godot/imported/baking-or-cooking-background-with-kitchen-utensils-flour-eggs-and-brown-apron-watercolor-illustration-vector.jpg-a5969183d4715d1c696632a17ea8207d.ctex::
 boton.tres::Theme::2183102231159055687::1780422600::0::1::::<><><>0<>0<><>::
@@ -11,56 +11,56 @@ hechizos.tscn::PackedScene::7075732245945593683::1780982525::0::1::::<><><>0<>0<
 icon.svg::CompressedTexture2D::5449552026346764089::1780982525::1780982525::0::::<><><>0<>0<>b119d049c4dfdc15ac28960ced2baed3<>::
 Texto.png::CompressedTexture2D::1899949173714897013::1780422600::1780588330::1::::<><><>0<>0<>39ca5110a9f75c550de85470b25af4cb<>res://.godot/imported/Texto.png-05f74851aec5c381e0abd09f6712f77e.ctex::
 tomate.tscn::PackedScene::1764177296986227950::1780422600::0::1::::<><><>0<>0<><>::uid://bgehcmd3ia4fd::::res://area_2d.gd<>uid://cj5kfv0d3030t::::res://Sprites/ingredientes/tomate.png
-::res://Autoload/::1781123122
-Global.gd::GDScript::1083347316648296659::1780982525::0::1::::<>Node<><>0<>0<><>::
+::res://Autoload/::1781123985
+Global.gd::GDScript::6613862344635458004::1780982525::0::1::::<>Node<><>0<>0<><>::
 pedido_manager.gd::GDScript::7186533758822377121::1780422599::0::1::::<>Node<><>0<>0<><>::
-::res://Comercio/::1781123122
-::res://Comercio/comer/::1781123122
-::res://Comercio/comer/AssetsComercio/::1781123122
-Barra de fondo.png::CompressedTexture2D::7943764747473431806::1781123122::1781123122::1::::<><><>0<>0<>8e0f1c946af0538ca7b4c8a52517dccd<>res://.godot/imported/Barra de fondo.png-2604c7c13b7e4dcfe98bfe556919dc2e.ctex::
-BotonCarne.png::CompressedTexture2D::2915358721037447490::1781123122::1781123122::1::::<><><>0<>0<>a945a108d04be7427b27a69b98ad93e7<>res://.godot/imported/BotonCarne.png-cfb2f34152af9cb5a3063d22fa7379ea.ctex::
-BotonChorizo.png::CompressedTexture2D::3950622664988094623::1781123122::1781123122::1::::<><><>0<>0<>97bee4fbc0a56a3337edc5147ea6e7f3<>res://.godot/imported/BotonChorizo.png-b21cb8a780c6723f2f589ef369439a9a.ctex::
-BotonComerciar.png::CompressedTexture2D::1734901317426291763::1781123122::1781123122::1::::<><><>0<>0<>78dd75cae7baf1ba5cd37858f74be9c0<>res://.godot/imported/BotonComerciar.png-84327e4c4166d3418ca448922a1610ab.ctex::
-BotonDescuento.png::CompressedTexture2D::7477207979914553830::1781123122::1781123122::1::::<><><>0<>0<>1a4fe565518cc5f09930338e98ef9957<>res://.godot/imported/BotonDescuento.png-3fdd1983c2340c05f514e5a67387a434.ctex::
-BotonPan.png::CompressedTexture2D::4998588516038198319::1781123122::1781123122::1::::<><><>0<>0<>acb58b45a6ee748a75f755818a0634e3<>res://.godot/imported/BotonPan.png-a255bc996273c7a4122edb87941cf370.ctex::
-BotonPapa.png::CompressedTexture2D::7383337864577559309::1781123122::1781123122::1::::<><><>0<>0<>bff0138a8640ff04bc346fa5273a6757<>res://.godot/imported/BotonPapa.png-4bc0a85070e2aed74f6ece149d077f60.ctex::
-BotonTomate.png::CompressedTexture2D::7288802951995802275::1781123122::1781123122::1::::<><><>0<>0<>35a58147b0ee4ea10ecc74523315e9d8<>res://.godot/imported/BotonTomate.png-c3f1bccb36aecb849189010308f96310.ctex::
-BotonTrato der.png::CompressedTexture2D::3217409069211480402::1781123122::1781123122::1::::<><><>0<>0<>325b4de36a65f85b7040a567fd9fb14c<>res://.godot/imported/BotonTrato der.png-570dd45ed3fd9c1833a3ffb8a5e44c1c.ctex::
-BotonTrato izq.png::CompressedTexture2D::5504896982290469500::1781123122::1781123122::1::::<><><>0<>0<>1bd6903205d4541d4524077dcc233388<>res://.godot/imported/BotonTrato izq.png-5a8c4cb554579831501cc1e2d8e72f3e.ctex::
-Flecha_03_03.png::CompressedTexture2D::2610562958475222730::1781123122::1781123122::1::::<><><>0<>0<>c91c0f61a641b9cb0c14a81c93357c94<>res://.godot/imported/Flecha_03_03.png-638195d5ab54b2bb14e79cd010a1cc91.ctex::
-FONDO COMERCIO.png::CompressedTexture2D::3321221787899068207::1781123122::1781123122::1::::<><><>0<>0<>ef9e4a6959ad87ffc7504860a81e4b60<>res://.godot/imported/FONDO COMERCIO.png-4e45c938c288579ece1159e05722ff0b.ctex::
-moneda.png::CompressedTexture2D::302593369483203442::1781123122::1781123122::1::::<><><>0<>0<>7dc8ef8e7aae6b603b6e7b1906c3f2c3<>res://.godot/imported/moneda.png-cb4745a199342fdf4404faffe64de87b.ctex::
-papel fondo.png::CompressedTexture2D::7859876754151048251::1781123122::1781123122::1::::<><><>0<>0<>9f3119491068278f9e9f8241b5c74452<>res://.godot/imported/papel fondo.png-55ccdace22e5d5eef7c6aa4471dec818.ctex::
-::res://Comercio/comer/EscenasComercio/::1781123122
-boton_carne.gd::GDScript::9193446202178651584::1781123122::0::1::::<>Area2D<><>0<>0<><>::
-boton_descuento.gd::GDScript::8750827218006577127::1781123122::0::1::::<>Area2D<><>0<>0<><>::
-boton_pan.gd::GDScript::4743465521408238246::1781123122::0::1::::<>Area2D<><>0<>0<><>::
-boton_papa.gd::GDScript::8214056012914075022::1781123122::0::1::::<>Area2D<><>0<>0<><>::
-boton_salchicha.gd::GDScript::3250411839179365193::1781123122::0::1::::<>Area2D<><>0<>0<><>::
-boton_tomate.gd::GDScript::6361142794997776474::1781123122::0::1::::<>Area2D<><>0<>0<><>::
-Comercio.tscn::PackedScene::3192844920226177691::1781123122::0::1::::<><><>0<>0<><>::uid://ldesc7fy78pa::::res://Comercio/comer/EscenasComercio/InventarioGlobal.tscn<>uid://bjahk0e8c34q7::::res://Comercio/comer/EscenasComercio/monedas.tscn<>uid://cvtvdo63f1fs8::::res://Script/GestorComercio.gd<>uid://yyntolpso6w2::::res://Comercio/comer/AssetsComercio/BotonComerciar.png<>uid://dd1yfslymdbkx::::res://Script/boton_comercio.gd<>uid://8vj4uk1fky3d::::res://Script/barra_comercio.gd<>uid://dlgav6m6hbkdy::::res://Comercio/comer/AssetsComercio/Barra de fondo.png<>uid://ciwyqtx17b30f::::res://Script/flecha.gd<>uid://bdgtucvysxdmo::::res://Comercio/comer/AssetsComercio/Flecha_03_03.png<>uid://do37hxrc3c1::::res://Script/boton_izq.gd<>uid://ckou34p80li17::::res://Comercio/comer/AssetsComercio/BotonTrato izq.png<>uid://cef2mhc1humqd::::res://Script/boton_der.gd<>uid://bl3si0o7ajjv3::::res://Comercio/comer/AssetsComercio/BotonTrato der.png<>uid://bf8ma2egpdiqf::::res://Comercio/comer/EscenasComercio/ingredientes.gd<>uid://bhshsdhpaeryo::::res://Comercio/comer/AssetsComercio/BotonCarne.png<>uid://bwjygb5ak2j5h::::res://Comercio/comer/AssetsComercio/BotonChorizo.png<>uid://d38mylov85p8c::::res://Comercio/comer/EscenasComercio/boton_carne.gd<>uid://bmkr2qftl6ad2::::res://Comercio/comer/EscenasComercio/boton_salchicha.gd<>uid://cdhma1csx0mtb::::res://Comercio/comer/AssetsComercio/BotonPan.png<>uid://ddgsq4ji7wscr::::res://Comercio/comer/AssetsComercio/BotonPapa.png<>uid://b8t1gi3g7wjek::::res://Comercio/comer/EscenasComercio/boton_pan.gd<>uid://db30rw100884n::::res://Comercio/comer/AssetsComercio/BotonTomate.png<>uid://dpa7kjvi6timo::::res://Comercio/comer/EscenasComercio/boton_papa.gd<>uid://cwvnde5ak1ijy::::res://Comercio/comer/EscenasComercio/boton_tomate.gd<>uid://desar1t2vltny::::res://Comercio/comer/AssetsComercio/BotonDescuento.png<>uid://dj8na0g1eg5at::::res://Comercio/comer/AssetsComercio/papel fondo.png<>uid://dww730ydf8720::::res://Comercio/comer/EscenasComercio/boton_descuento.gd<>uid://bnk3bjqh03dgh::::res://Comercio/comer/AssetsComercio/FONDO COMERCIO.png<>uid://ccv2eh1mh5nq3::::res://Sprites/botones/Volver.png
-ingredientes.gd::GDScript::2806219396282889997::1781123122::0::1::::<>Node2D<><>0<>0<><>::
-InventarioGlobal.tscn::PackedScene::778545580282876706::1781123122::0::1::::<><><>0<>0<><>::uid://e7xc1xcaym4m::::res://Escenas/ui_ingrediente_inventario.tscn<>uid://c6dkwhihnb2p8::::res://Script/escena_principal.gd<>uid://dvyjwqpp74ehv::::res://Sprites/ingredientes/pan.png<>uid://dmopfrmf6phov::::res://Sprites/ingredientes/papa.png<>uid://bjv6tmtjmv0oa::::res://Sprites/ingredientes/carne.png<>uid://cj5kfv0d3030t::::res://Sprites/ingredientes/tomate.png
-monedas.tscn::PackedScene::3018564474089954260::1781123122::0::1::::<><><>0<>0<><>::uid://ektwy5dp3ppi::::res://Comercio/comer/AssetsComercio/moneda.png<>uid://dudv2hdvdaykx::::res://fuente/Vanilla Caramel.otf
-ui_ingrediente_inventario.gd::GDScript::5093905147746363123::1781123122::0::1::::<>PanelContainer<><>0<>0<><>::
-ui_ingrediente_inventario.tscn::PackedScene::348216926332915158::1781123122::0::1::::<><><>0<>0<><>::uid://cetr4x3gmketn::::res://Comercio/comer/EscenasComercio/ui_ingrediente_inventario.gd<>uid://dhw0d0jw1x6ks::::res://Sprites/ingredientes/chorizo.png<>uid://dudv2hdvdaykx::::res://fuente/Vanilla Caramel.otf
-::res://Escenas/::1781123122
+::res://Comercio/::1781123985
+::res://Comercio/comer/::1781123985
+::res://Comercio/comer/AssetsComercio/::1781123985
+Barra de fondo.png::CompressedTexture2D::7943764747473431806::1781123985::1781123985::1::::<><><>0<>0<>8e0f1c946af0538ca7b4c8a52517dccd<>res://.godot/imported/Barra de fondo.png-2604c7c13b7e4dcfe98bfe556919dc2e.ctex::
+BotonCarne.png::CompressedTexture2D::2915358721037447490::1781123985::1781123985::1::::<><><>0<>0<>a945a108d04be7427b27a69b98ad93e7<>res://.godot/imported/BotonCarne.png-cfb2f34152af9cb5a3063d22fa7379ea.ctex::
+BotonChorizo.png::CompressedTexture2D::3950622664988094623::1781123985::1781123985::1::::<><><>0<>0<>97bee4fbc0a56a3337edc5147ea6e7f3<>res://.godot/imported/BotonChorizo.png-b21cb8a780c6723f2f589ef369439a9a.ctex::
+BotonComerciar.png::CompressedTexture2D::1734901317426291763::1781123985::1781123985::1::::<><><>0<>0<>78dd75cae7baf1ba5cd37858f74be9c0<>res://.godot/imported/BotonComerciar.png-84327e4c4166d3418ca448922a1610ab.ctex::
+BotonDescuento.png::CompressedTexture2D::7477207979914553830::1781123985::1781123985::1::::<><><>0<>0<>1a4fe565518cc5f09930338e98ef9957<>res://.godot/imported/BotonDescuento.png-3fdd1983c2340c05f514e5a67387a434.ctex::
+BotonPan.png::CompressedTexture2D::4998588516038198319::1781123985::1781123985::1::::<><><>0<>0<>acb58b45a6ee748a75f755818a0634e3<>res://.godot/imported/BotonPan.png-a255bc996273c7a4122edb87941cf370.ctex::
+BotonPapa.png::CompressedTexture2D::7383337864577559309::1781123985::1781123985::1::::<><><>0<>0<>bff0138a8640ff04bc346fa5273a6757<>res://.godot/imported/BotonPapa.png-4bc0a85070e2aed74f6ece149d077f60.ctex::
+BotonTomate.png::CompressedTexture2D::7288802951995802275::1781123985::1781123985::1::::<><><>0<>0<>35a58147b0ee4ea10ecc74523315e9d8<>res://.godot/imported/BotonTomate.png-c3f1bccb36aecb849189010308f96310.ctex::
+BotonTrato der.png::CompressedTexture2D::3217409069211480402::1781123985::1781123985::1::::<><><>0<>0<>325b4de36a65f85b7040a567fd9fb14c<>res://.godot/imported/BotonTrato der.png-570dd45ed3fd9c1833a3ffb8a5e44c1c.ctex::
+BotonTrato izq.png::CompressedTexture2D::5504896982290469500::1781123985::1781123985::1::::<><><>0<>0<>1bd6903205d4541d4524077dcc233388<>res://.godot/imported/BotonTrato izq.png-5a8c4cb554579831501cc1e2d8e72f3e.ctex::
+Flecha_03_03.png::CompressedTexture2D::2610562958475222730::1781123985::1781123985::1::::<><><>0<>0<>c91c0f61a641b9cb0c14a81c93357c94<>res://.godot/imported/Flecha_03_03.png-638195d5ab54b2bb14e79cd010a1cc91.ctex::
+FONDO COMERCIO.png::CompressedTexture2D::3321221787899068207::1781123985::1781123985::1::::<><><>0<>0<>ef9e4a6959ad87ffc7504860a81e4b60<>res://.godot/imported/FONDO COMERCIO.png-4e45c938c288579ece1159e05722ff0b.ctex::
+moneda.png::CompressedTexture2D::302593369483203442::1781123985::1781123985::1::::<><><>0<>0<>7dc8ef8e7aae6b603b6e7b1906c3f2c3<>res://.godot/imported/moneda.png-cb4745a199342fdf4404faffe64de87b.ctex::
+papel fondo.png::CompressedTexture2D::7859876754151048251::1781123985::1781123985::1::::<><><>0<>0<>9f3119491068278f9e9f8241b5c74452<>res://.godot/imported/papel fondo.png-55ccdace22e5d5eef7c6aa4471dec818.ctex::
+::res://Comercio/comer/EscenasComercio/::1781123985
+boton_carne.gd::GDScript::9193446202178651584::1781123985::0::1::::<>Area2D<><>0<>0<><>::
+boton_descuento.gd::GDScript::8750827218006577127::1781123985::0::1::::<>Area2D<><>0<>0<><>::
+boton_pan.gd::GDScript::4743465521408238246::1781123985::0::1::::<>Area2D<><>0<>0<><>::
+boton_papa.gd::GDScript::8214056012914075022::1781123985::0::1::::<>Area2D<><>0<>0<><>::
+boton_salchicha.gd::GDScript::3250411839179365193::1781123985::0::1::::<>Area2D<><>0<>0<><>::
+boton_tomate.gd::GDScript::6361142794997776474::1781123985::0::1::::<>Area2D<><>0<>0<><>::
+Comercio.tscn::PackedScene::3192844920226177691::1781123985::0::1::::<><><>0<>0<><>::uid://ldesc7fy78pa::::res://Comercio/comer/EscenasComercio/InventarioGlobal.tscn<>uid://bjahk0e8c34q7::::res://Comercio/comer/EscenasComercio/monedas.tscn<>uid://cvtvdo63f1fs8::::res://Script/GestorComercio.gd<>uid://yyntolpso6w2::::res://Comercio/comer/AssetsComercio/BotonComerciar.png<>uid://dd1yfslymdbkx::::res://Script/boton_comercio.gd<>uid://clh8wcksjognc::::res://Script/ui.gd<>uid://b6gbb81ounfsc::::res://Script/que_voy_a_comprar.gd<>uid://8vj4uk1fky3d::::res://Script/barra_comercio.gd<>uid://dlgav6m6hbkdy::::res://Comercio/comer/AssetsComercio/Barra de fondo.png<>uid://ciwyqtx17b30f::::res://Script/flecha.gd<>uid://bdgtucvysxdmo::::res://Comercio/comer/AssetsComercio/Flecha_03_03.png<>uid://do37hxrc3c1::::res://Script/boton_izq.gd<>uid://ckou34p80li17::::res://Comercio/comer/AssetsComercio/BotonTrato izq.png<>uid://cef2mhc1humqd::::res://Script/boton_der.gd<>uid://bl3si0o7ajjv3::::res://Comercio/comer/AssetsComercio/BotonTrato der.png<>uid://bf8ma2egpdiqf::::res://Comercio/comer/EscenasComercio/ingredientes.gd<>uid://bhshsdhpaeryo::::res://Comercio/comer/AssetsComercio/BotonCarne.png<>uid://bwjygb5ak2j5h::::res://Comercio/comer/AssetsComercio/BotonChorizo.png<>uid://d38mylov85p8c::::res://Comercio/comer/EscenasComercio/boton_carne.gd<>uid://bmkr2qftl6ad2::::res://Comercio/comer/EscenasComercio/boton_salchicha.gd<>uid://cdhma1csx0mtb::::res://Comercio/comer/AssetsComercio/BotonPan.png<>uid://ddgsq4ji7wscr::::res://Comercio/comer/AssetsComercio/BotonPapa.png<>uid://b8t1gi3g7wjek::::res://Comercio/comer/EscenasComercio/boton_pan.gd<>uid://db30rw100884n::::res://Comercio/comer/AssetsComercio/BotonTomate.png<>uid://dpa7kjvi6timo::::res://Comercio/comer/EscenasComercio/boton_papa.gd<>uid://cwvnde5ak1ijy::::res://Comercio/comer/EscenasComercio/boton_tomate.gd<>uid://desar1t2vltny::::res://Comercio/comer/AssetsComercio/BotonDescuento.png<>uid://dj8na0g1eg5at::::res://Comercio/comer/AssetsComercio/papel fondo.png<>uid://dww730ydf8720::::res://Comercio/comer/EscenasComercio/boton_descuento.gd<>uid://bnk3bjqh03dgh::::res://Comercio/comer/AssetsComercio/FONDO COMERCIO.png<>uid://ccv2eh1mh5nq3::::res://Sprites/botones/Volver.png
+ingredientes.gd::GDScript::2806219396282889997::1781123985::0::1::::<>Node2D<><>0<>0<><>::
+InventarioGlobal.tscn::PackedScene::778545580282876706::1781123985::0::1::::<><><>0<>0<><>::uid://e7xc1xcaym4m::::res://Comercio/comer/EscenasComercio/ui_ingrediente_inventario.tscn<>uid://c6dkwhihnb2p8::::res://Script/escena_principal.gd<>uid://dvyjwqpp74ehv::::res://Sprites/ingredientes/pan.png<>uid://dmopfrmf6phov::::res://Sprites/ingredientes/papa.png<>uid://bjv6tmtjmv0oa::::res://Sprites/ingredientes/carne.png<>uid://cj5kfv0d3030t::::res://Sprites/ingredientes/tomate.png
+monedas.tscn::PackedScene::3018564474089954260::1781123985::0::1::::<><><>0<>0<><>::uid://dpd58yf5j4m8o::::res://Script/monedast.gd<>uid://ektwy5dp3ppi::::res://Comercio/comer/AssetsComercio/moneda.png<>uid://dudv2hdvdaykx::::res://fuente/Vanilla Caramel.otf
+ui_ingrediente_inventario.gd::GDScript::5093905147746363123::1781123985::0::1::::<>PanelContainer<><>0<>0<><>::
+ui_ingrediente_inventario.tscn::PackedScene::348216926332915158::1781123985::0::1::::<><><>0<>0<><>::uid://cetr4x3gmketn::::res://Comercio/comer/EscenasComercio/ui_ingrediente_inventario.gd<>uid://dhw0d0jw1x6ks::::res://Sprites/ingredientes/chorizo.png<>uid://dudv2hdvdaykx::::res://fuente/Vanilla Caramel.otf
+::res://Escenas/::1781123985
 carne.tscn::PackedScene::4667323334441950879::1780422599::0::1::::<><><>0<>0<><>::uid://df3aosyey1xdg::::res://Script/carne.gd<>uid://bjv6tmtjmv0oa::::res://Sprites/ingredientes/carne.png
 chorizo.tscn::PackedScene::5928773163010188136::1780422599::0::1::::<><><>0<>0<><>::uid://vkp5x0a5gn80::::res://Script/chorizo.gd<>uid://dhw0d0jw1x6ks::::res://Sprites/ingredientes/chorizo.png
-cliente.tscn::PackedScene::4990672044038602976::1781123122::0::1::::<><><>0<>0<><>::uid://vud1exdyhmmf::::res://Script/cliente.gd<>uid://b6amdfvgkqsws::::res://fondos con fila.png<>uid://ci6yql7nnvxn7::::res://Sprites/Dialogo/burbujaDialogo.png<>uid://xp5f1cdphr7d::::res://Sprites/cocinaYTicket/mezon.png<>uid://c1dgrcg0mmcth::::res://fuente/Biro_Script_reduced.otf<>uid://dudv2hdvdaykx::::res://fuente/Vanilla Caramel.otf<>uid://e2br7r74m24k::::res://Sprites/botones/Ticket.png<>uid://mtwnf6ie8lit::::res://Sprites/botones/BotonPedido.png<>uid://cweq55ndmew2p::::res://Sprites/botones/BotonCocinar.png
-cocina.tscn::PackedScene::8823915931374732094::1781123122::0::1::::<><><>0<>0<><>::uid://cknrka585n484::::res://Script/draw_manager.gd<>uid://mo2j80exb42o::::res://Script/cocina.gd<>uid://c85nj48xk1u55::::res://Sprites/cocinaYTicket/cocinasinreceta.png<>uid://cqp7a7ejar5no::::res://Escenas/chorizo.tscn<>uid://b6eyitsql3lea::::res://Escenas/papa.tscn<>uid://b7q5eshxv6mah::::res://Escenas/carne.tscn<>uid://co7qus1c8rpcm::::res://Escenas/pan.tscn<>uid://0et0ieu0v3re::::res://tomate.tscn<>uid://bm6rh1l7fubce::::res://Sprites/botones/BotonComprar.png
+cliente.tscn::PackedScene::4990672044038602976::1781123985::0::1::::<><><>0<>0<><>::uid://vud1exdyhmmf::::res://Script/cliente.gd<>uid://b6amdfvgkqsws::::res://fondos con fila.png<>uid://ci6yql7nnvxn7::::res://Sprites/Dialogo/burbujaDialogo.png<>uid://xp5f1cdphr7d::::res://Sprites/cocinaYTicket/mezon.png<>uid://c1dgrcg0mmcth::::res://fuente/Biro_Script_reduced.otf<>uid://dudv2hdvdaykx::::res://fuente/Vanilla Caramel.otf<>uid://e2br7r74m24k::::res://Sprites/botones/Ticket.png<>uid://mtwnf6ie8lit::::res://Sprites/botones/BotonPedido.png<>uid://cweq55ndmew2p::::res://Sprites/botones/BotonCocinar.png
+cocina.tscn::PackedScene::8823915931374732094::1781123985::0::1::::<><><>0<>0<><>::uid://cknrka585n484::::res://Script/draw_manager.gd<>uid://mo2j80exb42o::::res://Script/cocina.gd<>uid://c85nj48xk1u55::::res://Sprites/cocinaYTicket/cocinasinreceta.png<>uid://cqp7a7ejar5no::::res://Escenas/chorizo.tscn<>uid://b6eyitsql3lea::::res://Escenas/papa.tscn<>uid://b7q5eshxv6mah::::res://Escenas/carne.tscn<>uid://co7qus1c8rpcm::::res://Escenas/pan.tscn<>uid://0et0ieu0v3re::::res://tomate.tscn<>uid://bm6rh1l7fubce::::res://Sprites/botones/BotonComprar.png
 control.tscn::PackedScene::4003560017052008035::1780422599::0::1::::<><><>0<>0<><>::uid://bj5s6ogcfp6we::::res://Script/control.gd<>uid://cycxsipt3r1g4::::res://baking-or-cooking-background-with-kitchen-utensils-flour-eggs-and-brown-apron-watercolor-illustration-vector.jpg<>uid://dudv2hdvdaykx::::res://fuente/Vanilla Caramel.otf<>uid://c1dgrcg0mmcth::::res://fuente/Biro_Script_reduced.otf
 pan.tscn::PackedScene::5822553439931802596::1780422599::0::1::::<><><>0<>0<><>::uid://bgtfdd1f73nju::::res://Script/pan.gd<>uid://dvyjwqpp74ehv::::res://Sprites/ingredientes/pan.png
 papa.tscn::PackedScene::4572004868158890436::1780422599::0::1::::<><><>0<>0<><>::uid://cvaqcfcctnrdg::::res://Script/papa.gd<>uid://dmopfrmf6phov::::res://Sprites/ingredientes/papa.png
-ticket.tscn::PackedScene::6436734428654895643::1781123122::0::1::::<><><>0<>0<><>::uid://b4hdh5l2kllpb::::res://Script/ticket.gd<>uid://dca8mdrysgbq4::::res://Sprites/botones/Ticket (1).png
-::res://fuente/::1781123122
+ticket.tscn::PackedScene::6436734428654895643::1781123985::0::1::::<><><>0<>0<><>::uid://b4hdh5l2kllpb::::res://Script/ticket.gd<>uid://dca8mdrysgbq4::::res://Sprites/botones/Ticket (1).png
+::res://fuente/::1781123985
 Biro_Script_reduced.otf::FontFile::6604339211158128469::1780422600::1780588330::1::::<><><>0<>0<>fb5373ffbd021c63231b2e2d46510104<>res://.godot/imported/Biro_Script_reduced.otf-fc9f19ad4833594a1fbe56274226c2c8.fontdata::
 Biro_Script_reduced.ttf::FontFile::7512015511924768998::1780422600::1780588330::1::::<><><>0<>0<>a45b30b7dd3afe0b94354fdf4ba21d97<>res://.godot/imported/Biro_Script_reduced.ttf-7cdd5bf9837e163b0afd25f43d0bc732.fontdata::
 Vanilla Caramel.otf::FontFile::8570555703641703387::1780422600::1780588330::1::::<><><>0<>0<>bda397ee139fc59733114469eb181ea3<>res://.godot/imported/Vanilla Caramel.otf-6a50ba697d112bcc6279980118f9148a.fontdata::
-::res://Script/::1781123159
-barra_comercio.gd::GDScript::2360183080951935611::1781123122::0::1::::<>Control<><>0<>0<><>::
+::res://Script/::1781124079
+barra_comercio.gd::GDScript::2360183080951935611::1781123985::0::1::::<>Control<><>0<>0<><>::
 boton_carne.gd::GDScript::1647097275200806066::1780982525::0::1::::<>Area2D<><>0<>0<><>::
-boton_comercio.gd::GDScript::7424969503914630919::1781123122::0::1::::<>TextureButton<><>0<>0<><>::
+boton_comercio.gd::GDScript::7424969503914630919::1781123985::0::1::::<>TextureButton<><>0<>0<><>::
 boton_der.gd::GDScript::5065579790984719523::1780982525::0::1::::<>Area2D<><>0<>0<><>::
 boton_descuento.gd::GDScript::6964309229460504073::1780982525::0::1::::<>Area2D<><>0<>0<><>::
 boton_izq.gd::GDScript::7094866018925966::1780982525::0::1::::<>Area2D<><>0<>0<><>::
@@ -72,21 +72,21 @@ button.gd::GDScript::4078857871438937226::1780422599::0::1::::<>Button<><>0<>0<>
 carne.gd::GDScript::7568034830208278296::1780422599::0::1::::<>Area2D<><>0<>0<><>::
 chorizo.gd::GDScript::1495575069345427455::1780422599::0::1::::<>Area2D<><>0<>0<><>::
 cliente.gd::GDScript::1515482098892272165::1780422599::0::1::::<>CharacterBody2D<><>0<>0<><>::
-cocina.gd::GDScript::872824615266280400::1781123122::0::1::::<>Control<><>0<>0<><>::
+cocina.gd::GDScript::872824615266280400::1781123985::0::1::::<>Control<><>0<>0<><>::
 control.gd::GDScript::3081200619231941108::1780422599::0::1::::<>Control<><>0<>0<><>::
-draw_manager.gd::GDScript::5502616809269519067::1781123122::0::1::::<>Node<><>0<>0<><>::
+draw_manager.gd::GDScript::5502616809269519067::1781123985::0::1::::<>Node<><>0<>0<><>::
 escena_principal.gd::GDScript::6955535491178335427::1780982525::0::1::::<>GridContainer<><>0<>0<><>::
 escena_trade.gd::GDScript::2479413107366389505::1780982525::0::1::::<>Node<><>0<>0<><>::
-flecha.gd::GDScript::5381255242306960335::1781123122::0::1::::<>Area2D<><>0<>0<><>::
-GestorComercio.gd::GDScript::6287311459837569145::1781123122::0::1::::<>Node<><>0<>0<><>::
-monedast.gd::GDScript::8220169549554493848::1781123122::0::1::::<>Node2D<><>0<>0<><>::
+flecha.gd::GDScript::5381255242306960335::1781123985::0::1::::<>Area2D<><>0<>0<><>::
+GestorComercio.gd::GDScript::6287311459837569145::1781123985::0::1::::<>Node<><>0<>0<><>::
+monedas.gd::GDScript::1066681168769350418::1781123828::0::1::::<>PanelContainer<><>0<>0<><>::
 pan.gd::GDScript::2847086063199999098::1780422599::0::1::::<>Area2D<><>0<>0<><>::
 papa.gd::GDScript::6247782393080106888::1780422599::0::1::::<>Area2D<><>0<>0<><>::
-que_voy_a_comprar.gd::GDScript::4574725379881944546::1781123074::0::1::::<>Control<><>0<>0<><>::
+que_voy_a_comprar.gd::GDScript::4574725379881944546::1781123985::0::1::::<>Control<><>0<>0<><>::
 ticket.gd::GDScript::4436544038944010563::1780422599::0::1::::<>CanvasLayer<><>0<>0<><>::
-ui.gd::GDScript::5561412361235344532::1781123074::0::1::::<>Control<><>0<>0<><>::
-ui_ingrediente_inventario.gd::GDScript::7428508766995784307::1781123122::0::1::::<>Control<><>0<>0<><>::
-::res://Sprites/::1781123122
+ui.gd::GDScript::5561412361235344532::1781123985::0::1::::<>Control<><>0<>0<><>::
+ui_ingrediente_inventario.gd::GDScript::7428508766995784307::1781123828::0::1::::<>PanelContainer<><>0<>0<><>::
+::res://Sprites/::1781123985
 cliente sprite sheet.png::CompressedTexture2D::4807947364154272382::1780422599::1780588337::1::::<><><>0<>0<>5f4941c124bb340961c5b42138edcd70<>res://.godot/imported/cliente sprite sheet.png-e8fcfee08c2db2b2e14f0fa0eefbb7a3.ctex::
 icon.svg::CompressedTexture2D::1442640121410345357::1780422599::1780588331::1::::<><><>0<>0<>bb311c0a8ecb8dc145b6078adf5f2efe<>res://.godot/imported/icon.svg-b67cfb692a937e61d2bda8561d9e8db7.ctex::
 mockup.png::CompressedTexture2D::3010207587421505425::1780422599::1780588331::1::::<><><>0<>0<>bc661f103331b0a2e3366adc2fdbe7d2<>res://.godot/imported/mockup.png-9f34c42323438a4668e9d61b17614a38.ctex::
@@ -97,13 +97,13 @@ pelo5.png::CompressedTexture2D::6641516558576559323::1780422599::1780588330::1::
 pelo7.png::CompressedTexture2D::6301891055517504686::1780422600::1780588331::1::::<><><>0<>0<>4b1485f13cbabf9c4956c371dc9d24d1<>res://.godot/imported/pelo7.png-0565671fd6f888cacb6bdd0a6606e36f.ctex::
 torso2.png::CompressedTexture2D::6765098990112426877::1780422600::1780588330::1::::<><><>0<>0<>9dce0c9eb48af23d9accbf54738790ec<>res://.godot/imported/torso2.png-f7db9f7af180d07a13c50ec79f2aeec5.ctex::
 torso3.png::CompressedTexture2D::1239110122016132364::1780422600::1780588330::1::::<><><>0<>0<>80bb70f885d26efbb1f11a5f3e0af124<>res://.godot/imported/torso3.png-396c261268e491631bca85ec24abaa5a.ctex::
-::res://Sprites/botones/::1781123122
+::res://Sprites/botones/::1781123992
 BotonCocinar.png::CompressedTexture2D::6326280080076051581::1780422599::1780588332::1::::<><><>0<>0<>3b7f46c23aecec3dd27adc9a813ff645<>res://.godot/imported/BotonCocinar.png-8c96369d15a024c0ce00bf86fb2a8346.ctex::
-BotonComprar.png::CompressedTexture2D::3293728591221061756::1781123122::1781123122::1::::<><><>0<>0<>8295980ead9dac797516b3372847a5cd<>res://.godot/imported/BotonComprar.png-e2494ae466d73caf9eee34389989f6e4.ctex::
+BotonComprar.png::CompressedTexture2D::3293728591221061756::1781123985::1781123992::1::::<><><>0<>0<>8295980ead9dac797516b3372847a5cd<>res://.godot/imported/BotonComprar.png-e2494ae466d73caf9eee34389989f6e4.ctex::
 BotonPedido.png::CompressedTexture2D::882848601020976599::1780422599::1780588332::1::::<><><>0<>0<>e382a059d30f3a51857200f72da0039f<>res://.godot/imported/BotonPedido.png-315ae96704506ca58b220c780e5dd6ec.ctex::
 Ticket (1).png::CompressedTexture2D::7301665013589987281::1780422599::1780588332::1::::<><><>0<>0<>64ab9bcd8ed03a707aa56d57a9747a63<>res://.godot/imported/Ticket (1).png-257482c49da77e6fe5961a3d08c40e62.ctex::
 Ticket.png::CompressedTexture2D::336586357902964032::1780422599::1780588332::1::::<><><>0<>0<>8daa3547bfb3ca1d128623b572d129bc<>res://.godot/imported/Ticket.png-a3f5069b5545eaedfa4ebf18208d7158.ctex::
-Volver.png::CompressedTexture2D::4958217897861976272::1781123122::1781123122::1::::<><><>0<>0<>651f0064dd215082d4e9999b4ad3132a<>res://.godot/imported/Volver.png-bf9f12a7f7e26aea0a486422b03422d2.ctex::
+Volver.png::CompressedTexture2D::4958217897861976272::1781123985::1781123992::1::::<><><>0<>0<>651f0064dd215082d4e9999b4ad3132a<>res://.godot/imported/Volver.png-bf9f12a7f7e26aea0a486422b03422d2.ctex::
 ::res://Sprites/Clientes/::1780422599
 ::res://Sprites/Clientes/Hombre/::1780588332
 Enojado.png::CompressedTexture2D::465991336610392380::1780422599::1780588332::1::::<><><>0<>0<>9338f9cdcb51fa02ba2c62c8e81f44bd<>res://.godot/imported/Enojado.png-29e31cb09fb853d9a08d52254ee811b7.ctex::
@@ -115,7 +115,7 @@ Enojada.png::CompressedTexture2D::2125609505842351521::1780422599::1780588332::1
 Feliz.png::CompressedTexture2D::1510671913229546440::1780422599::1780588332::1::::<><><>0<>0<>6ef5fa9ae0b1976e96184af198477237<>res://.godot/imported/Feliz.png-6249070ea95e82fd6c58bc9b68cd2cb7.ctex::
 Medio.png::CompressedTexture2D::6041450237248708568::1780422599::1780588332::1::::<><><>0<>0<>fd0d7e0ef1a45767b6d9dd1907784985<>res://.godot/imported/Medio.png-dc2717cb91fc43bbb5eec5f8e648ae2a.ctex::
 Principal.png::CompressedTexture2D::2102731031267772141::1780422599::1780588332::1::::<><><>0<>0<>545c42b4aad166e35250fc5f3662c000<>res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex::
-::res://Sprites/cocinado/::1781123122
+::res://Sprites/cocinado/::1781123985
 choripan.png::CompressedTexture2D::5628745741083390873::1780422599::1780588331::1::::<><><>0<>0<>008d739d2692d7c5c933e3a5b254ca50<>res://.godot/imported/choripan.png-17feefc6aa84e0046cab14d5e507d66a.ctex::
 ensaladapatoma.png::CompressedTexture2D::4257255657508490910::1780422599::1780588331::1::::<><><>0<>0<>d307f80f5b677c5b2a7db9b77bc6475a<>res://.godot/imported/ensaladapatoma.png-038c951f3c397bb3e22adde99a1c7dd2.ctex::
 papa frita.png::CompressedTexture2D::4396136662067498493::1780422599::1780588331::1::::<><><>0<>0<>71cf3133739f5bf554b19bf738efa301<>res://.godot/imported/papa frita.png-17d5174afed5c317c2c1a18d65947737.ctex::
