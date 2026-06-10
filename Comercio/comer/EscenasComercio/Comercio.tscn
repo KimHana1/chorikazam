@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blqvxo5o08rd0"]
 
 [ext_resource type="PackedScene" uid="uid://ldesc7fy78pa" path="res://Comercio/comer/EscenasComercio/InventarioGlobal.tscn" id="1_5r6nt"]
-[ext_resource type="Script" uid="uid://c1h2l1ttq8g5y" path="res://Autoload/Global.gd" id="1_aact6"]
+[ext_resource type="Script" uid="uid://dqm3lma626gqc" path="res://Autoload/Global.gd" id="1_aact6"]
 [ext_resource type="PackedScene" uid="uid://bjahk0e8c34q7" path="res://Comercio/comer/EscenasComercio/monedas.tscn" id="1_qwwni"]
 [ext_resource type="Script" uid="uid://cvtvdo63f1fs8" path="res://Script/GestorComercio.gd" id="1_wpudi"]
 [ext_resource type="Texture2D" uid="uid://yyntolpso6w2" path="res://Comercio/comer/AssetsComercio/BotonComerciar.png" id="3_vykfh"]
@@ -250,7 +250,7 @@ position = Vector2(409, 545)
 position = Vector2(552, 545)
 
 [node name="Slot3" type="Marker2D" parent="MiniJuegoComercio/BarraComercio/Slots" unique_id=652519408]
-position = Vector2(709, 525)
+position = Vector2(709, 545)
 
 [node name="Slot4" type="Marker2D" parent="MiniJuegoComercio/BarraComercio/Slots" unique_id=2010863423]
 position = Vector2(852, 545)
