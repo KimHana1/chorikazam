@@ -6,7 +6,6 @@ extends Area2D
 @export var limite_der: float = 921.0
 @export var limite_arriba: float = 39.0
 @export var limite_abajo: float = 629.0
-@export var posicion_final: Vector2 = Vector2(600, 680)
 
 @onready var sprite = $Sprite2D
 
@@ -21,7 +20,7 @@ func _ready():
 	reiniciar_direccion_aleatoria()
 
 func _process(delta):
-	if terminado or congelado:
+	if terminado:
 		return
 
 	position += direccion * velocidad * delta
@@ -47,6 +46,7 @@ func reiniciar_direccion_aleatoria():
 
 func aplicar_hechizo(paso: String):
 	var cocina = get_tree().current_scene
+
 	if cocina.has_method("verificar_ingrediente"):
 		cocina.verificar_ingrediente(nombre_ingrediente, paso)
 
@@ -56,16 +56,22 @@ func correcto():
 
 	terminado = true
 	congelado = true
-	puede_congelarse = false
+
+	direccion = Vector2.ZERO
+	velocidad = 0
+
+	var cocina = get_tree().current_scene
+
+	if cocina.has_method("mover_ingrediente_al_plato"):
+		cocina.mover_ingrediente_al_plato(self, nombre_ingrediente)
 
 	sprite.modulate = Color.GREEN
-	position = posicion_final
-
 func incorrecto():
 	if terminado:
 		return
 
 	sprite.modulate = Color.RED
+
 	get_tree().create_timer(0.4).timeout.connect(func():
 		if not terminado:
 			sprite.modulate = Color.WHITE
@@ -81,10 +87,6 @@ func _on_mouse_entered():
 	congelado = true
 	puede_congelarse = false
 	sprite.scale = Vector2(1.15, 1.15)
-
-	var posicion_inferior = Vector2(position.x, limite_abajo)
-	var tween = create_tween()
-	tween.tween_property(self, "position", posicion_inferior, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 	get_tree().create_timer(1.0).timeout.connect(_on_descongelar)
 

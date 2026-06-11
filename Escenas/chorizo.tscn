@@ -8,6 +8,7 @@ radius = 97.39859
 height = 465.53018
 
 [node name="chorizo" type="Area2D" unique_id=1661543503]
+scale = Vector2(1.36, 1.5)
 script = ExtResource("1_be385")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1285245909]

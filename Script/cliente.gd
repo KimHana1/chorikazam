@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var plato_preparado = $PlatoPreparado
+@onready var caja_registradora = $CajaRegistradora
 @onready var sprite = $Sprite2D
 @onready var boton_tomar_pedido = $ButtonTomarPedido
 @onready var boton_cocinar = $ButtonCocinar
@@ -45,15 +47,16 @@ var pedidos = [
 		"nombre": "Choripán",
 		"ingredientes": {
 			"pan": ["cortar"],
-			"chorizo": ["cortar", "calentar"]
+			"chorizo": ["calentar"]
 		},
 		"paciencia": 80
 	},
 	{
 		"nombre": "Ensalada",
 		"ingredientes": {
-			"papa": ["pelar", "calentar"],
-			"carne": ["calentar"]
+			"papa": ["cortar"],
+			"tomate": ["cortar"],
+			
 		},
 		"paciencia": 60
 	},
@@ -68,6 +71,8 @@ var pedidos = [
 
 func _ready():
 	randomize()
+	plato_preparado.visible = false
+	caja_registradora.visible = false
 	globo_pedido.visible = false
 	boton_cocinar.visible = false
 
@@ -158,6 +163,15 @@ func mostrar_resultado_cliente():
 
 	sprite.modulate = Color.WHITE
 	sprite.texture = clientes[cliente_actual][resultado]
+
+	if PedidoManager.pedido_actual.has("nombre"):
+		var nombre_plato = PedidoManager.pedido_actual["nombre"]
+
+		if comidas_cocinadas.has(nombre_plato):
+			plato_preparado.texture = comidas_cocinadas[nombre_plato]
+			plato_preparado.visible = true
+
+	caja_registradora.visible = true
 
 	boton_tomar_pedido.visible = false
 	boton_cocinar.visible = false

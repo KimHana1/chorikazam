@@ -67,17 +67,17 @@ flat = true
 custom_minimum_size = Vector2(0.5, 0)
 layout_mode = 0
 offset_left = 312.0
-offset_top = 410.0
+offset_top = 570.0
 offset_right = 316.0
-offset_bottom = 437.0
-scale = Vector2(3.4800003, 3.9600003)
+offset_bottom = 597.0
+scale = Vector2(2.1200001, 1.2210271)
 
 [node name="IdentificadorColor" type="ColorRect" parent="TicketGrande" unique_id=1400119621]
 layout_mode = 0
-offset_left = 298.0
-offset_top = 344.0
-offset_right = 338.0
-offset_bottom = 384.0
+offset_left = 62.0
+offset_top = 102.0
+offset_right = 102.0
+offset_bottom = 142.0
 
 [connection signal="pressed" from="TicketMini" to="." method="_on_ticket_mini_pressed"]
 [connection signal="pressed" from="TicketGrande/ButtonCerrar" to="." method="_on_button_cerrar_pressed"]

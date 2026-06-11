@@ -5,12 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://c85nj48xk1u55" path="res://Sprites/cocinaYTicket/cocinasinreceta.png" id="2_b5anw"]
 [ext_resource type="PackedScene" uid="uid://cqp7a7ejar5no" path="res://Escenas/chorizo.tscn" id="2_ti2xv"]
 [ext_resource type="PackedScene" uid="uid://b6eyitsql3lea" path="res://Escenas/papa.tscn" id="3_jqnxx"]
-[ext_resource type="PackedScene" uid="uid://b7q5eshxv6mah" path="res://Escenas/carne.tscn" id="4_b5anw"]
 [ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://Escenas/pan.tscn" id="5_h561l"]
 [ext_resource type="PackedScene" uid="uid://0et0ieu0v3re" path="res://tomate.tscn" id="6_jqnxx"]
 [ext_resource type="Texture2D" uid="uid://bm6rh1l7fubce" path="res://Sprites/botones/BotonComprar.png" id="9_h561l"]
+[ext_resource type="Script" uid="uid://beb3jfy62fpyo" path="res://Escenas/node_2d.gd" id="10_3j4mf"]
+[ext_resource type="Texture2D" uid="uid://bxhrtpagwftyb" path="res://Sprites/Platos/Plato png.png" id="10_s4ijj"]
+[ext_resource type="Texture2D" uid="uid://bojvum4c5v573" path="res://Sprites/libro/libroDePasos2.png" id="11_2xkeu"]
+[ext_resource type="Texture2D" uid="uid://du4ns11k7t85o" path="res://Sprites/libro/libroDePasos.png" id="12_0obbl"]
+[ext_resource type="Script" uid="uid://d3eq4oo7cqf6w" path="res://Escenas/area_cambio.gd" id="13_0j7s7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqnxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3j4mf"]
 
 [node name="Cocina" type="Control" unique_id=588022032]
 layout_mode = 3
@@ -25,6 +31,13 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_vertical_guides_ = [1742.0, 6.0, 1092.0]
 metadata/_edit_horizontal_guides_ = [653.0, 629.0, 42.0]
 
+[node name="Plato" type="Node2D" parent="." unique_id=731763546]
+position = Vector2(520.0004, 899)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plato" unique_id=1058538306]
+position = Vector2(18, 36)
+texture = ExtResource("10_s4ijj")
+
 [node name="ColorRect" type="TextureRect" parent="." unique_id=2031791963]
 custom_minimum_size = Vector2(1150, 653)
 layout_mode = 0
@@ -36,37 +49,32 @@ texture = ExtResource("2_b5anw")
 [node name="chorizo" parent="." unique_id=1661543503 instance=ExtResource("2_ti2xv")]
 position = Vector2(1256.001, 248)
 scale = Vector2(0.3164233, 0.35585502)
+nombre_ingrediente = "Chorizo"
 limite_izq = 1091.0
 limite_der = 1742.0
-posicion_final = Vector2(500, 680)
 
 [node name="papa" parent="." unique_id=1255283446 instance=ExtResource("3_jqnxx")]
 position = Vector2(1479.5394, 340)
 scale = Vector2(0.3164233, 0.35585502)
+nombre_ingrediente = "Papa"
 limite_izq = 1091.0
 limite_der = 1742.0
-posicion_final = Vector2(400, 680)
-
-[node name="carne" parent="." unique_id=1009550738 instance=ExtResource("4_b5anw")]
-position = Vector2(1465.5394, 323)
-scale = Vector2(0.3164233, 0.35585502)
-limite_izq = 1091.0
-limite_der = 1742.0
-posicion_final = Vector2(450, 680)
 
 [node name="pan" parent="." unique_id=393561602 instance=ExtResource("5_h561l")]
 position = Vector2(1465.5394, 323)
 scale = Vector2(0.3164233, 0.35585502)
-limite_der = 1091.0
-limite_arriba = 1742.0
+nombre_ingrediente = "Pan"
+velocidad = 100.0
+limite_izq = 1091.0
+limite_der = 1742.0
 limite_abajo = 630.0
 
 [node name="Tomate" parent="." unique_id=2089289063 instance=ExtResource("6_jqnxx")]
 position = Vector2(1288.001, 331)
 scale = Vector2(3.2775996, 4.1541266)
+nombre_ingrediente = "Tomate"
 limite_izq = 1091.0
 limite_der = 1742.0
-posicion_final = Vector2(550, 680)
 
 [node name="DrawManager" type="Node" parent="." unique_id=486436348]
 script = ExtResource("1_r5ydy")
@@ -129,4 +137,24 @@ offset_bottom = 1148.0
 icon = ExtResource("9_h561l")
 flat = true
 
+[node name="Node2D" type="Node2D" parent="." unique_id=471806195]
+position = Vector2(275.0002, 202.00003)
+scale = Vector2(0.7200007, 0.6008905)
+script = ExtResource("10_3j4mf")
+
+[node name="Pagina1" type="Sprite2D" parent="Node2D" unique_id=1014963935]
+texture = ExtResource("11_2xkeu")
+
+[node name="Pagina2" type="Sprite2D" parent="Node2D" unique_id=1707193682]
+texture = ExtResource("12_0obbl")
+
+[node name="AreaCambio" type="Area2D" parent="Node2D" unique_id=846194126]
+position = Vector2(45.833324, -29.95559)
+script = ExtResource("13_0j7s7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/AreaCambio" unique_id=1970787023]
+scale = Vector2(24.944445, 10.386069)
+shape = SubResource("RectangleShape2D_3j4mf")
+
 [connection signal="pressed" from="Botoncompra" to="." method="_on_botoncompra_pressed"]
+[connection signal="input_event" from="Node2D/AreaCambio" to="Node2D/AreaCambio" method="_on_input_event"]
