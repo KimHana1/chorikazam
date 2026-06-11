@@ -1,5 +1,5 @@
 extends Area2D
-
+"   
 enum TipoBoton {
 	CARNE,
 	SALCHICHA,
@@ -17,4 +17,4 @@ enum TipoBoton {
 func reducir_tamano():
 
 	scale.x *= \
-	1.0 - (porcentaje_reduccion / 100.0)
+	1.0 - (porcentaje_reduccion / 100.0)"
