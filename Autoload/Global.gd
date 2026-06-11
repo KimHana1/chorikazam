@@ -5,7 +5,7 @@ var tiempo_dia := 300.0
 
 
 
-var monedas_jugador := 1000000.0
+var monedas_jugador := 200.0
 var monedas_vendedor := 100.0
 
 

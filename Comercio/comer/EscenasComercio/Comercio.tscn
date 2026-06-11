@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://blqvxo5o08rd0"]
 
 [ext_resource type="PackedScene" uid="uid://ldesc7fy78pa" path="res://Comercio/comer/EscenasComercio/InventarioGlobal.tscn" id="1_5r6nt"]
+[ext_resource type="Script" uid="uid://dqm3lma626gqc" path="res://Autoload/Global.gd" id="1_aact6"]
 [ext_resource type="PackedScene" uid="uid://bjahk0e8c34q7" path="res://Comercio/comer/EscenasComercio/monedas.tscn" id="1_qwwni"]
 [ext_resource type="Script" uid="uid://cvtvdo63f1fs8" path="res://Script/GestorComercio.gd" id="1_wpudi"]
 [ext_resource type="Texture2D" uid="uid://yyntolpso6w2" path="res://Comercio/comer/AssetsComercio/BotonComerciar.png" id="3_vykfh"]
 [ext_resource type="Script" uid="uid://dd1yfslymdbkx" path="res://Script/boton_comercio.gd" id="4_5r6nt"]
+[ext_resource type="Script" uid="uid://clh8wcksjognc" path="res://Script/ui.gd" id="4_wwjpx"]
+[ext_resource type="Script" uid="uid://b6gbb81ounfsc" path="res://Script/que_voy_a_comprar.gd" id="5_aact6"]
 [ext_resource type="Script" uid="uid://8vj4uk1fky3d" path="res://Script/barra_comercio.gd" id="5_qwwni"]
 [ext_resource type="Texture2D" uid="uid://dlgav6m6hbkdy" path="res://Comercio/comer/AssetsComercio/Barra de fondo.png" id="6_4dnlp"]
 [ext_resource type="Script" uid="uid://ciwyqtx17b30f" path="res://Script/flecha.gd" id="7_2au20"]
@@ -28,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dj8na0g1eg5at" path="res://Comercio/comer/AssetsComercio/papel fondo.png" id="26_8vhwn"]
 [ext_resource type="Script" uid="uid://dww730ydf8720" path="res://Comercio/comer/EscenasComercio/boton_descuento.gd" id="27_lj3h8"]
 [ext_resource type="Texture2D" uid="uid://bnk3bjqh03dgh" path="res://Comercio/comer/AssetsComercio/FONDO COMERCIO.png" id="27_whchm"]
-[ext_resource type="Texture2D" uid="uid://ccv2eh1mh5nq3" path="res://Sprites/botones/Volver.png" id="29_hg2im"]
+[ext_resource type="Texture2D" uid="uid://c2pupmw7bpw11" path="res://Comercio/comer/AssetsComercio/flecha come back foward.png" id="32_aact6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_38ijt"]
 radius = 14.0
@@ -58,6 +61,7 @@ size = Vector2(117.5, 208)
 size = Vector2(114, 214)
 
 [node name="Node" type="Node" unique_id=147714994]
+script = ExtResource("1_aact6")
 
 [node name="UI  Inventario Global" parent="." unique_id=134098735 instance=ExtResource("1_5r6nt")]
 offset_left = 1352.0
@@ -65,7 +69,6 @@ offset_top = 14.0
 offset_right = 2468.0
 offset_bottom = 387.0
 scale = Vector2(0.305, 0.305)
-script = null
 
 [node name="Monedas" parent="." unique_id=838206148 instance=ExtResource("1_qwwni")]
 offset_left = 1720.0001
@@ -85,6 +88,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("4_wwjpx")
 
 [node name="InfoVendedor" type="Label" parent="MiniJuegoComercio/UI" unique_id=365356764 groups=["UI_Fonts"]]
 modulate = Color(0, 0, 0, 1)
@@ -114,6 +118,7 @@ offset_bottom = 285.0
 theme_override_font_sizes/font_size = 30
 
 [node name="Cooldown" type="Label" parent="MiniJuegoComercio/UI" unique_id=1517103289 groups=["UI_Fonts"]]
+visible = false
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 197.0
@@ -127,15 +132,17 @@ anchors_preset = 0
 offset_left = -96.0
 offset_right = -56.0
 offset_bottom = 40.0
+script = ExtResource("5_aact6")
 
 [node name="PapaCantidad" type="Label" parent="MiniJuegoComercio/UI/Que voy a Comprar" unique_id=537920931 groups=["UI_Fonts"]]
 layout_mode = 0
-offset_left = 1277.0
-offset_top = 402.0
-offset_right = 1317.0
-offset_bottom = 425.0
+offset_left = 1081.0
+offset_top = 322.0
+offset_right = 1121.0
+offset_bottom = 345.0
 
 [node name="CarneCantidad" type="Label" parent="MiniJuegoComercio/UI/Que voy a Comprar" unique_id=862877283 groups=["UI_Fonts"]]
+visible = false
 layout_mode = 0
 offset_left = 1081.0
 offset_top = 85.0
@@ -245,7 +252,7 @@ position = Vector2(409, 545)
 position = Vector2(552, 545)
 
 [node name="Slot3" type="Marker2D" parent="MiniJuegoComercio/BarraComercio/Slots" unique_id=652519408]
-position = Vector2(709, 525)
+position = Vector2(709, 545)
 
 [node name="Slot4" type="Marker2D" parent="MiniJuegoComercio/BarraComercio/Slots" unique_id=2010863423]
 position = Vector2(852, 545)
@@ -283,9 +290,9 @@ position = Vector2(-10, 2)
 script = ExtResource("14_8kha5")
 
 [node name="BotonCarne" type="Area2D" parent="Ingredientes" unique_id=1069714737]
+visible = false
 position = Vector2(550, 545)
 script = ExtResource("17_n2akt")
-tipo_boton = 0
 
 [node name="Carne" type="Sprite2D" parent="Ingredientes/BotonCarne" unique_id=1942944134]
 texture = ExtResource("15_f64nb")
@@ -349,9 +356,12 @@ texture = ExtResource("25_icino")
 shape = SubResource("RectangleShape2D_leto1")
 
 [node name="BotonVolver" type="Button" parent="." unique_id=39162685]
-offset_right = 8.0
-offset_bottom = 8.0
-icon = ExtResource("29_hg2im")
+offset_left = 59.999996
+offset_top = 56.999996
+offset_right = 668.0
+offset_bottom = 365.0
+scale = Vector2(0.445, 0.445)
+icon = ExtResource("32_aact6")
 flat = true
 
 [connection signal="pressed" from="BotonVolver" to="MiniJuegoComercio" method="_on_boton_volver_pressed"]

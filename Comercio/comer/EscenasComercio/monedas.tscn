@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bjahk0e8c34q7"]
 
+[ext_resource type="Script" uid="uid://pgyc27pk52yg" path="res://Script/monedas.gd" id="1_oyl53"]
 [ext_resource type="Texture2D" uid="uid://ektwy5dp3ppi" path="res://Comercio/comer/AssetsComercio/moneda.png" id="1_ptyle"]
 [ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="3_sncc4"]
 
@@ -9,6 +10,7 @@ offset_top = 140.0
 offset_right = 1062.0
 offset_bottom = 190.0
 scale = Vector2(2.2582967, 2.221293)
+script = ExtResource("1_oyl53")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=353890108]
 layout_mode = 2

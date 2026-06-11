@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e7xc1xcaym4m"]
 
-[ext_resource type="Script" uid="uid://cetr4x3gmketn" path="res://Comercio/comer/EscenasComercio/ui_ingrediente_inventario.gd" id="1_p4if3"]
+[ext_resource type="Script" uid="uid://dd3opo56bnw3l" path="res://Script/ui_ingrediente_inventario.gd" id="1_p4if3"]
 [ext_resource type="Texture2D" uid="uid://dhw0d0jw1x6ks" path="res://Sprites/ingredientes/chorizo.png" id="2_8xcdo"]
 [ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="3_lso8q"]
 

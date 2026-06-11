@@ -14,7 +14,7 @@ var volver_a_cocina = "res://Escenas/cocina.tscn"
 @export var costo_base_comercio := 10.0
 @export var multiplicador_costo_comercio := 1.5
 @export var duracion_cooldown := 20.0
-
+@onready var font = preload("res://fuente/Vanilla Caramel.otf")
 @onready var barra_comercio = $BarraComercio
 @onready var flecha = $BarraComercio/Flecha
 @onready var boton_comercio = $UI/BotonComercio
@@ -40,6 +40,14 @@ var carrito: Dictionary = {
 var precios: Dictionary = {}
 
 func _ready():
+	var labels = get_tree().get_nodes_in_group("UI_Fonts")
+
+
+	for label in labels:
+
+		label.add_theme_font_override("font", font)
+		label.add_theme_font_size_override("font_size", 30)
+		label.add_theme_color_override("font_color", Color.BLACK)
 
 	precios = {
 		"carne": precio_carne,
