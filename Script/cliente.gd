@@ -49,28 +49,28 @@ var pedidos = [
 			"pan": ["cortar"],
 			"chorizo": ["calentar"]
 		},
-		"paciencia": 80
+		"paciencia": 100
 	},
 	{
 		"nombre": "Ensalada",
 		"ingredientes": {
 			"papa": ["cortar"],
-			"tomate": ["cortar"],
-			
+			"tomate": ["cortar"]
 		},
-		"paciencia": 60
+		"paciencia": 90
 	},
 	{
 		"nombre": "Papa Frita",
 		"ingredientes": {
 			"papa": ["pelar", "cortar", "calentar"]
 		},
-		"paciencia": 70
+		"paciencia": 95
 	}
 ]
 
 func _ready():
 	randomize()
+
 	plato_preparado.visible = false
 	caja_registradora.visible = false
 	globo_pedido.visible = false
@@ -100,6 +100,8 @@ func iniciar_idle_cliente():
 func generar_cliente():
 	ticket_abierto = false
 	globo_pedido.visible = false
+	plato_preparado.visible = false
+	caja_registradora.visible = false
 
 	var lista_clientes = clientes.keys()
 	cliente_actual = lista_clientes[randi() % lista_clientes.size()]
@@ -175,6 +177,10 @@ func mostrar_resultado_cliente():
 
 	boton_tomar_pedido.visible = false
 	boton_cocinar.visible = false
+
+	await get_tree().create_timer(1.5).timeout
+
+	generar_cliente()
 
 func _on_button_tomar_pedido_pressed():
 	boton_tomar_pedido.visible = false

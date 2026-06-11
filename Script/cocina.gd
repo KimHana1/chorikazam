@@ -25,6 +25,10 @@ func _ready():
 		print("No hay pedido activo en PedidoManager")
 		return
 
+	if not hay_ingredientes_para_pedido():
+		print("No tenes ingredientes suficientes")
+		return
+
 	paciencia_actual = pedido.get("paciencia_actual", pedido.get("paciencia", 100.0))
 	PedidoManager.pedido_actual["paciencia_actual"] = paciencia_actual
 
@@ -49,6 +53,31 @@ func _process(delta):
 
 		if ticket_actual != null and ticket_actual.has_method("actualizar_paciencia"):
 			ticket_actual.actualizar_paciencia(paciencia_actual)
+
+func hay_ingredientes_para_pedido() -> bool:
+	var pedido = PedidoManager.pedido_actual
+
+	if pedido.is_empty() or not pedido.has("ingredientes"):
+		return false
+
+	for ingrediente in pedido["ingredientes"].keys():
+		var nombre = ingrediente.to_lower()
+
+		if not Global.tiene_ingrediente(nombre, 1):
+			print("Falta ingrediente: ", nombre)
+			return false
+
+	return true
+
+func descontar_ingredientes_del_pedido():
+	var pedido = PedidoManager.pedido_actual
+
+	if pedido.is_empty() or not pedido.has("ingredientes"):
+		return
+
+	for ingrediente in pedido["ingredientes"].keys():
+		var nombre = ingrediente.to_lower()
+		Global.quitar_ingrediente(nombre, 1)
 
 func mostrar_ticket_chiquito():
 	if ticket_actual != null:
@@ -93,14 +122,11 @@ func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 	var pasos_necesarios = pedido["ingredientes"][nombre_ingrediente]
 
 	if paso in pasos_necesarios:
-
 		if not pasos_completados.has(nombre_ingrediente):
 			pasos_completados[nombre_ingrediente] = []
 
 		if paso not in pasos_completados[nombre_ingrediente]:
-
 			pasos_completados[nombre_ingrediente].append(paso)
-
 			print(nombre_ingrediente, " paso correcto: ", paso)
 
 			if ingrediente_terminado(nombre_ingrediente):
@@ -108,13 +134,12 @@ func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 				marcar_ok_ticket(nombre_ingrediente)
 
 		verificar_progreso()
-
 	else:
 		print("Paso incorrecto para ", nombre_ingrediente)
 		print("Usaste: ", paso)
 		print("Necesitaba: ", pasos_necesarios)
-
 		marcar_ingrediente_incorrecto(nombre_ingrediente)
+
 func ingrediente_terminado(nombre_ingrediente: String) -> bool:
 	nombre_ingrediente = nombre_ingrediente.to_lower()
 
@@ -159,10 +184,7 @@ func intentar_finalizar_pedido():
 func todos_en_plato() -> bool:
 	var pedido = PedidoManager.pedido_actual
 
-	if pedido.is_empty():
-		return false
-
-	if not pedido.has("ingredientes"):
+	if pedido.is_empty() or not pedido.has("ingredientes"):
 		return false
 
 	for ingrediente in pedido["ingredientes"].keys():
@@ -210,6 +232,8 @@ func finalizar_pedido():
 		PedidoManager.resultado_cliente = "enojado"
 
 	print("Resultado cliente: ", PedidoManager.resultado_cliente)
+
+	descontar_ingredientes_del_pedido()
 
 	PedidoManager.pedido_completado = true
 	get_tree().change_scene_to_file("res://Escenas/cliente.tscn")
