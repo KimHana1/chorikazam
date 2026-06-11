@@ -1,6 +1,10 @@
 extends Control
 
+@onready var plato = $Plato
+
+var ingredientes_en_plato := []
 var escena_comercio = "res://Comercio/comer/EscenasComercio/Comercio.tscn"
+
 var pasos_completados = {}
 var listo_para_entregar: bool = false
 
@@ -12,6 +16,7 @@ var velocidad_paciencia: float = 1.0
 
 func _ready():
 	pasos_completados.clear()
+	ingredientes_en_plato.clear()
 	listo_para_entregar = false
 
 	var pedido = PedidoManager.pedido_actual
@@ -59,6 +64,13 @@ func mostrar_ticket_chiquito():
 		ticket_actual.mostrar_mini()
 
 func verificar_ingrediente(nombre_ingrediente: String, paso: String):
+	nombre_ingrediente = nombre_ingrediente.to_lower()
+	paso = paso.to_lower()
+
+	if listo_para_entregar:
+		print("La receta ya esta lista. Hace un circulo para emplatar.")
+		return
+
 	var pedido = PedidoManager.pedido_actual
 
 	print("Llegó a cocina")
@@ -81,11 +93,14 @@ func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 	var pasos_necesarios = pedido["ingredientes"][nombre_ingrediente]
 
 	if paso in pasos_necesarios:
+
 		if not pasos_completados.has(nombre_ingrediente):
 			pasos_completados[nombre_ingrediente] = []
 
 		if paso not in pasos_completados[nombre_ingrediente]:
+
 			pasos_completados[nombre_ingrediente].append(paso)
+
 			print(nombre_ingrediente, " paso correcto: ", paso)
 
 			if ingrediente_terminado(nombre_ingrediente):
@@ -93,13 +108,16 @@ func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 				marcar_ok_ticket(nombre_ingrediente)
 
 		verificar_progreso()
+
 	else:
 		print("Paso incorrecto para ", nombre_ingrediente)
 		print("Usaste: ", paso)
 		print("Necesitaba: ", pasos_necesarios)
-		marcar_ingrediente_incorrecto(nombre_ingrediente)
 
+		marcar_ingrediente_incorrecto(nombre_ingrediente)
 func ingrediente_terminado(nombre_ingrediente: String) -> bool:
+	nombre_ingrediente = nombre_ingrediente.to_lower()
+
 	var pedido = PedidoManager.pedido_actual
 
 	if pedido.is_empty():
@@ -127,13 +145,31 @@ func marcar_ok_ticket(nombre_ingrediente: String):
 		ticket_actual.marcar_ok(nombre_ingrediente)
 
 func intentar_finalizar_pedido():
-	if listo_para_entregar:
+	if listo_para_entregar and todos_en_plato():
 		finalizar_pedido()
 	else:
 		print("Pedido entregado mal")
+		print("Listo para entregar: ", listo_para_entregar)
+		print("Ingredientes en plato: ", ingredientes_en_plato)
+
 		PedidoManager.resultado_cliente = "enojado"
 		PedidoManager.pedido_completado = true
 		get_tree().change_scene_to_file("res://Escenas/cliente.tscn")
+
+func todos_en_plato() -> bool:
+	var pedido = PedidoManager.pedido_actual
+
+	if pedido.is_empty():
+		return false
+
+	if not pedido.has("ingredientes"):
+		return false
+
+	for ingrediente in pedido["ingredientes"].keys():
+		if ingrediente.to_lower() not in ingredientes_en_plato:
+			return false
+
+	return true
 
 func verificar_progreso():
 	var pedido = PedidoManager.pedido_actual
@@ -179,8 +215,18 @@ func finalizar_pedido():
 	get_tree().change_scene_to_file("res://Escenas/cliente.tscn")
 
 func obtener_nodo_ingrediente(nombre_ingrediente: String):
-	var nombre_nodo = nombre_ingrediente.capitalize()
-	return get_node_or_null(nombre_nodo)
+	nombre_ingrediente = nombre_ingrediente.to_lower()
+
+	var nodo = get_node_or_null(nombre_ingrediente)
+	if nodo != null:
+		return nodo
+
+	nodo = get_node_or_null(nombre_ingrediente.capitalize())
+	if nodo != null:
+		return nodo
+
+	print("No encontre nodo ingrediente: ", nombre_ingrediente)
+	return null
 
 func marcar_ingrediente_correcto(nombre_ingrediente: String):
 	var nodo = obtener_nodo_ingrediente(nombre_ingrediente)
@@ -194,10 +240,35 @@ func marcar_ingrediente_incorrecto(nombre_ingrediente: String):
 	if nodo != null and nodo.has_method("incorrecto"):
 		nodo.incorrecto()
 
+func mover_ingrediente_al_plato(ingrediente, nombre_ingrediente):
+	nombre_ingrediente = nombre_ingrediente.to_lower()
 
-func _on_mouse_entered() -> void:
-	pass # Replace with function body.
+	print("MOVIENDO AL PLATO: ", nombre_ingrediente)
 
+	if plato == null:
+		print("ERROR: no encontre el nodo Plato")
+		return
+
+	ingrediente.terminado = true
+	ingrediente.congelado = true
+
+	var offset = Vector2(
+		randf_range(-30, 30),
+		randf_range(-15, 15)
+	)
+
+	var tween = create_tween()
+	tween.tween_property(
+		ingrediente,
+		"global_position",
+		plato.global_position + offset,
+		0.4
+	)
+
+	if nombre_ingrediente not in ingredientes_en_plato:
+		ingredientes_en_plato.append(nombre_ingrediente)
+
+	print("LISTO, fue al plato")
 
 func _on_botoncompra_pressed() -> void:
 	get_tree().change_scene_to_file(escena_comercio)

@@ -39,7 +39,7 @@ Button/fonts/font = ExtResource("4_vo5fx")
 Button/icons/icon = SubResource("ViewportTexture_l2mks")
 
 [node name="Cliente" type="CharacterBody2D" unique_id=1181098271]
-position = Vector2(306.00003, 369)
+position = Vector2(314.00003, 481.00003)
 scale = Vector2(0.9999992, 1.0000004)
 script = ExtResource("1_ov8ef")
 metadata/_edit_vertical_guides_ = [201.0]
@@ -51,6 +51,7 @@ offset_top = -493.33334
 offset_right = 1603.3334
 offset_bottom = 586.6666
 texture = ExtResource("2_mc5ak")
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=231269263]
 position = Vector2(558.3333, 106.666664)
@@ -71,6 +72,7 @@ offset_left = -23.333334
 offset_top = -183.33333
 offset_right = 16.666666
 offset_bottom = -143.33333
+metadata/_edit_use_anchors_ = true
 
 [node name="FondoGlobo" type="TextureRect" parent="GloboPedido" unique_id=1882024251]
 layout_mode = 0
@@ -79,6 +81,7 @@ offset_top = -438.3333
 offset_right = 1356.6666
 offset_bottom = 375.00006
 texture = ExtResource("3_puucq")
+metadata/_edit_use_anchors_ = true
 
 [node name="LabelPedido" type="Label" parent="GloboPedido" unique_id=1222921670]
 layout_mode = 0
@@ -87,15 +90,22 @@ offset_top = -220.0
 offset_right = 955.0
 offset_bottom = -174.0
 label_settings = SubResource("LabelSettings_puucq")
+metadata/_edit_use_anchors_ = true
 
 [node name="IconoComida" type="TextureRect" parent="GloboPedido" unique_id=1107040968]
 custom_minimum_size = Vector2(0.5, 0.5)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.066647336
+anchor_top = 0.7666683
+anchor_right = -0.066647336
+anchor_bottom = 0.7666683
 offset_left = 934.99994
 offset_top = -193.33333
 offset_right = 939.99994
 offset_bottom = -188.33333
 scale = Vector2(0.2, 0.2)
+metadata/_edit_use_anchors_ = true
 
 [node name="ButtonTicket" type="Button" parent="GloboPedido" unique_id=1542396859]
 layout_mode = 0
@@ -105,6 +115,7 @@ offset_right = 1146.3333
 offset_bottom = 108.0
 icon = ExtResource("5_6rik3")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="ButtonTomarPedido" type="Button" parent="." unique_id=130144349]
 offset_left = 263.33334
@@ -119,6 +130,7 @@ theme_override_fonts/font = ExtResource("4_vo5fx")
 theme_override_font_sizes/font_size = 26
 icon = ExtResource("7_7uf5d")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="ButtonCocinar" type="Button" parent="." unique_id=1641141922]
 anchors_preset = 6
@@ -137,12 +149,20 @@ theme = SubResource("Theme_dffsu")
 theme_override_font_sizes/font_size = 35
 icon = ExtResource("8_yuvmj")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="." unique_id=897437607]
 offset_left = 145.0
 offset_top = -95.0
 offset_right = 153.0
 offset_bottom = -87.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PlatoPreparado" type="Sprite2D" parent="." unique_id=305827969]
+position = Vector2(619.0005, 341.99988)
+
+[node name="CajaRegistradora" type="Sprite2D" parent="." unique_id=1664625237]
+position = Vector2(1246.0011, 329.99988)
 
 [connection signal="pressed" from="GloboPedido/ButtonTicket" to="." method="_on_button_ticket_pressed"]
 [connection signal="pressed" from="ButtonTomarPedido" to="." method="_on_button_tomar_pedido_pressed"]

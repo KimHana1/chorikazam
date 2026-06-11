@@ -105,16 +105,14 @@ func detectar_hechizo(p: Array) -> String:
 		if proporcion < 0.33:
 			return "linea_vertical"
 
-	var cambios_circulo = contar_cambios_direccion(puntos_s, 0.8)
-
-	if cerrado and cambios_circulo > 5:
-		if proporcion >= 0.7 and proporcion <= 1.3:
-			return "circulo"
-
 	var cambios_triangulo = contar_cambios_direccion(puntos_s, 0.3)
 
 	if cerrado and cambios_triangulo == 2:
 		return "triangulo"
+
+	# Si es una figura cerrada y no clasificó como triángulo, ahora es un "círculo" directamente
+	if cerrado:
+		return "circulo"
 
 	var cambios_rayo = contar_cambios_direccion(puntos_s, 0.3)
 
