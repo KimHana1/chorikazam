@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cxyactoho1jv4"]
 
 [ext_resource type="Script" uid="uid://b4hdh5l2kllpb" path="res://Script/ticket.gd" id="1_e54rb"]
-[ext_resource type="Texture2D" uid="uid://dca8mdrysgbq4" path="res://Sprites/botones/Ticket (1).png" id="2_tvjgq"]
+[ext_resource type="Texture2D" uid="uid://cb3p6kvni554o" path="res://Sprites/botones/cerrar+ (1).png" id="2_tvjgq"]
 
 [node name="Ticket" type="CanvasLayer" unique_id=1958361917]
 script = ExtResource("1_e54rb")

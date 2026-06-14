@@ -27,17 +27,17 @@ var comidas_cocinadas = {
 
 var clientes = {
 	"mujer": {
-		"principal": preload("res://Sprites/clientes/mujer/principal.png"),
-		"medio": preload("res://Sprites/clientes/mujer/medio.png"),
-		"enojado": preload("res://Sprites/clientes/mujer/enojada.png"),
-		"feliz": preload("res://Sprites/clientes/mujer/feliz.png"),
+		"enojada": preload("res://Sprites/clientes/Mujer/enojada.png"),
+		"feliz": preload("res://Sprites/clientes/Mujer/feliz.png"),
+		"medio": preload("res://Sprites/clientes/Mujer/medio.png"),
+		"principal": preload("res://Sprites/clientes/Mujer/principal.png"),
 		"color": Color.BROWN
 	},
 	"hombre": {
-		"principal": preload("res://Sprites/clientes/hombre/principal.png"),
-		"medio": preload("res://Sprites/clientes/hombre/medio.png"),
-		"enojado": preload("res://Sprites/clientes/hombre/enojado.png"),
-		"feliz": preload("res://Sprites/clientes/hombre/feliz.png"),
+		"enojado": preload("res://Sprites/clientes/Hombre/enojado.png"),
+		"feliz": preload("res://Sprites/clientes/Hombre/feliz.png"),
+		"medio": preload("res://Sprites/clientes/Hombre/medio.png"),
+		"principal": preload("res://Sprites/clientes/Hombre/principal.png"),
 		"color": Color.GRAY
 	}
 }
@@ -49,7 +49,7 @@ var pedidos = [
 			"pan": ["cortar"],
 			"chorizo": ["calentar"]
 		},
-		"paciencia": 100
+		"paciencia": 85
 	},
 	{
 		"nombre": "Ensalada",
@@ -57,7 +57,7 @@ var pedidos = [
 			"papa": ["cortar"],
 			"tomate": ["cortar"]
 		},
-		"paciencia": 90
+		"paciencia": 80
 	},
 	{
 		"nombre": "Papa Frita",
