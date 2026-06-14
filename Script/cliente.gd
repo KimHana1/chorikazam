@@ -6,10 +6,16 @@ extends CharacterBody2D
 @onready var boton_tomar_pedido = $ButtonTomarPedido
 @onready var boton_cocinar = $ButtonCocinar
 
+
+
 @onready var globo_pedido = $GloboPedido
 @onready var label_globo = $GloboPedido/LabelPedido
 @onready var icono_comida = $GloboPedido/IconoComida
 @onready var boton_ticket = $GloboPedido/ButtonTicket
+@onready var barra_tiempo = $CanvasLayer/BarraTiempo
+@onready var label_dia = $CanvasLayer/LabelDia
+
+var dia_finalizado := false
 
 var cocina_scene = preload("res://Escenas/cocina.tscn")
 var ticket_scene = preload("res://Escenas/ticket.tscn")
@@ -82,6 +88,9 @@ func _ready():
 		mostrar_resultado_cliente()
 	else:
 		generar_cliente()
+	GameManager.iniciar_dia()
+
+
 
 func iniciar_idle_cliente():
 	if tween_idle:
@@ -199,3 +208,29 @@ func _on_button_cocinar_pressed():
 	PedidoManager.resultado_cliente = "normal"
 
 	get_tree().change_scene_to_packed(cocina_scene)
+func _process(delta):
+
+	GameManager.tiempo_restante -= delta
+
+	if GameManager.tiempo_restante < 0:
+		GameManager.tiempo_restante = 0
+
+	barra_tiempo.max_value = GameManager.duracion_dia
+	barra_tiempo.value = GameManager.tiempo_restante
+
+	label_dia.text = "Día " + str(GameManager.dia_actual)
+
+	if GameManager.tiempo_restante <= 0:
+		finalizar_dia()
+func finalizar_dia():
+
+	if dia_finalizado:
+		return
+
+	dia_finalizado = true
+
+	print("Fin del día")
+
+	GameManager.siguiente_dia()
+
+	get_tree().reload_current_scene()

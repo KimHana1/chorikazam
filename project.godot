@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 
 PedidoManager="*uid://danhfqfuljsa8"
 Global="*uid://dqm3lma626gqc"
+GameManager="*uid://de7da0cvinl11"
 
 [display]
 

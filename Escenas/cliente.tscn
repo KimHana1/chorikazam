@@ -20,6 +20,10 @@ font_color = Color(0.39540777, 0.19101903, 0.16719764, 1)
 [sub_resource type="Theme" id="Theme_dffsu"]
 default_base_scale = 0.48
 
+[sub_resource type="LabelSettings" id="LabelSettings_yuvmj"]
+font_size = 26
+font_color = Color(1.0107458e-06, 0.5319785, 0.44265088, 1)
+
 [node name="Cliente" type="CharacterBody2D" unique_id=1181098271]
 position = Vector2(314.00003, 481.00003)
 scale = Vector2(0.9999992, 1.0000004)
@@ -39,10 +43,10 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(558.3333, 106.666664)
 
 [node name="mezon" type="TextureRect" parent="." unique_id=616185621]
-offset_left = -298.33334
-offset_top = -2596.6667
-offset_right = 1621.6666
-offset_bottom = -690.0
+offset_left = -215.00018
+offset_top = -2645.999
+offset_right = 1704.9998
+offset_bottom = -739.3323
 scale = Vector2(1, 1.7333338)
 texture = ExtResource("3_yuvmj")
 
@@ -145,6 +149,21 @@ position = Vector2(619.0005, 341.99988)
 
 [node name="CajaRegistradora" type="Sprite2D" parent="." unique_id=1664625237]
 position = Vector2(1246.0011, 329.99988)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1964444807]
+
+[node name="BarraTiempo" type="ProgressBar" parent="CanvasLayer" unique_id=933280775]
+offset_left = 1730.0
+offset_top = 144.0
+offset_right = 1766.0
+offset_bottom = 559.0
+
+[node name="LabelDia" type="Label" parent="CanvasLayer" unique_id=1829077094]
+offset_left = 1728.0
+offset_top = 59.0
+offset_right = 1768.0
+offset_bottom = 82.0
+label_settings = SubResource("LabelSettings_yuvmj")
 
 [connection signal="pressed" from="GloboPedido/ButtonTicket" to="." method="_on_button_ticket_pressed"]
 [connection signal="pressed" from="ButtonTomarPedido" to="." method="_on_button_tomar_pedido_pressed"]

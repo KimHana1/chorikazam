@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://Escenas/pan.tscn" id="5_h561l"]
 [ext_resource type="PackedScene" uid="uid://0et0ieu0v3re" path="res://tomate.tscn" id="6_jqnxx"]
 [ext_resource type="Texture2D" uid="uid://bm6rh1l7fubce" path="res://Sprites/botones/BotonComprar.png" id="9_h561l"]
-[ext_resource type="Script" uid="uid://beb3jfy62fpyo" path="res://Escenas/node_2d.gd" id="10_3j4mf"]
+[ext_resource type="Script" uid="uid://beb3jfy62fpyo" path="res://Script/boton.gd" id="10_3j4mf"]
 [ext_resource type="Texture2D" uid="uid://bxhrtpagwftyb" path="res://Sprites/Platos/Plato png.png" id="10_s4ijj"]
 [ext_resource type="Texture2D" uid="uid://bojvum4c5v573" path="res://Sprites/libro/libroDePasos2.png" id="11_2xkeu"]
 [ext_resource type="Texture2D" uid="uid://du4ns11k7t85o" path="res://Sprites/libro/libroDePasos.png" id="12_0obbl"]
