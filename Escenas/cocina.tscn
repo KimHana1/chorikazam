@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bojvum4c5v573" path="res://Sprites/libro/libroDePasos2.png" id="11_2xkeu"]
 [ext_resource type="Texture2D" uid="uid://du4ns11k7t85o" path="res://Sprites/libro/libroDePasos.png" id="12_0obbl"]
 [ext_resource type="Script" uid="uid://d3eq4oo7cqf6w" path="res://Escenas/area_cambio.gd" id="13_0j7s7"]
+[ext_resource type="Texture2D" uid="uid://bdxr4n5uwcyky" path="res://Sprites/botones/flecha come back foward.png" id="14_2xkeu"]
+[ext_resource type="Texture2D" uid="uid://pifcv4qgfqfg" path="res://Sprites/cocinaYTicket/soga.png" id="15_0obbl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqnxx"]
 
@@ -138,7 +140,7 @@ icon = ExtResource("9_h561l")
 flat = true
 
 [node name="Node2D" type="Node2D" parent="." unique_id=471806195]
-position = Vector2(275.0002, 202.00003)
+position = Vector2(233.00018, 799)
 scale = Vector2(0.7200007, 0.6008905)
 script = ExtResource("10_3j4mf")
 
@@ -149,12 +151,42 @@ texture = ExtResource("11_2xkeu")
 texture = ExtResource("12_0obbl")
 
 [node name="AreaCambio" type="Area2D" parent="Node2D" unique_id=846194126]
-position = Vector2(45.833324, -29.95559)
+position = Vector2(-12.499996, 227.99487)
 script = ExtResource("13_0j7s7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/AreaCambio" unique_id=1970787023]
 scale = Vector2(24.944445, 10.386069)
 shape = SubResource("RectangleShape2D_3j4mf")
 
+[node name="soga" type="TextureRect" parent="." unique_id=1347590912]
+layout_mode = 0
+offset_top = 309.0
+offset_right = 1920.0
+offset_bottom = 1389.0
+scale = Vector2(0.63999933, -0.24000064)
+texture = ExtResource("15_0obbl")
+
+[node name="BotonAtencion" type="Button" parent="." unique_id=1918147483]
+layout_mode = 0
+offset_left = 48.00004
+offset_top = 21.0
+offset_right = 656.00006
+offset_bottom = 329.0
+scale = Vector2(0.31999958, 0.43999982)
+icon = ExtResource("14_2xkeu")
+flat = true
+
+[node name="BotonAtencion2" type="Button" parent="." unique_id=632629499]
+layout_mode = 0
+offset_left = 48.00004
+offset_top = 21.0
+offset_right = 656.00006
+offset_bottom = 329.0
+scale = Vector2(0.31999958, 0.43999982)
+icon = ExtResource("14_2xkeu")
+flat = true
+
 [connection signal="pressed" from="Botoncompra" to="." method="_on_botoncompra_pressed"]
 [connection signal="input_event" from="Node2D/AreaCambio" to="Node2D/AreaCambio" method="_on_input_event"]
+[connection signal="pressed" from="BotonAtencion" to="." method="_on_boton_atencion_pressed"]
+[connection signal="pressed" from="BotonAtencion2" to="." method="_on_boton_atencion_pressed"]

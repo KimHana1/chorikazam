@@ -6,8 +6,6 @@ extends CharacterBody2D
 @onready var boton_tomar_pedido = $ButtonTomarPedido
 @onready var boton_cocinar = $ButtonCocinar
 
-
-
 @onready var globo_pedido = $GloboPedido
 @onready var label_globo = $GloboPedido/LabelPedido
 @onready var icono_comida = $GloboPedido/IconoComida
@@ -84,13 +82,13 @@ func _ready():
 
 	iniciar_idle_cliente()
 
+	if GameManager.tiempo_restante <= 0 or GameManager.clientes_restantes <= 0:
+		GameManager.iniciar_dia()
+
 	if PedidoManager.pedido_completado:
 		mostrar_resultado_cliente()
 	else:
 		generar_cliente()
-	GameManager.iniciar_dia()
-
-
 
 func iniciar_idle_cliente():
 	if tween_idle:
@@ -107,6 +105,11 @@ func iniciar_idle_cliente():
 	tween_idle.tween_property(sprite, "position:y", y_original, 0.8)
 
 func generar_cliente():
+	if GameManager.clientes_restantes <= 0:
+		return
+
+	GameManager.clientes_restantes -= 1
+
 	ticket_abierto = false
 	globo_pedido.visible = false
 	plato_preparado.visible = false
@@ -131,8 +134,11 @@ func generar_cliente():
 
 	boton_tomar_pedido.visible = true
 	boton_cocinar.visible = false
-
+	
 func mostrar_globo_pedido():
+	if pedido_actual.is_empty() or not pedido_actual.has("nombre"):
+		return
+
 	globo_pedido.visible = true
 	label_globo.text = "Quiero " + pedido_actual["nombre"]
 
@@ -162,6 +168,7 @@ func mostrar_resultado_cliente():
 	ticket_abierto = false
 	globo_pedido.visible = false
 
+	pedido_actual = PedidoManager.pedido_actual
 	cliente_actual = PedidoManager.cliente_actual
 
 	if cliente_actual == "" or not clientes.has(cliente_actual):
@@ -175,8 +182,8 @@ func mostrar_resultado_cliente():
 	sprite.modulate = Color.WHITE
 	sprite.texture = clientes[cliente_actual][resultado]
 
-	if PedidoManager.pedido_actual.has("nombre"):
-		var nombre_plato = PedidoManager.pedido_actual["nombre"]
+	if pedido_actual.has("nombre"):
+		var nombre_plato = pedido_actual["nombre"]
 
 		if comidas_cocinadas.has(nombre_plato):
 			plato_preparado.texture = comidas_cocinadas[nombre_plato]
@@ -208,8 +215,8 @@ func _on_button_cocinar_pressed():
 	PedidoManager.resultado_cliente = "normal"
 
 	get_tree().change_scene_to_packed(cocina_scene)
-func _process(delta):
 
+func _process(delta):
 	GameManager.tiempo_restante -= delta
 
 	if GameManager.tiempo_restante < 0:
@@ -222,8 +229,8 @@ func _process(delta):
 
 	if GameManager.tiempo_restante <= 0:
 		finalizar_dia()
-func finalizar_dia():
 
+func finalizar_dia():
 	if dia_finalizado:
 		return
 

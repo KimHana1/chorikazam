@@ -32,14 +32,8 @@ var tickets_bebe = {
 }
 
 func _ready():
-	ticket_mini.visible = false
+	ticket_mini.visible = true
 	ticket_grande.visible = false
-
-	ticket_mini.position = Vector2(20, 20)
-	ticket_mini.size = Vector2(90, 130)
-
-	ticket_grande.position = Vector2(250, 60)
-	ticket_grande.scale = Vector2(0.5, 0.5)
 
 	ok1.visible = false
 	ok2.visible = false
@@ -82,9 +76,6 @@ func cargar_ticket(datos):
 	paciencia_cliente.value = paciencia_actual
 	actualizar_color_barra()
 
-	ticket_grande.visible = true
-	ticket_mini.visible = false
-
 func _process(delta):
 	if paciencia_actual > 0:
 		paciencia_actual -= velocidad_paciencia * delta
@@ -110,18 +101,10 @@ func actualizar_color_barra():
 
 func _on_ticket_mini_pressed():
 	ticket_grande.visible = true
-	ticket_mini.visible = false
 
 func _on_button_cerrar_pressed():
 	ticket_grande.visible = false
-	ticket_mini.visible = true
 	ticket_minimizado.emit()
-
-func mostrar_mini():
-	ticket_grande.visible = false
-	ticket_mini.visible = true
-	ticket_mini.position = Vector2(20, 20)
-	ticket_mini.size = Vector2(90, 130)
 
 func marcar_ok(nombre_ingrediente: String):
 	match nombre_ingrediente:

@@ -31,6 +31,10 @@ script = ExtResource("1_ov8ef")
 metadata/_edit_vertical_guides_ = [201.0]
 metadata/_edit_horizontal_guides_ = [197.0, 397.0, 218.0]
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=231269263]
+z_index = 1
+position = Vector2(558.3333, 106.66669)
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=279425443]
 offset_left = -316.66666
 offset_top = -493.33334
@@ -39,14 +43,12 @@ offset_bottom = 586.6666
 texture = ExtResource("2_mc5ak")
 metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=231269263]
-position = Vector2(558.3333, 106.666664)
-
 [node name="mezon" type="TextureRect" parent="." unique_id=616185621]
-offset_left = -215.00018
-offset_top = -2645.999
-offset_right = 1704.9998
-offset_bottom = -739.3323
+z_index = 2
+offset_left = -321.00024
+offset_top = -2645.9988
+offset_right = 1598.9998
+offset_bottom = -739.33203
 scale = Vector2(1, 1.7333338)
 texture = ExtResource("3_yuvmj")
 
@@ -94,6 +96,7 @@ scale = Vector2(0.2, 0.2)
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonTicket" type="Button" parent="GloboPedido" unique_id=1542396859]
+z_index = 3
 layout_mode = 0
 offset_left = 838.3333
 offset_top = -200.0
@@ -104,6 +107,7 @@ flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonTomarPedido" type="Button" parent="." unique_id=130144349]
+z_index = 2
 offset_left = 263.33334
 offset_top = -36.66667
 offset_right = 409.33334
@@ -119,6 +123,7 @@ flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonCocinar" type="Button" parent="." unique_id=1641141922]
+z_index = 2
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -145,9 +150,11 @@ offset_bottom = -87.0
 metadata/_edit_use_anchors_ = true
 
 [node name="PlatoPreparado" type="Sprite2D" parent="." unique_id=305827969]
+z_index = 2
 position = Vector2(619.0005, 341.99988)
 
 [node name="CajaRegistradora" type="Sprite2D" parent="." unique_id=1664625237]
+z_index = 2
 position = Vector2(1246.0011, 329.99988)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1964444807]
