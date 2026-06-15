@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 signal ticket_minimizado
 
@@ -32,8 +32,9 @@ var tickets_bebe = {
 }
 
 func _ready():
-	ticket_mini.visible = true
-	ticket_grande.visible = false
+
+	ticket_mini.visible = false
+	ticket_grande.visible = true
 
 	ok1.visible = false
 	ok2.visible = false
@@ -43,7 +44,6 @@ func _ready():
 
 	if PedidoManager.pedido_actual and not PedidoManager.pedido_actual.is_empty():
 		cargar_ticket(PedidoManager.pedido_actual)
-
 func configurar_barra():
 	paciencia_cliente.visible = true
 	paciencia_cliente.show_percentage = false
@@ -100,10 +100,14 @@ func actualizar_color_barra():
 	paciencia_cliente.add_theme_stylebox_override("fill", estilo_barra)
 
 func _on_ticket_mini_pressed():
+
 	ticket_grande.visible = true
 
 func _on_button_cerrar_pressed():
+
 	ticket_grande.visible = false
+	ticket_mini.visible = true
+
 	ticket_minimizado.emit()
 
 func marcar_ok(nombre_ingrediente: String):
@@ -120,4 +124,5 @@ func marcar_ok(nombre_ingrediente: String):
 			ok3.visible = true
 
 func actualizar_paciencia(valor: float):
+	paciencia_actual = valor
 	paciencia_cliente.value = valor

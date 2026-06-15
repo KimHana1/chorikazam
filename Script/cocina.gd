@@ -1,7 +1,7 @@
 extends Control
 
 @onready var plato = $Plato
-@onready var soga_contenedor = $Soga/HBoxContainer
+@onready var soga_contenedor = $soga/HBoxContainer
 
 var ingredientes_en_plato := []
 var escena_comercio = "res://Comercio/comer/EscenasComercio/Comercio.tscn"
@@ -82,21 +82,22 @@ func descontar_ingredientes_del_pedido():
 		Global.quitar_ingrediente(nombre, 1)
 
 func mostrar_ticket_chiquito():
-	if ticket_actual != null:
-		return
 
 	if soga_contenedor == null:
-		print("ERROR: No se encontro el contenedor en la soga ($Soga/HBoxContainer)")
+		print("No encontre HBoxContainer")
 		return
 
 	for child in soga_contenedor.get_children():
 		child.queue_free()
 
-	ticket_actual = ticket_scene.instantiate()
-	soga_contenedor.add_child(ticket_actual)
+	for pedido in PedidoManager.pedidos_activos:
 
-	if ticket_actual.has_method("cargar_ticket"):
-		ticket_actual.cargar_ticket(PedidoManager.pedido_actual)
+		var ticket = ticket_scene.instantiate()
+
+		soga_contenedor.add_child(ticket)
+
+		if ticket.has_method("cargar_ticket"):
+			ticket.cargar_ticket(pedido)
 
 func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 	nombre_ingrediente = nombre_ingrediente.to_lower()
@@ -185,7 +186,7 @@ func intentar_finalizar_pedido():
 
 		PedidoManager.resultado_cliente = "enojado"
 		PedidoManager.pedido_completado = true
-		get_tree().call_deferred("change_scene_to_packed", escena_cliente)
+		get_tree().change_scene_to_file(escena_cliente)
 
 func todos_en_plato() -> bool:
 	var pedido = PedidoManager.pedido_actual
@@ -242,7 +243,7 @@ func finalizar_pedido():
 	descontar_ingredientes_del_pedido()
 
 	PedidoManager.pedido_completado = true
-	get_tree().call_deferred("change_scene_to_packed", escena_cliente)
+	get_tree().change_scene_to_file(escena_cliente)
 
 func obtener_nodo_ingrediente(nombre_ingrediente: String):
 	nombre_ingrediente = nombre_ingrediente.to_lower()
@@ -304,4 +305,4 @@ func _on_botoncompra_pressed() -> void:
 	get_tree().change_scene_to_file(escena_comercio)
 
 func _on_boton_atencion_pressed() -> void:
-	get_tree().change_scene_to_file("res://Escenas/cliente.tscn")
+	get_tree().change_scene_to_file(escena_cliente)

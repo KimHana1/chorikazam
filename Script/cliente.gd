@@ -129,6 +129,7 @@ func generar_cliente():
 
 	PedidoManager.cliente_actual = cliente_actual
 	PedidoManager.pedido_actual = pedido_actual
+	PedidoManager.pedidos_activos.append(pedido_actual.duplicate(true))
 	PedidoManager.pedido_completado = false
 	PedidoManager.resultado_cliente = "normal"
 
@@ -151,6 +152,8 @@ func abrir_ticket():
 
 	ticket_abierto = true
 	globo_pedido.visible = false
+	
+	boton_cocinar.visible = true 
 
 	var ticket = ticket_scene.instantiate()
 	get_tree().current_scene.add_child(ticket)
@@ -160,7 +163,6 @@ func abrir_ticket():
 
 	if ticket.has_signal("ticket_minimizado"):
 		ticket.ticket_minimizado.connect(_on_ticket_minimizado)
-
 func _on_ticket_minimizado():
 	boton_cocinar.visible = true
 
