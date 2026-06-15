@@ -95,6 +95,9 @@ func mostrar_ticket_chiquito():
 		var ticket = ticket_scene.instantiate()
 
 		soga_contenedor.add_child(ticket)
+		print("Ticket agregado")
+		print(ticket)
+		print(ticket.size)
 
 		if ticket.has_method("cargar_ticket"):
 			ticket.cargar_ticket(pedido)

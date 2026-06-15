@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cb3p6kvni554o" path="res://Sprites/botones/cerrar+ (1).png" id="2_tvjgq"]
 
 [node name="Ticket" type="Control" unique_id=1180696498]
-custom_minimum_size = Vector2(90, 150)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_e54rb")
@@ -12,7 +11,7 @@ metadata/_edit_vertical_guides_ = [124.0, 256.0, 581.0, 383.0]
 metadata/_edit_horizontal_guides_ = [152.0]
 
 [node name="TicketMini" type="TextureButton" parent="." unique_id=452727633]
-custom_minimum_size = Vector2(90, 150)
+custom_minimum_size = Vector2(80, 120)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
