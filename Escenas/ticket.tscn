@@ -3,47 +3,24 @@
 [ext_resource type="Script" uid="uid://b4hdh5l2kllpb" path="res://Script/ticket.gd" id="1_e54rb"]
 [ext_resource type="Texture2D" uid="uid://cb3p6kvni554o" path="res://Sprites/botones/cerrar+ (1).png" id="2_tvjgq"]
 
-[node name="Ticket" type="Control" unique_id=1180696498]
-layout_mode = 3
-anchors_preset = 0
+[node name="Ticket" type="Node2D" unique_id=1391325643]
 script = ExtResource("1_e54rb")
-metadata/_edit_vertical_guides_ = [124.0, 256.0, 581.0, 383.0]
-metadata/_edit_horizontal_guides_ = [152.0]
+metadata/_edit_vertical_guides_ = [124.0, 256.0, 581.0, 383.0, 300.0, 1063.0]
+metadata/_edit_horizontal_guides_ = [152.0, 298.0, 374.0, 450.0]
 
-[node name="TicketMini" type="TextureButton" parent="." unique_id=452727633]
+[node name="TicketMini" type="TextureButton" parent="." unique_id=1598021831]
 custom_minimum_size = Vector2(80, 120)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
+offset_right = 300.0
+offset_bottom = 300.0
+mouse_filter = 1
 
-[node name="TicketGrande" type="CanvasLayer" parent="." unique_id=2098493050]
-scale = Vector2(0.5, 0.5)
-transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+[node name="VisorTicketGrande" type="CanvasLayer" parent="." unique_id=996911358]
 
-[node name="ImagenTicket" type="TextureRect" parent="TicketGrande" unique_id=1090983953]
+[node name="ImagenTicket" type="TextureRect" parent="VisorTicketGrande" unique_id=1660392057]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Ok1" type="TextureRect" parent="TicketGrande" unique_id=304586291]
-offset_left = -264.0
-offset_top = -40.0
-offset_right = -224.0
-
-[node name="Ok2" type="TextureRect" parent="TicketGrande" unique_id=580270508]
-offset_left = -264.0
-offset_top = -40.0
-offset_right = -224.0
-
-[node name="Ok3" type="TextureRect" parent="TicketGrande" unique_id=113440888]
-offset_left = -264.0
-offset_top = -40.0
-offset_right = -224.0
-
-[node name="ButtonCerrar" type="Button" parent="TicketGrande" unique_id=1995968132]
+[node name="ButtonCerrar" type="Button" parent="VisorTicketGrande" unique_id=1912169302]
 offset_left = 275.0
 offset_top = 31.0
 offset_right = 583.0
@@ -52,19 +29,20 @@ scale = Vector2(0.39048, 0.55999935)
 icon = ExtResource("2_tvjgq")
 flat = true
 
-[node name="PacienciaCliente" type="ProgressBar" parent="TicketGrande" unique_id=1776086657]
+[node name="PacienciaCliente" type="ProgressBar" parent="VisorTicketGrande" unique_id=1106055502]
 custom_minimum_size = Vector2(0.5, 0)
-offset_left = 312.0
-offset_top = 570.0
-offset_right = 316.0
-offset_bottom = 597.0
-scale = Vector2(2.1200001, 1.2210271)
+offset_left = 318.0
+offset_top = 167.99994
+offset_right = 322.0
+offset_bottom = 194.99994
+scale = Vector2(5.199999, 6.1810265)
+theme_override_font_sizes/font_size = 32
 
-[node name="IdentificadorColor" type="ColorRect" parent="TicketGrande" unique_id=1400119621]
+[node name="IdentificadorColor" type="ColorRect" parent="VisorTicketGrande" unique_id=2030932104]
 offset_left = 62.0
 offset_top = 102.0
 offset_right = 102.0
 offset_bottom = 142.0
 
 [connection signal="pressed" from="TicketMini" to="." method="_on_ticket_mini_pressed"]
-[connection signal="pressed" from="TicketGrande/ButtonCerrar" to="." method="_on_button_cerrar_pressed"]
+[connection signal="pressed" from="VisorTicketGrande/ButtonCerrar" to="." method="_on_button_cerrar_pressed"]

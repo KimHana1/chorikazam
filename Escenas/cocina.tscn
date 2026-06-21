@@ -30,8 +30,8 @@ grow_vertical = 2
 scale = Vector2(0.9999992, 1)
 script = ExtResource("1_ti2xv")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_vertical_guides_ = [1742.0, 6.0, 1092.0]
-metadata/_edit_horizontal_guides_ = [653.0, 629.0, 42.0]
+metadata/_edit_vertical_guides_ = [1742.0, 6.0, 1092.0, -237.0, 864.0, 242.0, 234.0, 254.0, 1059.0, 860.0]
+metadata/_edit_horizontal_guides_ = [653.0, 629.0, 42.0, 141.0, 558.0, 141.0, 144.0, 156.0, 488.0, 551.0]
 
 [node name="Plato" type="Node2D" parent="." unique_id=731763546]
 position = Vector2(520.0004, 899)
@@ -46,6 +46,7 @@ layout_mode = 0
 offset_right = 1972.9198
 offset_bottom = 1164.2852
 scale = Vector2(0.9815377, 0.92000055)
+mouse_filter = 2
 texture = ExtResource("2_b5anw")
 
 [node name="chorizo" parent="." unique_id=1661543503 instance=ExtResource("2_ti2xv")]
@@ -99,6 +100,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1808495487]
 position = Vector2(1904.0015, 531)
@@ -140,7 +142,7 @@ icon = ExtResource("9_h561l")
 flat = true
 
 [node name="Node2D" type="Node2D" parent="." unique_id=471806195]
-position = Vector2(233.00018, 799)
+position = Vector2(844.0006, 873.00006)
 scale = Vector2(0.7200007, 0.6008905)
 script = ExtResource("10_3j4mf")
 
@@ -165,18 +167,26 @@ offset_top = 146.00003
 offset_right = 1840.6046
 offset_bottom = 8801346.0
 scale = Vector2(0.5886832, -9.0897083e-07)
+mouse_filter = 2
 texture = ExtResource("15_0obbl")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="soga" unique_id=1763440964]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(56.493027, -536167.75)
-metadata/_edit_use_anchors_ = true
+[node name="PosicionesTickets" type="Node2D" parent="soga" unique_id=1533705140]
+position = Vector2(504.51627, 55007304)
+
+[node name="Pos1" type="Marker2D" parent="soga/PosicionesTickets" unique_id=1595895451]
+position = Vector2(162.88376, 8801147)
+
+[node name="Pos2" type="Marker2D" parent="soga/PosicionesTickets" unique_id=871931194]
+position = Vector2(-12.08316, 9901292)
+
+[node name="Pos3" type="Marker2D" parent="soga/PosicionesTickets" unique_id=137660051]
+position = Vector2(404.10025, 8801147)
+
+[node name="Pos4" type="Marker2D" parent="soga/PosicionesTickets" unique_id=1678891338]
+position = Vector2(658.9065, 12101583)
+
+[node name="Pos5" type="Marker2D" parent="soga/PosicionesTickets" unique_id=1286410200]
+position = Vector2(888.23206, 18702456)
 
 [node name="BotonAtencion" type="Button" parent="." unique_id=1918147483]
 layout_mode = 0

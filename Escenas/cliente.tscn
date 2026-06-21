@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://xp5f1cdphr7d" path="res://Sprites/cocinaYTicket/mezon.png" id="3_yuvmj"]
 [ext_resource type="FontFile" uid="uid://c1dgrcg0mmcth" path="res://fuente/Biro_Script_reduced.otf" id="4_vo5fx"]
 [ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="4_wd6nn"]
-[ext_resource type="Texture2D" uid="uid://e2br7r74m24k" path="res://Sprites/botones/Ticket.png" id="5_6rik3"]
 [ext_resource type="Texture2D" uid="uid://mtwnf6ie8lit" path="res://Sprites/botones/BotonPedido.png" id="7_7uf5d"]
 [ext_resource type="Texture2D" uid="uid://cweq55ndmew2p" path="res://Sprites/botones/BotonCocinar.png" id="8_yuvmj"]
 
@@ -95,17 +94,6 @@ offset_bottom = -188.33333
 scale = Vector2(0.2, 0.2)
 metadata/_edit_use_anchors_ = true
 
-[node name="ButtonTicket" type="Button" parent="GloboPedido" unique_id=1542396859]
-z_index = 3
-layout_mode = 0
-offset_left = 838.3333
-offset_top = -200.0
-offset_right = 1146.3333
-offset_bottom = 108.0
-icon = ExtResource("5_6rik3")
-flat = true
-metadata/_edit_use_anchors_ = true
-
 [node name="ButtonTomarPedido" type="Button" parent="." unique_id=130144349]
 z_index = 2
 offset_left = 263.33334
@@ -172,6 +160,5 @@ offset_right = 1768.0
 offset_bottom = 82.0
 label_settings = SubResource("LabelSettings_yuvmj")
 
-[connection signal="pressed" from="GloboPedido/ButtonTicket" to="." method="_on_button_ticket_pressed"]
 [connection signal="pressed" from="ButtonTomarPedido" to="." method="_on_button_tomar_pedido_pressed"]
 [connection signal="pressed" from="ButtonCocinar" to="." method="_on_button_cocinar_pressed"]

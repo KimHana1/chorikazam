@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+const ESTADO_PRINCIPAL = "principal"
+const ESTADO_FELIZ = "feliz"
+const ESTADO_MEDIO = "medio"
+const ESTADO_ENOJADO = "enojado"
+
+#@onready var boton_ticket = $GloboPedido/ButtonTicket
 @onready var plato_preparado = $PlatoPreparado
 @onready var caja_registradora = $CajaRegistradora
 @onready var sprite = $Sprite2D
@@ -9,18 +15,15 @@ extends CharacterBody2D
 @onready var globo_pedido = $GloboPedido
 @onready var label_globo = $GloboPedido/LabelPedido
 @onready var icono_comida = $GloboPedido/IconoComida
-@onready var boton_ticket = $GloboPedido/ButtonTicket
 @onready var barra_tiempo = $CanvasLayer/BarraTiempo
 @onready var label_dia = $CanvasLayer/LabelDia
 
+
 var dia_finalizado := false
-
 var cocina_scene = preload("res://Escenas/cocina.tscn")
-var ticket_scene = preload("res://Escenas/ticket.tscn")
 
-var cliente_actual = ""
-var pedido_actual = {}
-var ticket_abierto = false
+var id_pedido_actual: int = -1
+var cliente_actual_tipo = ""
 var tween_idle
 
 var comidas_cocinadas = {
@@ -31,17 +34,17 @@ var comidas_cocinadas = {
 
 var clientes = {
 	"mujer": {
-		"enojada": preload("res://Sprites/clientes/Mujer/enojada.png"),
-		"feliz": preload("res://Sprites/clientes/Mujer/feliz.png"),
-		"medio": preload("res://Sprites/clientes/Mujer/medio.png"),
-		"principal": preload("res://Sprites/clientes/Mujer/principal.png"),
+		ESTADO_ENOJADO: preload("res://Sprites/clientes/Mujer/enojada.png"),
+		ESTADO_FELIZ: preload("res://Sprites/clientes/Mujer/feliz.png"),
+		ESTADO_MEDIO: preload("res://Sprites/clientes/Mujer/medio.png"),
+		ESTADO_PRINCIPAL: preload("res://Sprites/clientes/Mujer/principal.png"),
 		"color": Color.BROWN
 	},
 	"hombre": {
-		"enojado": preload("res://Sprites/clientes/Hombre/enojado.png"),
-		"feliz": preload("res://Sprites/clientes/Hombre/feliz.png"),
-		"medio": preload("res://Sprites/clientes/Hombre/medio.png"),
-		"principal": preload("res://Sprites/clientes/Hombre/principal.png"),
+		ESTADO_ENOJADO: preload("res://Sprites/clientes/Hombre/enojado.png"),
+		ESTADO_FELIZ: preload("res://Sprites/clientes/Hombre/feliz.png"),
+		ESTADO_MEDIO: preload("res://Sprites/clientes/Hombre/medio.png"),
+		ESTADO_PRINCIPAL: preload("res://Sprites/clientes/Hombre/principal.png"),
 		"color": Color.GRAY
 	}
 }
@@ -49,37 +52,24 @@ var clientes = {
 var pedidos = [
 	{
 		"nombre": "Choripán",
-		"ingredientes": {
-			"pan": ["cortar"],
-			"chorizo": ["calentar"]
-		},
+		"ingredientes": {"pan": ["cortar"], "chorizo": ["calentar"]},
 		"paciencia": 85
 	},
 	{
 		"nombre": "Ensalada",
-		"ingredientes": {
-			"papa": ["cortar"],
-			"tomate": ["cortar"]
-		},
+		"ingredientes": {"papa": ["cortar"], "tomate": ["cortar"]},
 		"paciencia": 80
 	},
 	{
 		"nombre": "Papa Frita",
-		"ingredientes": {
-			"papa": ["pelar", "cortar", "calentar"]
-		},
+		"ingredientes": {"papa": ["pelar", "cortar", "calentar"]},
 		"paciencia": 95
 	}
 ]
 
 func _ready():
 	randomize()
-
-	plato_preparado.visible = false
-	caja_registradora.visible = false
-	globo_pedido.visible = false
-	boton_cocinar.visible = false
-
+	ocultar_toda_la_ui()
 	iniciar_idle_cliente()
 
 	if GameManager.tiempo_restante <= 0 or GameManager.clientes_restantes <= 0:
@@ -88,158 +78,131 @@ func _ready():
 	if PedidoManager.pedido_completado:
 		mostrar_resultado_cliente()
 	else:
-		generar_cliente()
+		flujo_nuevo_cliente()
+
+func ocultar_toda_la_ui():
+	plato_preparado.visible = false
+	caja_registradora.visible = false
+	globo_pedido.visible = false
+	boton_cocinar.visible = false
+
+func cambiar_sprite_cliente(estado: String):
+	print("Cliente actual:", cliente_actual_tipo)
+	print("Estado:", estado)
+
+	if clientes.has(cliente_actual_tipo):
+		print("Existe cliente")
+
+		if clientes[cliente_actual_tipo].has(estado):
+			print("Existe textura")
+
+			sprite.modulate = Color.WHITE
+			sprite.texture = clientes[cliente_actual_tipo][estado]
+		else:
+			print("NO existe estado")
+	else:
+		print("NO existe cliente")
 
 func iniciar_idle_cliente():
-	if tween_idle:
-		tween_idle.kill()
-
+	if tween_idle: tween_idle.kill()
 	var y_original = sprite.position.y
-
-	tween_idle = create_tween()
-	tween_idle.set_loops()
-	tween_idle.set_trans(Tween.TRANS_SINE)
-	tween_idle.set_ease(Tween.EASE_IN_OUT)
-
+	tween_idle = create_tween().set_loops().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween_idle.tween_property(sprite, "position:y", y_original - 5, 0.8)
 	tween_idle.tween_property(sprite, "position:y", y_original, 0.8)
 
-func generar_cliente():
-	if GameManager.clientes_restantes <= 0:
-		return
-
+func flujo_nuevo_cliente():
+	if GameManager.clientes_restantes <= 0: return
 	GameManager.clientes_restantes -= 1
+	ocultar_toda_la_ui()
+	
+	var lista_tipos = clientes.keys()
+	cliente_actual_tipo = lista_tipos[randi() % lista_tipos.size()]
+	PedidoManager.cliente_actual_tipo = cliente_actual_tipo
+	cambiar_sprite_cliente(ESTADO_PRINCIPAL)
+	
 
-	ticket_abierto = false
-	globo_pedido.visible = false
-	plato_preparado.visible = false
-	caja_registradora.visible = false
-
-	var lista_clientes = clientes.keys()
-	cliente_actual = lista_clientes[randi() % lista_clientes.size()]
-
-	sprite.modulate = Color.WHITE
-	sprite.texture = clientes[cliente_actual]["principal"]
-
-	var pedido_random = pedidos[randi() % pedidos.size()]
-	pedido_actual = pedido_random.duplicate(true)
-
-	pedido_actual["color"] = clientes[cliente_actual]["color"]
-	pedido_actual["paciencia_actual"] = pedido_actual["paciencia"]
-
-	PedidoManager.cliente_actual = cliente_actual
-	PedidoManager.pedido_actual = pedido_actual
-	PedidoManager.pedidos_activos.append(pedido_actual.duplicate(true))
-	PedidoManager.pedido_completado = false
-	PedidoManager.resultado_cliente = "normal"
+	var receta_random = pedidos[randi() % pedidos.size()]
+	var nuevo_pedido = PedidoManager.registrar_nuevo_pedido(receta_random, clientes[cliente_actual_tipo]["color"])
+	id_pedido_actual = nuevo_pedido["id"]
 
 	boton_tomar_pedido.visible = true
-	boton_cocinar.visible = false
-	
+
 func mostrar_globo_pedido():
-	if pedido_actual.is_empty() or not pedido_actual.has("nombre"):
-		return
-
+	var pedido = PedidoManager.obtener_pedido_por_id(id_pedido_actual)
+	if not pedido: return
+	
 	globo_pedido.visible = true
-	label_globo.text = "Quiero " + pedido_actual["nombre"]
+	label_globo.text = "Quiero " + pedido["nombre"]
 
-	if comidas_cocinadas.has(pedido_actual["nombre"]):
-		icono_comida.texture = comidas_cocinadas[pedido_actual["nombre"]]
+	if comidas_cocinadas.has(pedido["nombre"]):
+		icono_comida.texture = comidas_cocinadas[pedido["nombre"]]
 
 func abrir_ticket():
-	if ticket_abierto:
+	var pedido = PedidoManager.obtener_pedido_por_id(id_pedido_actual)
+
+	if pedido == null:
 		return
 
-	ticket_abierto = true
-	globo_pedido.visible = false
-	
-	boton_cocinar.visible = true 
+	var ticket = preload("res://Escenas/ticket.tscn").instantiate()
 
-	var ticket = ticket_scene.instantiate()
 	get_tree().current_scene.add_child(ticket)
 
 	if ticket.has_method("cargar_ticket"):
-		ticket.cargar_ticket(pedido_actual)
-
-	if ticket.has_signal("ticket_minimizado"):
-		ticket.ticket_minimizado.connect(_on_ticket_minimizado)
-func _on_ticket_minimizado():
-	boton_cocinar.visible = true
-
-func mostrar_resultado_cliente():
-	ticket_abierto = false
-	globo_pedido.visible = false
-
-	pedido_actual = PedidoManager.pedido_actual
-	cliente_actual = PedidoManager.cliente_actual
-
-	if cliente_actual == "" or not clientes.has(cliente_actual):
-		cliente_actual = "mujer"
-
-	var resultado = PedidoManager.resultado_cliente
-
-	if not clientes[cliente_actual].has(resultado):
-		resultado = "medio"
-
-	sprite.modulate = Color.WHITE
-	sprite.texture = clientes[cliente_actual][resultado]
-
-	if pedido_actual.has("nombre"):
-		var nombre_plato = pedido_actual["nombre"]
-
-		if comidas_cocinadas.has(nombre_plato):
-			plato_preparado.texture = comidas_cocinadas[nombre_plato]
-			plato_preparado.visible = true
-
-	caja_registradora.visible = true
-
-	boton_tomar_pedido.visible = false
-	boton_cocinar.visible = false
-
-	await get_tree().create_timer(1.5).timeout
-
-	generar_cliente()
+		ticket.cargar_ticket(pedido)
 
 func _on_button_tomar_pedido_pressed():
 	boton_tomar_pedido.visible = false
 	mostrar_globo_pedido()
-
-func _on_button_ticket_pressed():
-	abrir_ticket()
+	boton_cocinar.visible = true
 
 func _on_button_cocinar_pressed():
-	if pedido_actual.is_empty():
+
+	if id_pedido_actual == -1:
 		return
 
-	PedidoManager.pedido_actual = pedido_actual
-	PedidoManager.cliente_actual = cliente_actual
-	PedidoManager.pedido_completado = false
-	PedidoManager.resultado_cliente = "normal"
+	var pedido = PedidoManager.obtener_pedido_por_id(id_pedido_actual)
+
+	if pedido == null:
+		print("No encontré el pedido")
+		return
+
+	PedidoManager.pedido_actual = pedido
+
+	print("Pedido enviado a cocina:")
+	print(PedidoManager.pedido_actual)
 
 	get_tree().change_scene_to_packed(cocina_scene)
 
+func mostrar_resultado_cliente():
+	ocultar_toda_la_ui()
+
+	cliente_actual_tipo = PedidoManager.cliente_actual_tipo
+
+	var resultado = PedidoManager.resultado_cliente
+
+	cambiar_sprite_cliente(resultado)
+
+	caja_registradora.visible = true
+
+	await get_tree().create_timer(1.5).timeout
+
+	flujo_nuevo_cliente()
+
 func _process(delta):
 	GameManager.tiempo_restante -= delta
-
-	if GameManager.tiempo_restante < 0:
-		GameManager.tiempo_restante = 0
-
+	if GameManager.tiempo_restante < 0: GameManager.tiempo_restante = 0
 	barra_tiempo.max_value = GameManager.duracion_dia
 	barra_tiempo.value = GameManager.tiempo_restante
-
 	label_dia.text = "Día " + str(GameManager.dia_actual)
-
-	if GameManager.tiempo_restante <= 0:
-		finalizar_dia()
+	if GameManager.tiempo_restante <= 0: finalizar_dia()
 
 func finalizar_dia():
-	if dia_finalizado:
-		return
-
+	if dia_finalizado: return
 	dia_finalizado = true
-
-	print("Fin del día")
-
 	GameManager.siguiente_dia()
-
 	get_tree().reload_current_scene()
+	
+func mostrar_resultado_cliiente():
+	print("ENTRO A mostrar_resultado_cliente")
+	print("resultado =", PedidoManager.resultado_cliente)
+	print("cliente_actual_tipo =", cliente_actual_tipo)
