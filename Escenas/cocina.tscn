@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://d3eq4oo7cqf6w" path="res://Escenas/area_cambio.gd" id="13_0j7s7"]
 [ext_resource type="Texture2D" uid="uid://bdxr4n5uwcyky" path="res://Sprites/botones/flecha come back foward.png" id="14_2xkeu"]
 [ext_resource type="Texture2D" uid="uid://pifcv4qgfqfg" path="res://Sprites/cocinaYTicket/soga.png" id="15_0obbl"]
+[ext_resource type="PackedScene" uid="uid://ldesc7fy78pa" path="res://Comercio/comer/EscenasComercio/InventarioGlobal.tscn" id="16_0j7s7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqnxx"]
 
@@ -207,6 +208,14 @@ offset_bottom = 329.0
 scale = Vector2(0.31999958, 0.43999982)
 icon = ExtResource("14_2xkeu")
 flat = true
+
+[node name="UI  Inventario Global" parent="." unique_id=134098735 instance=ExtResource("16_0j7s7")]
+layout_mode = 0
+offset_left = 1332.001
+offset_top = 2.0
+offset_right = 2224.001
+offset_bottom = 222.0
+scale = Vector2(0.64000034, 0.55999976)
 
 [connection signal="pressed" from="Botoncompra" to="." method="_on_botoncompra_pressed"]
 [connection signal="input_event" from="Node2D/AreaCambio" to="Node2D/AreaCambio" method="_on_input_event"]
