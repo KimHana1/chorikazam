@@ -14,23 +14,24 @@ font = ExtResource("4_wd6nn")
 font_size = 35
 font_color = Color(0.39540777, 0.19101903, 0.16719764, 1)
 
-[sub_resource type="Theme" id="Theme_5jc13"]
+[sub_resource type="LabelSettings" id="LabelSettings_yuvmj"]
+font_size = 26
+font_color = Color(1.0107458e-06, 0.5319785, 0.44265088, 1)
 
 [sub_resource type="Theme" id="Theme_dffsu"]
 default_base_scale = 0.48
 
-[sub_resource type="LabelSettings" id="LabelSettings_yuvmj"]
-font_size = 26
-font_color = Color(1.0107458e-06, 0.5319785, 0.44265088, 1)
+[sub_resource type="Theme" id="Theme_5jc13"]
 
 [node name="Cliente" type="CharacterBody2D" unique_id=1181098271]
 position = Vector2(314.00003, 481.00003)
 scale = Vector2(0.9999992, 1.0000004)
 script = ExtResource("1_ov8ef")
 metadata/_edit_vertical_guides_ = [201.0]
-metadata/_edit_horizontal_guides_ = [197.0, 397.0, 218.0]
+metadata/_edit_horizontal_guides_ = [197.0, 397.0, 218.0, 646.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=231269263]
+visible = false
 z_index = 1
 position = Vector2(558.3333, 106.66669)
 
@@ -42,16 +43,15 @@ offset_bottom = 586.6666
 texture = ExtResource("2_mc5ak")
 metadata/_edit_use_anchors_ = true
 
-[node name="mezon" type="TextureRect" parent="." unique_id=616185621]
-z_index = 2
-offset_left = -321.00024
-offset_top = -2645.9988
-offset_right = 1598.9998
-offset_bottom = -739.33203
-scale = Vector2(1, 1.7333338)
+[node name="Mezon" type="TextureRect" parent="." unique_id=1513824182]
+offset_left = -310.0003
+offset_top = -1863.9995
+offset_right = 1609.9998
+offset_bottom = 593.99976
 texture = ExtResource("3_yuvmj")
 
 [node name="GloboPedido" type="Control" parent="." unique_id=343137024]
+visible = false
 z_index = 20
 layout_mode = 3
 anchors_preset = 0
@@ -94,41 +94,15 @@ offset_bottom = -188.33333
 scale = Vector2(0.2, 0.2)
 metadata/_edit_use_anchors_ = true
 
-[node name="ButtonTomarPedido" type="Button" parent="." unique_id=130144349]
+[node name="mezon" type="TextureRect" parent="GloboPedido" unique_id=616185621]
 z_index = 2
-offset_left = 263.33334
-offset_top = -36.66667
-offset_right = 409.33334
-offset_bottom = 16.333328
-scale = Vector2(2.2, 2.2666667)
-theme = SubResource("Theme_5jc13")
-theme_override_colors/font_color = Color(0.0021761383, 0.00023052815, 0, 1)
-theme_override_colors/font_focus_color = Color(0.98342556, 0.9449602, 0.8779431, 1)
-theme_override_fonts/font = ExtResource("4_vo5fx")
-theme_override_font_sizes/font_size = 26
-icon = ExtResource("7_7uf5d")
-flat = true
-metadata/_edit_use_anchors_ = true
-
-[node name="ButtonCocinar" type="Button" parent="." unique_id=1641141922]
-z_index = 2
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 306.6667
-offset_top = 59.999985
-offset_right = 614.6667
-offset_bottom = 368.0
-grow_horizontal = 0
-grow_vertical = 2
-scale = Vector2(1.9105723, 1.7755573)
-theme = SubResource("Theme_dffsu")
-theme_override_font_sizes/font_size = 35
-icon = ExtResource("8_yuvmj")
-flat = true
-metadata/_edit_use_anchors_ = true
+layout_mode = 0
+offset_left = -297.66696
+offset_top = -2462.6658
+offset_right = 1622.333
+offset_bottom = -555.999
+scale = Vector2(1, 1.7333338)
+texture = ExtResource("3_yuvmj")
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="." unique_id=897437607]
 offset_left = 145.0
@@ -160,5 +134,78 @@ offset_right = 1768.0
 offset_bottom = 82.0
 label_settings = SubResource("LabelSettings_yuvmj")
 
-[connection signal="pressed" from="ButtonTomarPedido" to="." method="_on_button_tomar_pedido_pressed"]
-[connection signal="pressed" from="ButtonCocinar" to="." method="_on_button_cocinar_pressed"]
+[node name="ButtonCocinar" type="Button" parent="CanvasLayer" unique_id=1641141922]
+z_index = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1299.3335
+offset_top = 1.000061
+offset_right = -991.3335
+offset_bottom = 309.00006
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.9105723, 1.7755573)
+theme = SubResource("Theme_dffsu")
+theme_override_font_sizes/font_size = 35
+icon = ExtResource("8_yuvmj")
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonTomarPedido" type="Button" parent="CanvasLayer" unique_id=130144349]
+z_index = 3
+offset_left = 577.3331
+offset_top = 444.33334
+offset_right = 885.3331
+offset_bottom = 752.3334
+scale = Vector2(2.2, 2.2666667)
+theme = SubResource("Theme_5jc13")
+theme_override_colors/font_color = Color(0.0021761383, 0.00023052815, 0, 1)
+theme_override_colors/font_focus_color = Color(0.98342556, 0.9449602, 0.8779431, 1)
+theme_override_fonts/font = ExtResource("4_vo5fx")
+theme_override_font_sizes/font_size = 26
+icon = ExtResource("7_7uf5d")
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="mezon" type="TextureRect" parent="CanvasLayer/ButtonTomarPedido" unique_id=1330087713]
+z_index = 2
+layout_mode = 0
+offset_left = -297.66696
+offset_top = -2462.6658
+offset_right = 1622.333
+offset_bottom = -555.999
+scale = Vector2(1, 1.7333338)
+texture = ExtResource("3_yuvmj")
+
+[node name="mezon2" type="TextureRect" parent="CanvasLayer/ButtonTomarPedido" unique_id=417845912]
+z_index = 2
+layout_mode = 0
+offset_left = -297.66696
+offset_top = -2462.6658
+offset_right = 1622.333
+offset_bottom = -555.999
+scale = Vector2(1, 1.7333338)
+texture = ExtResource("3_yuvmj")
+
+[node name="FilaClientes" type="Node2D" parent="." unique_id=209731966]
+
+[node name="Pos1" type="Marker2D" parent="FilaClientes" unique_id=304771487]
+position = Vector2(918.0007, 164.99992)
+
+[node name="Pos2" type="Marker2D" parent="FilaClientes" unique_id=35416863]
+position = Vector2(1315.001, 162.99992)
+
+[node name="Pos3" type="Marker2D" parent="FilaClientes" unique_id=2135200453]
+position = Vector2(671.00055, 162.99992)
+
+[node name="Pos4" type="Marker2D" parent="FilaClientes" unique_id=1723458939]
+position = Vector2(-112.000114, 172.99992)
+
+[node name="Pos5" type="Marker2D" parent="FilaClientes" unique_id=79403196]
+position = Vector2(119.00007, 159.99992)
+
+[connection signal="pressed" from="CanvasLayer/ButtonCocinar" to="." method="_on_button_cocinar_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonTomarPedido" to="." method="_on_button_tomar_pedido_pressed"]

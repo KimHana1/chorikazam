@@ -11,6 +11,11 @@ extends Control
 @onready var paciencia_cliente = $VisorTicketGrande/PacienciaCliente
 @onready var identificador_color = $VisorTicketGrande/IdentificadorColor
 
+# --- NUEVO: CONEXIÓN AL INVENTARIO ---
+# Arrastrá tu nodo del inventario acá con Ctrl apretado para la ruta exacta:
+@onready var inventario = $"UI Inventario Global"
+# -------------------------------------
+
 var ticket_scene = preload("res://Escenas/ticket.tscn")
 
 var ingredientes_en_plato := []
@@ -35,6 +40,12 @@ func _ready():
 	pasos_completados.clear()
 	ingredientes_en_plato.clear()
 	listo_para_entregar = false
+	
+	# --- NUEVO: Actualizamos los números de la grilla al entrar a la cocina ---
+	if inventario:
+		inventario.visible = true
+		inventario.actualizar_inventario()
+	# --------------------------------------------------------------------------
 	
 	if visor_grande:
 		visor_grande.visible = false
@@ -95,7 +106,6 @@ func mostrar_ticket_chiquito():
 		if child.is_in_group("tickets_instanciados"):
 			child.queue_free()
 
-	# ¡Acá está la corrección! Le devolvimos la "s" al nombre del nodo
 	var nodo_posiciones = soga_nodo.get_node_or_null("PosicionesTickets")
 	if not nodo_posiciones:
 		print("ERROR CRÍTICO: No se encontró el nodo 'PosicionesTickets' dentro de 'soga'.")
@@ -135,7 +145,7 @@ func mostrar_ticket_chiquito():
 
 func _on_ticket_seleccionado(datos_pedido):
 	
-	print("🎯 ¡La cocina recibió la señal del ticket! Datos: ", datos_pedido)
+	print("¡La cocina recibió la señal del ticket! Datos: ", datos_pedido)
 	
 	if visor_grande == null:
 		return
@@ -197,6 +207,11 @@ func descontar_ingredientes_del_pedido():
 	for ingrediente in pedido["ingredientes"].keys():
 		var nombre = ingrediente.to_lower()
 		Global.quitar_ingrediente(nombre, 1)
+		
+	
+	if inventario:
+		inventario.actualizar_inventario()
+	
 
 func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 	nombre_ingrediente = nombre_ingrediente.to_lower()
