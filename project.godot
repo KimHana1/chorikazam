@@ -13,12 +13,12 @@ config_version=5
 config/name="juegochori"
 run/main_scene="uid://bxbmbwelwwv6b"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://Sprites/icon.svg"
 
 [autoload]
 
 PedidoManager="*uid://danhfqfuljsa8"
 Global="*uid://dqm3lma626gqc"
+GameManager="*uid://de7da0cvinl11"
 
 [display]
 

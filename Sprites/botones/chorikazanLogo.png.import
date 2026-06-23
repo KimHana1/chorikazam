@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caragqm3bvnxe"
-path="res://.godot/imported/cliente sprite sheet.png-e8fcfee08c2db2b2e14f0fa0eefbb7a3.ctex"
+uid="uid://b6tpte3jmshco"
+path="res://.godot/imported/chorikazanLogo.png-cf60d9090e44de3f66815a507ae053ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/cliente sprite sheet.png"
-dest_files=["res://.godot/imported/cliente sprite sheet.png-e8fcfee08c2db2b2e14f0fa0eefbb7a3.ctex"]
+source_file="res://Sprites/botones/chorikazanLogo.png"
+dest_files=["res://.godot/imported/chorikazanLogo.png-cf60d9090e44de3f66815a507ae053ef.ctex"]
 
 [params]
 

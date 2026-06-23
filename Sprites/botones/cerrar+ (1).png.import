@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://muy6dp6vn81y"
-path="res://.godot/imported/pelo3.png-c5a8faf301fd829177f0527a76c9421c.ctex"
+uid="uid://cb3p6kvni554o"
+path="res://.godot/imported/cerrar+ (1).png-e70d64dd12822890b07b3d787174ef27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/pelo3.png"
-dest_files=["res://.godot/imported/pelo3.png-c5a8faf301fd829177f0527a76c9421c.ctex"]
+source_file="res://Sprites/botones/cerrar+ (1).png"
+dest_files=["res://.godot/imported/cerrar+ (1).png-e70d64dd12822890b07b3d787174ef27.ctex"]
 
 [params]
 

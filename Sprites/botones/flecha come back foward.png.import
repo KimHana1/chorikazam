@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3ncgr6lr5cn2"
-path="res://.godot/imported/torso2.png-f7db9f7af180d07a13c50ec79f2aeec5.ctex"
+uid="uid://bdxr4n5uwcyky"
+path="res://.godot/imported/flecha come back foward.png-ded038677dc532e83213285f6aa1e36e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/torso2.png"
-dest_files=["res://.godot/imported/torso2.png-f7db9f7af180d07a13c50ec79f2aeec5.ctex"]
+source_file="res://Sprites/botones/flecha come back foward.png"
+dest_files=["res://.godot/imported/flecha come back foward.png-ded038677dc532e83213285f6aa1e36e.ctex"]
 
 [params]
 

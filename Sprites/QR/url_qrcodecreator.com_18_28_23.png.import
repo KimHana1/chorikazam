@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://us3cpi7vq73f"
-path="res://.godot/imported/icon.svg-b67cfb692a937e61d2bda8561d9e8db7.ctex"
+uid="uid://cujn022a6wch4"
+path="res://.godot/imported/url_qrcodecreator.com_18_28_23.png-2635fdcc9d02b0bafe5d25e9a5c255a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-b67cfb692a937e61d2bda8561d9e8db7.ctex"]
+source_file="res://Sprites/QR/url_qrcodecreator.com_18_28_23.png"
+dest_files=["res://.godot/imported/url_qrcodecreator.com_18_28_23.png-2635fdcc9d02b0bafe5d25e9a5c255a0.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

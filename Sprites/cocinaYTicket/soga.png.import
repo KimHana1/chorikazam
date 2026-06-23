@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi5fxdeawbai0"
-path="res://.godot/imported/mockup.png-9f34c42323438a4668e9d61b17614a38.ctex"
+uid="uid://pifcv4qgfqfg"
+path="res://.godot/imported/soga.png-254e6fe6bf26f12e0a9e5337ec8544df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/mockup.png"
-dest_files=["res://.godot/imported/mockup.png-9f34c42323438a4668e9d61b17614a38.ctex"]
+source_file="res://Sprites/cocinaYTicket/soga.png"
+dest_files=["res://.godot/imported/soga.png-254e6fe6bf26f12e0a9e5337ec8544df.ctex"]
 
 [params]
 

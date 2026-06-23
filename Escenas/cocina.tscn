@@ -8,11 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://Escenas/pan.tscn" id="5_h561l"]
 [ext_resource type="PackedScene" uid="uid://0et0ieu0v3re" path="res://tomate.tscn" id="6_jqnxx"]
 [ext_resource type="Texture2D" uid="uid://bm6rh1l7fubce" path="res://Sprites/botones/BotonComprar.png" id="9_h561l"]
-[ext_resource type="Script" uid="uid://beb3jfy62fpyo" path="res://Escenas/node_2d.gd" id="10_3j4mf"]
+[ext_resource type="Script" uid="uid://beb3jfy62fpyo" path="res://Script/boton.gd" id="10_3j4mf"]
 [ext_resource type="Texture2D" uid="uid://bxhrtpagwftyb" path="res://Sprites/Platos/Plato png.png" id="10_s4ijj"]
 [ext_resource type="Texture2D" uid="uid://bojvum4c5v573" path="res://Sprites/libro/libroDePasos2.png" id="11_2xkeu"]
 [ext_resource type="Texture2D" uid="uid://du4ns11k7t85o" path="res://Sprites/libro/libroDePasos.png" id="12_0obbl"]
 [ext_resource type="Script" uid="uid://d3eq4oo7cqf6w" path="res://Escenas/area_cambio.gd" id="13_0j7s7"]
+[ext_resource type="Texture2D" uid="uid://bdxr4n5uwcyky" path="res://Sprites/botones/flecha come back foward.png" id="14_2xkeu"]
+[ext_resource type="Texture2D" uid="uid://pifcv4qgfqfg" path="res://Sprites/cocinaYTicket/soga.png" id="15_0obbl"]
+[ext_resource type="PackedScene" uid="uid://ldesc7fy78pa" path="res://Comercio/comer/EscenasComercio/InventarioGlobal.tscn" id="16_0j7s7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqnxx"]
 
@@ -28,8 +31,8 @@ grow_vertical = 2
 scale = Vector2(0.9999992, 1)
 script = ExtResource("1_ti2xv")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_vertical_guides_ = [1742.0, 6.0, 1092.0]
-metadata/_edit_horizontal_guides_ = [653.0, 629.0, 42.0]
+metadata/_edit_vertical_guides_ = [1742.0, 6.0, 1092.0, -237.0, 864.0, 242.0, 234.0, 254.0, 1059.0, 860.0]
+metadata/_edit_horizontal_guides_ = [653.0, 629.0, 42.0, 141.0, 558.0, 141.0, 144.0, 156.0, 488.0, 551.0]
 
 [node name="Plato" type="Node2D" parent="." unique_id=731763546]
 position = Vector2(520.0004, 899)
@@ -44,6 +47,7 @@ layout_mode = 0
 offset_right = 1972.9198
 offset_bottom = 1164.2852
 scale = Vector2(0.9815377, 0.92000055)
+mouse_filter = 2
 texture = ExtResource("2_b5anw")
 
 [node name="chorizo" parent="." unique_id=1661543503 instance=ExtResource("2_ti2xv")]
@@ -97,6 +101,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1808495487]
 position = Vector2(1904.0015, 531)
@@ -138,7 +143,7 @@ icon = ExtResource("9_h561l")
 flat = true
 
 [node name="Node2D" type="Node2D" parent="." unique_id=471806195]
-position = Vector2(275.0002, 202.00003)
+position = Vector2(844.0006, 873.00006)
 scale = Vector2(0.7200007, 0.6008905)
 script = ExtResource("10_3j4mf")
 
@@ -149,12 +154,70 @@ texture = ExtResource("11_2xkeu")
 texture = ExtResource("12_0obbl")
 
 [node name="AreaCambio" type="Area2D" parent="Node2D" unique_id=846194126]
-position = Vector2(45.833324, -29.95559)
+position = Vector2(-12.499996, 227.99487)
 script = ExtResource("13_0j7s7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/AreaCambio" unique_id=1970787023]
 scale = Vector2(24.944445, 10.386069)
 shape = SubResource("RectangleShape2D_3j4mf")
 
+[node name="soga" type="TextureRect" parent="." unique_id=1347590912]
+layout_mode = 0
+offset_left = 6.0000052
+offset_top = 146.00003
+offset_right = 1840.6046
+offset_bottom = 8801346.0
+scale = Vector2(0.5886832, -9.0897083e-07)
+mouse_filter = 2
+texture = ExtResource("15_0obbl")
+
+[node name="PosicionesTickets" type="Node2D" parent="soga" unique_id=1533705140]
+position = Vector2(504.51627, 55007304)
+
+[node name="Pos1" type="Marker2D" parent="soga/PosicionesTickets" unique_id=1595895451]
+position = Vector2(162.88376, 8801147)
+
+[node name="Pos2" type="Marker2D" parent="soga/PosicionesTickets" unique_id=871931194]
+position = Vector2(-12.08316, 9901292)
+
+[node name="Pos3" type="Marker2D" parent="soga/PosicionesTickets" unique_id=137660051]
+position = Vector2(404.10025, 8801147)
+
+[node name="Pos4" type="Marker2D" parent="soga/PosicionesTickets" unique_id=1678891338]
+position = Vector2(658.9065, 12101583)
+
+[node name="Pos5" type="Marker2D" parent="soga/PosicionesTickets" unique_id=1286410200]
+position = Vector2(888.23206, 18702456)
+
+[node name="BotonAtencion" type="Button" parent="." unique_id=1918147483]
+layout_mode = 0
+offset_left = 48.00004
+offset_top = 21.0
+offset_right = 656.00006
+offset_bottom = 329.0
+scale = Vector2(0.31999958, 0.43999982)
+icon = ExtResource("14_2xkeu")
+flat = true
+
+[node name="BotonAtencion2" type="Button" parent="." unique_id=632629499]
+layout_mode = 0
+offset_left = 48.00004
+offset_top = 21.0
+offset_right = 656.00006
+offset_bottom = 329.0
+scale = Vector2(0.31999958, 0.43999982)
+icon = ExtResource("14_2xkeu")
+flat = true
+
+[node name="UI  Inventario Global" parent="." unique_id=134098735 instance=ExtResource("16_0j7s7")]
+layout_mode = 0
+offset_left = 1332.001
+offset_top = 2.0
+offset_right = 2224.001
+offset_bottom = 222.0
+scale = Vector2(0.64000034, 0.55999976)
+
 [connection signal="pressed" from="Botoncompra" to="." method="_on_botoncompra_pressed"]
 [connection signal="input_event" from="Node2D/AreaCambio" to="Node2D/AreaCambio" method="_on_input_event"]
+[connection signal="pressed" from="BotonAtencion" to="." method="_on_boton_atencion_pressed"]
+[connection signal="pressed" from="BotonAtencion2" to="." method="_on_boton_atencion_pressed"]
