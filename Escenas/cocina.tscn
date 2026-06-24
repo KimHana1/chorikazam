@@ -22,6 +22,16 @@
 [ext_resource type="PackedScene" uid="uid://ldesc7fy78pa" path="res://Comercio/comer/EscenasComercio/InventarioGlobal.tscn" id="16_0j7s7"]
 [ext_resource type="Script" uid="uid://bjogephvbxjiw" path="res://Escenas/audio_hechizos.gd" id="17_0tcp2"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_phr1r"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 360.22
+gravity = Vector3(0, 98, 0)
+scale_min = 5.0
+scale_max = 6.0
+color = Color(1, 1, 0.101960786, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqnxx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3j4mf"]
@@ -85,12 +95,19 @@ nombre_ingrediente = "Tomate"
 limite_izq = 1091.0
 limite_der = 1742.0
 
+[node name="Line2D" type="Line2D" parent="." unique_id=2060014531]
+position = Vector2(487.00076, 246)
+scale = Vector2(0.8033979, 1.2278367)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=578913103]
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_phr1r")
+
 [node name="DrawManager" type="Node" parent="." unique_id=486436348]
 script = ExtResource("1_r5ydy")
-
-[node name="Line2D" type="Line2D" parent="." unique_id=2060014531]
-position = Vector2(487.00073, 246)
-scale = Vector2(0.80339783, 1.2278367)
 
 [node name="LabelEstado" type="Label" parent="." unique_id=71653673]
 layout_mode = 0

@@ -1,7 +1,7 @@
 extends Node
 
 @onready var line: Line2D = $"../Line2D"
-
+@onready var particulas: GPUParticles2D = $"../GPUParticles2D"
 
 var puntos_linea: Array[Vector2] = []
 var puntos_mundo: Array[Vector2] = []
@@ -26,7 +26,13 @@ func iniciar_dibujo():
 	dibujando = true
 
 	agregar_punto_mouse()
+func lanzar_particulas():
 
+	particulas.global_position = line.to_global(obtener_centro_dibujo())
+
+
+	particulas.restart()
+	particulas.emitting = true
 func finalizar_dibujo():
 	dibujando = false
 
@@ -53,11 +59,22 @@ func finalizar_dibujo():
 
 	if ingrediente != null and ingrediente.has_method("aplicar_hechizo"):
 		ingrediente.aplicar_hechizo(paso)
+		lanzar_particulas()
 		desvanecer(true)
 	else:
 		print("No tocaste ningun ingrediente")
 		desvanecer(false)
+func obtener_centro_dibujo() -> Vector2:
 
+	if puntos_linea.is_empty():
+		return Vector2.ZERO
+
+	var centro := Vector2.ZERO
+
+	for p in puntos_linea:
+		centro += p
+
+	return centro / puntos_linea.size()
 func agregar_punto_mouse():
 	var mouse_mundo = get_viewport().get_camera_2d().get_global_mouse_position() if get_viewport().get_camera_2d() != null else get_viewport().get_mouse_position()
 	var mouse_linea = line.to_local(mouse_mundo)
