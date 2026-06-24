@@ -2,6 +2,7 @@ extends Node
 
 @onready var line: Line2D = $"../Line2D"
 
+
 var puntos_linea: Array[Vector2] = []
 var puntos_mundo: Array[Vector2] = []
 var dibujando: bool = false
@@ -38,6 +39,7 @@ func finalizar_dibujo():
 		return
 
 	print("Paso detectado: ", paso)
+
 
 	if paso == "emplatar":
 		if get_tree().current_scene.has_method("intentar_finalizar_pedido"):

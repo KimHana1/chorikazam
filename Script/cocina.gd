@@ -10,9 +10,8 @@ extends Control
 @onready var ok3 = $VisorTicketGrande/Ok3
 @onready var paciencia_cliente = $VisorTicketGrande/PacienciaCliente
 @onready var identificador_color = $VisorTicketGrande/IdentificadorColor
+@onready var audio_hechizos = $AudioHechizos
 
-# --- NUEVO: CONEXIÓN AL INVENTARIO ---
-# Arrastrá tu nodo del inventario acá con Ctrl apretado para la ruta exacta:
 @onready var inventario = $"UI Inventario Global"
 # -------------------------------------
 
@@ -41,11 +40,11 @@ func _ready():
 	ingredientes_en_plato.clear()
 	listo_para_entregar = false
 	
-	# --- NUEVO: Actualizamos los números de la grilla al entrar a la cocina ---
+	
 	if inventario:
 		inventario.visible = true
 		inventario.actualizar_inventario()
-	# --------------------------------------------------------------------------
+
 	
 	if visor_grande:
 		visor_grande.visible = false
@@ -249,7 +248,7 @@ func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 		if paso not in pasos_completados[nombre_ingrediente]:
 			pasos_completados[nombre_ingrediente].append(paso)
 			print(nombre_ingrediente, " paso correcto: ", paso)
-
+			audio_hechizos.reproducir_paso(paso)
 			if ingrediente_terminado(nombre_ingrediente):
 				marcar_ingrediente_correcto(nombre_ingrediente)
 
@@ -275,6 +274,9 @@ func ingrediente_terminado(nombre_ingrediente: String) -> bool:
 
 func intentar_finalizar_pedido():
 	if listo_para_entregar and todos_en_plato():
+		audio_hechizos.reproducir_paso("emplatar")
+		await get_tree().create_timer(0.8).timeout
+
 		finalizar_pedido()
 	else:
 		print("Pedido entregado mal")
