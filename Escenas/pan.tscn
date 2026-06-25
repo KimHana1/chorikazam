@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://co7qus1c8rpcm"]
 
 [ext_resource type="Script" uid="uid://bgtfdd1f73nju" path="res://Script/pan.gd" id="1_bso80"]
+[ext_resource type="Texture2D" uid="uid://ct5yo2gdajeu3" path="res://Sprites/ComidaCortada/pan cortado.png" id="2_2ijui"]
 [ext_resource type="Texture2D" uid="uid://dvyjwqpp74ehv" path="res://Sprites/ingredientes/pan.png" id="2_bg2j3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bg2j3"]
@@ -9,7 +10,9 @@ height = 530.64575
 
 [node name="pan" type="Area2D" unique_id=393561602]
 script = ExtResource("1_bso80")
+nombre_ingrediente = "pan"
 limite_abajo = 800.0
+textura_cortado = ExtResource("2_2ijui")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=45656818]
 texture = ExtResource("2_bg2j3")

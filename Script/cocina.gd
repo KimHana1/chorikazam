@@ -11,16 +11,13 @@ extends Control
 @onready var paciencia_cliente = $VisorTicketGrande/PacienciaCliente
 @onready var identificador_color = $VisorTicketGrande/IdentificadorColor
 
-# --- NUEVO: CONEXIÓN AL INVENTARIO ---
-# Arrastrá tu nodo del inventario acá con Ctrl apretado para la ruta exacta:
 @onready var inventario = $"UI Inventario Global"
-# -------------------------------------
 
 var ticket_scene = preload("res://Escenas/ticket.tscn")
 
 var ingredientes_en_plato := []
 var escena_comercio = "res://Comercio/comer/EscenasComercio/Comercio.tscn"
-var escena_cliente = "res://Escenas/cliente.tscn"
+var escena_cliente = "res://Escenas/entrega.tscn"
 
 var pasos_completados = {}
 var listo_para_entregar: bool = false
@@ -33,7 +30,9 @@ var velocidad_paciencia: float = 1.0
 var tickets_grandes = {
 	"Choripán": preload("res://Sprites/Tickets/TickectChoripan.png"),
 	"Ensalada": preload("res://Sprites/Tickets/TickectEnsalada.png"),
-	"Papa Frita": preload("res://Sprites/Tickets/TickectPapasFritas.png")
+	"papitas fritas": preload("res://Sprites/Tickets/TickectPapasFritas.png"),
+	"carne con papas": preload("res://Sprites/Tickets/TickectCarnePapas.png")
+	
 }
 
 func _ready():
@@ -41,11 +40,10 @@ func _ready():
 	ingredientes_en_plato.clear()
 	listo_para_entregar = false
 	
-	# --- NUEVO: Actualizamos los números de la grilla al entrar a la cocina ---
 	if inventario:
 		inventario.visible = true
 		inventario.actualizar_inventario()
-	# --------------------------------------------------------------------------
+	
 	
 	if visor_grande:
 		visor_grande.visible = false

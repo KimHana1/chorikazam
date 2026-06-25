@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bs6hese3mknwc"]
+
+[node name="CocinaMenuBotones" type="GridContainer" unique_id=1290063942]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UI Pan2" type="PanelContainer" parent="." unique_id=104132833]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI Pan2" unique_id=1262480959]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI Pan2/MarginContainer" unique_id=1615286827]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI Pan2/MarginContainer" unique_id=471008064]
+layout_mode = 2
+
+[node name="UI Pan4" type="PanelContainer" parent="." unique_id=631215674]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI Pan4" unique_id=1167722935]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI Pan4/MarginContainer" unique_id=251035472]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI Pan4/MarginContainer" unique_id=49362539]
+layout_mode = 2

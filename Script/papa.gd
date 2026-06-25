@@ -7,6 +7,11 @@ extends Area2D
 @export var limite_arriba: float = 39.0
 @export var limite_abajo: float = 629.0
 
+@export_group("Texturas por Estado")
+@export var textura_pelado: Texture2D
+@export var textura_cortado: Texture2D
+@export var textura_calentado: Texture2D
+
 @onready var sprite = $Sprite2D
 
 var direccion: Vector2 = Vector2.ZERO
@@ -14,9 +19,12 @@ var terminado: bool = false
 var congelado: bool = false
 var puede_congelarse: bool = true
 
+var escala_original: Vector2
+
 func _ready():
 	add_to_group("ingredientes")
 	input_pickable = true
+	escala_original = sprite.scale 
 	reiniciar_direccion_aleatoria()
 
 func _process(delta):
@@ -44,11 +52,39 @@ func reiniciar_direccion_aleatoria():
 	if direccion == Vector2.ZERO:
 		direccion = Vector2(1, 1).normalized()
 
-func aplicar_hechizo(paso: String):
-	var cocina = get_tree().current_scene
+func obtener_cocina():
+	var nodo = get_parent()
+	while nodo != null:
+		if nodo.has_method("verificar_ingrediente") or nodo.has_method("intentar_finalizar_pedido"):
+			return nodo
+		nodo = nodo.get_parent()
+	return null
 
-	if cocina.has_method("verificar_ingrediente"):
-		cocina.verificar_ingrediente(nombre_ingrediente, paso)
+func aplicar_hechizo(paso: String):
+	paso = paso.to_lower()
+	var cocina = obtener_cocina()
+
+	if cocina:
+		if paso == "emplatar" or paso == "cerrado" or paso == "circulo":
+			if cocina.has_method("intentar_finalizar_pedido"):
+				cocina.intentar_finalizar_pedido()
+		else:
+			cambiar_sprite_por_estado(paso)
+			
+			if cocina.has_method("verificar_ingrediente"):
+				cocina.verificar_ingrediente(nombre_ingrediente, paso)
+
+func cambiar_sprite_por_estado(estado: String):
+	match estado:
+		"pelar":
+			if textura_pelado:
+				sprite.texture = textura_pelado
+		"cortar":
+			if textura_cortado:
+				sprite.texture = textura_cortado
+		"calentar":
+			if textura_calentado:
+				sprite.texture = textura_calentado
 
 func correcto():
 	if terminado:
@@ -59,13 +95,14 @@ func correcto():
 
 	direccion = Vector2.ZERO
 	velocidad = 0
+	
+	sprite.scale = escala_original 
 
-	var cocina = get_tree().current_scene
-
-	if cocina.has_method("mover_ingrediente_al_plato"):
+	var cocina = obtener_cocina()
+	if cocina and cocina.has_method("mover_ingrediente_al_plato"):
 		cocina.mover_ingrediente_al_plato(self, nombre_ingrediente)
 
-	sprite.modulate = Color.GREEN
+	sprite.modulate = Color.WHITE
 
 func incorrecto():
 	if terminado:
@@ -87,7 +124,7 @@ func _on_mouse_entered():
 
 	congelado = true
 	puede_congelarse = false
-	sprite.scale = Vector2(1.15, 1.15)
+	sprite.scale = escala_original * 1.15
 
 	get_tree().create_timer(1.0).timeout.connect(_on_descongelar)
 
@@ -96,7 +133,7 @@ func _on_descongelar():
 		return
 
 	congelado = false
-	sprite.scale = Vector2.ONE
+	sprite.scale = escala_original
 	reiniciar_direccion_aleatoria()
 
 	get_tree().create_timer(2.0).timeout.connect(_on_cooldown_terminado)

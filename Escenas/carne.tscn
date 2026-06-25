@@ -9,6 +9,7 @@ height = 460.0
 
 [node name="carne" type="Area2D" unique_id=1009550738]
 script = ExtResource("1_upjlo")
+nombre_ingrediente = "carne"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1906188385]
 texture = ExtResource("2_aqp4g")
