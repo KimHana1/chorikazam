@@ -101,8 +101,7 @@ scale = Vector2(0.8033979, 1.2278367)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=578913103]
 emitting = false
 amount = 100
-lifetime = 0.9
-one_shot = true
+lifetime = 1.12
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_phr1r")
 
