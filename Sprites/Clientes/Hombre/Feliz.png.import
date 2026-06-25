@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp30megdlib6s"
-path="res://.godot/imported/feliz.png-6411a651deb4a30987e9b3a530625893.ctex"
+path="res://.godot/imported/Feliz.png-c9a9758d5323d0820dba0584120963d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/clientes/Hombre/feliz.png"
-dest_files=["res://.godot/imported/feliz.png-6411a651deb4a30987e9b3a530625893.ctex"]
+source_file="res://Sprites/Clientes/Hombre/Feliz.png"
+dest_files=["res://.godot/imported/Feliz.png-c9a9758d5323d0820dba0584120963d0.ctex"]
 
 [params]
 

@@ -10,12 +10,11 @@ extends Control
 @onready var ok3 = $VisorTicketGrande/Ok3
 @onready var paciencia_cliente = $VisorTicketGrande/PacienciaCliente
 @onready var identificador_color = $VisorTicketGrande/IdentificadorColor
-
-# --- NUEVO: CONEXIÓN AL INVENTARIO ---
-# Arrastrá tu nodo del inventario acá con Ctrl apretado para la ruta exacta:
+@onready var audio_hechizos = $AudioHechizos
+@onready var particulas = $GPUParticles2D
 @onready var inventario = $"UI Inventario Global"
-# -------------------------------------
 
+var centro_emplatar: Vector2 = Vector2.ZERO
 var ticket_scene = preload("res://Escenas/ticket.tscn")
 
 var ingredientes_en_plato := []
@@ -41,11 +40,11 @@ func _ready():
 	ingredientes_en_plato.clear()
 	listo_para_entregar = false
 	
-	# --- NUEVO: Actualizamos los números de la grilla al entrar a la cocina ---
+	
 	if inventario:
 		inventario.visible = true
 		inventario.actualizar_inventario()
-	# --------------------------------------------------------------------------
+
 	
 	if visor_grande:
 		visor_grande.visible = false
@@ -249,7 +248,7 @@ func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 		if paso not in pasos_completados[nombre_ingrediente]:
 			pasos_completados[nombre_ingrediente].append(paso)
 			print(nombre_ingrediente, " paso correcto: ", paso)
-
+			audio_hechizos.reproducir_paso(paso)
 			if ingrediente_terminado(nombre_ingrediente):
 				marcar_ingrediente_correcto(nombre_ingrediente)
 
@@ -257,7 +256,14 @@ func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 	else:
 		print("Paso incorrecto para ", nombre_ingrediente)
 		marcar_ingrediente_incorrecto(nombre_ingrediente)
+func lanzar_particulas_emplatado():
 
+	particulas.modulate = Color.ORANGE
+
+	particulas.global_position = Vector2(640,360)
+
+	particulas.restart()
+	particulas.emitting = true
 func ingrediente_terminado(nombre_ingrediente: String) -> bool:
 	nombre_ingrediente = nombre_ingrediente.to_lower()
 	var pedido = PedidoManager.pedido_actual
@@ -275,6 +281,18 @@ func ingrediente_terminado(nombre_ingrediente: String) -> bool:
 
 func intentar_finalizar_pedido():
 	if listo_para_entregar and todos_en_plato():
+		audio_hechizos.reproducir_paso("emplatar")
+		lanzar_particulas_emplatado()
+
+		particulas.modulate = Color.ORANGE
+
+		particulas.global_position = centro_emplatar
+		particulas.restart()
+		particulas.emitting = true
+		
+		
+		await get_tree().create_timer(0.8).timeout
+
 		finalizar_pedido()
 	else:
 		print("Pedido entregado mal")

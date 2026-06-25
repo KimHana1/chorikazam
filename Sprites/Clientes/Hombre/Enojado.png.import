@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gvy2rqbtl4t1"
-path="res://.godot/imported/enojado.png-e8bb2b07203515ae5edb3caf6bc30431.ctex"
+path="res://.godot/imported/Enojado.png-29e31cb09fb853d9a08d52254ee811b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/clientes/Hombre/enojado.png"
-dest_files=["res://.godot/imported/enojado.png-e8bb2b07203515ae5edb3caf6bc30431.ctex"]
+source_file="res://Sprites/Clientes/Hombre/Enojado.png"
+dest_files=["res://.godot/imported/Enojado.png-29e31cb09fb853d9a08d52254ee811b7.ctex"]
 
 [params]
 

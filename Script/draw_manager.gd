@@ -1,6 +1,7 @@
 extends Node
 
 @onready var line: Line2D = $"../Line2D"
+@onready var particulas: GPUParticles2D = $"../GPUParticles2D"
 
 var puntos_linea: Array[Vector2] = []
 var puntos_mundo: Array[Vector2] = []
@@ -25,6 +26,46 @@ func iniciar_dibujo():
 	dibujando = true
 
 	agregar_punto_mouse()
+func lanzar_particulas_trazo():
+
+	for i in range(0, puntos_linea.size(), 2):
+
+		particulas.global_position = line.to_global(puntos_linea[i])
+
+		particulas.restart()
+
+		await get_tree().create_timer(0.03).timeout
+		particulas.emitting = false
+func lanzar_particulas():
+
+	particulas.global_position = line.to_global(obtener_centro_dibujo())
+	particulas.restart()
+	particulas.emitting = true
+func configurar_particulas_hechizo(hechizo:String):
+
+	var material := particulas.process_material as ParticleProcessMaterial
+
+	match hechizo:
+
+		"linea_horizontal":
+			material.scale_min = 4.0
+			material.scale_max = 8.0
+			particulas.modulate = Color.GREEN
+
+		"linea_vertical":
+			material.scale_min = 5.0
+			material.scale_max = 9.0
+			particulas.modulate = Color.NAVY_BLUE
+
+		"triangulo":
+			material.scale_min = 5.0
+			material.scale_max = 7.0
+			particulas.modulate = Color.ORANGE
+
+		"rayo":
+			material.scale_min = 4.0
+			material.scale_max = 10.0
+			particulas.modulate = Color.YELLOW
 
 func finalizar_dibujo():
 	dibujando = false
@@ -39,8 +80,10 @@ func finalizar_dibujo():
 
 	print("Paso detectado: ", paso)
 
+
 	if paso == "emplatar":
 		if get_tree().current_scene.has_method("intentar_finalizar_pedido"):
+			get_tree().current_scene.centro_emplatar = line.to_global(obtener_centro_dibujo())
 			get_tree().current_scene.intentar_finalizar_pedido()
 			desvanecer(true)
 		else:
@@ -51,11 +94,24 @@ func finalizar_dibujo():
 
 	if ingrediente != null and ingrediente.has_method("aplicar_hechizo"):
 		ingrediente.aplicar_hechizo(paso)
+		configurar_particulas_hechizo(hechizo)
+		await lanzar_particulas_trazo()
+
 		desvanecer(true)
 	else:
 		print("No tocaste ningun ingrediente")
 		desvanecer(false)
+func obtener_centro_dibujo() -> Vector2:
 
+	if puntos_linea.is_empty():
+		return Vector2.ZERO
+
+	var centro := Vector2.ZERO
+
+	for p in puntos_linea:
+		centro += p
+
+	return centro / puntos_linea.size()
 func agregar_punto_mouse():
 	var mouse_mundo = get_viewport().get_camera_2d().get_global_mouse_position() if get_viewport().get_camera_2d() != null else get_viewport().get_mouse_position()
 	var mouse_linea = line.to_local(mouse_mundo)
