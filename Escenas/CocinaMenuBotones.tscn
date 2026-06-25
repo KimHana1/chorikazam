@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://byg4haw4n017e"]
+
+[ext_resource type="Script" uid="uid://c6dkwhihnb2p8" path="res://Script/escena_principal.gd" id="1_q6m2r"]
+[ext_resource type="PackedScene" uid="uid://e7xc1xcaym4m" path="res://Comercio/comer/EscenasComercio/ui_ingrediente_inventario.tscn" id="2_kf0xp"]
+[ext_resource type="Texture2D" uid="uid://bjv6tmtjmv0oa" path="res://Sprites/ingredientes/carne.png" id="3_138ni"]
+[ext_resource type="Texture2D" uid="uid://cj5kfv0d3030t" path="res://Sprites/ingredientes/tomate.png" id="6_7e4lw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yg8mm"]
+
+[node name="CocinaMenuBotones" type="GridContainer" unique_id=134098735]
+offset_left = 463.0
+offset_top = -6.0
+offset_right = 1155.0
+offset_bottom = 367.0
+script = ExtResource("1_q6m2r")
+
+[node name="UI Pan2" parent="." unique_id=991094107 groups=["ingrediente_global"] instance=ExtResource("2_kf0xp")]
+visible = false
+layout_mode = 2
+ingrediente_stringname = "carne"
+
+[node name="MarginContainer" parent="UI Pan2" index="0" unique_id=352211584]
+material = SubResource("CanvasItemMaterial_yg8mm")
+
+[node name="TextureRect" parent="UI Pan2/MarginContainer" index="0" unique_id=1733661662]
+texture = ExtResource("3_138ni")
+
+[node name="Label" parent="UI Pan2/MarginContainer" index="1" unique_id=614238358]
+text = "1"
+
+[node name="UI Pan4" parent="." unique_id=1445486424 groups=["ingrediente_global"] instance=ExtResource("2_kf0xp")]
+visible = false
+layout_mode = 2
+ingrediente_stringname = "tomate"
+
+[node name="TextureRect" parent="UI Pan4/MarginContainer" parent_id_path=PackedInt32Array(1445486424, 352211584) index="0" unique_id=1733661662]
+texture = ExtResource("6_7e4lw")
+
+[node name="Label" parent="UI Pan4/MarginContainer" parent_id_path=PackedInt32Array(1445486424, 352211584) index="1" unique_id=614238358]
+text = "1"
+
+[editable path="UI Pan2"]
+[editable path="UI Pan4"]

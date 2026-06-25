@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://sii4cwmtfbhp" path="res://Sonidos/Emplatar.ogg" id="5_3hswh"]
 [ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://Escenas/pan.tscn" id="5_h561l"]
 [ext_resource type="PackedScene" uid="uid://0et0ieu0v3re" path="res://tomate.tscn" id="6_jqnxx"]
-[ext_resource type="Texture2D" uid="uid://bm6rh1l7fubce" path="res://Sprites/botones/BotonComprar.png" id="9_h561l"]
+[ext_resource type="Texture2D" uid="uid://cbaglq1r1i0ya" path="res://Sprites/Nuevos sprites/Boton 1 comerciar.png" id="9_bc6bn"]
 [ext_resource type="AudioStream" uid="uid://cgk6whre8boor" path="res://Sonidos/CorteVertical.ogg" id="9_t875h"]
 [ext_resource type="AudioStream" uid="uid://oeta0qaciiva" path="res://Sonidos/Pelar.ogg" id="10_3hswh"]
 [ext_resource type="Script" uid="uid://beb3jfy62fpyo" path="res://Script/boton.gd" id="10_3j4mf"]
@@ -16,11 +16,15 @@
 [ext_resource type="Texture2D" uid="uid://bojvum4c5v573" path="res://Sprites/libro/libroDePasos2.png" id="11_2xkeu"]
 [ext_resource type="AudioStream" uid="uid://bwl5uo5c3n36p" path="res://Sonidos/Cocinar1.ogg" id="11_unjm0"]
 [ext_resource type="Texture2D" uid="uid://du4ns11k7t85o" path="res://Sprites/libro/libroDePasos.png" id="12_0obbl"]
-[ext_resource type="Script" uid="uid://d3eq4oo7cqf6w" path="res://Escenas/area_cambio.gd" id="13_0j7s7"]
+[ext_resource type="Script" uid="uid://d3eq4oo7cqf6w" path="res://Script/area_cambio.gd" id="13_0j7s7"]
 [ext_resource type="Texture2D" uid="uid://bdxr4n5uwcyky" path="res://Sprites/botones/flecha come back foward.png" id="14_2xkeu"]
 [ext_resource type="Texture2D" uid="uid://pifcv4qgfqfg" path="res://Sprites/cocinaYTicket/soga.png" id="15_0obbl"]
 [ext_resource type="PackedScene" uid="uid://ldesc7fy78pa" path="res://Comercio/comer/EscenasComercio/InventarioGlobal.tscn" id="16_0j7s7"]
-[ext_resource type="Script" uid="uid://bjogephvbxjiw" path="res://Escenas/audio_hechizos.gd" id="17_0tcp2"]
+[ext_resource type="Script" uid="uid://bjogephvbxjiw" path="res://Script/audio_hechizos.gd" id="17_0tcp2"]
+[ext_resource type="PackedScene" uid="uid://bjahk0e8c34q7" path="res://Comercio/comer/EscenasComercio/monedas.tscn" id="22_bc6bn"]
+[ext_resource type="PackedScene" uid="uid://byg4haw4n017e" path="res://Escenas/CocinaMenuBotones.tscn" id="23_phr1r"]
+[ext_resource type="Texture2D" uid="uid://dyw2t2776xxhd" path="res://Sprites/Nuevos sprites/Boton re re roll.png" id="24_54gm1"]
+[ext_resource type="Texture2D" uid="uid://dkbwuw8o1c82l" path="res://Sprites/Nuevos sprites/boton mejoras 1.png" id="25_706pu"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_phr1r"]
 particle_flag_disable_z = true
@@ -154,15 +158,6 @@ scale = Vector2(2.9673996, 45.46348)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=305020257]
 shape = SubResource("RectangleShape2D_jqnxx")
 
-[node name="Botoncompra" type="Button" parent="." unique_id=644952575]
-layout_mode = 0
-offset_left = 1.0000008
-offset_top = 840.0
-offset_right = 309.0
-offset_bottom = 1148.0
-icon = ExtResource("9_h561l")
-flat = true
-
 [node name="Node2D" type="Node2D" parent="." unique_id=471806195]
 position = Vector2(844.0006, 873.00006)
 scale = Vector2(0.7200007, 0.6008905)
@@ -232,11 +227,11 @@ flat = true
 
 [node name="UI  Inventario Global" parent="." unique_id=134098735 instance=ExtResource("16_0j7s7")]
 layout_mode = 0
-offset_left = 1332.001
-offset_top = 2.0
-offset_right = 2224.001
-offset_bottom = 222.0
-scale = Vector2(0.64000034, 0.55999976)
+offset_left = 1352.0
+offset_top = 14.0
+offset_right = 2244.0
+offset_bottom = 234.0
+scale = Vector2(0.305, 0.305)
 
 [node name="AudioHechizos" type="AudioStreamPlayer2D" parent="." unique_id=1900255918]
 volume_db = 0.105
@@ -246,7 +241,38 @@ sonido_pelar = ExtResource("10_3hswh")
 sonido_calentar = ExtResource("11_unjm0")
 sonido_emplatar = ExtResource("5_3hswh")
 
-[connection signal="pressed" from="Botoncompra" to="." method="_on_botoncompra_pressed"]
+[node name="Monedas" parent="." unique_id=838206148 instance=ExtResource("22_bc6bn")]
+layout_mode = 0
+offset_left = 1720.0
+offset_top = 7.0
+offset_right = 1920.0
+offset_bottom = 207.0
+scale = Vector2(0.352, 0.346)
+
+[node name="CocinaMenuBotones" parent="." unique_id=1696188397 instance=ExtResource("23_phr1r")]
+layout_mode = 0
+offset_left = 1748.0013
+offset_top = 204.0
+offset_right = 2440.0015
+offset_bottom = 1096.0
+scale = Vector2(0.2596105, 0.23576787)
+
+[node name="Botoncompra" type="Button" parent="CocinaMenuBotones" unique_id=644952575]
+layout_mode = 2
+icon = ExtResource("9_bc6bn")
+flat = true
+
+[node name="BotonReroll" type="Button" parent="CocinaMenuBotones" unique_id=1740178041]
+layout_mode = 2
+icon = ExtResource("24_54gm1")
+flat = true
+
+[node name="BotonMejoras" type="Button" parent="CocinaMenuBotones" unique_id=1226806769]
+layout_mode = 2
+icon = ExtResource("25_706pu")
+flat = true
+
 [connection signal="input_event" from="Node2D/AreaCambio" to="Node2D/AreaCambio" method="_on_input_event"]
 [connection signal="pressed" from="BotonAtencion" to="." method="_on_boton_atencion_pressed"]
 [connection signal="pressed" from="BotonAtencion2" to="." method="_on_boton_atencion_pressed"]
+[connection signal="pressed" from="CocinaMenuBotones/Botoncompra" to="." method="_on_botoncompra_pressed"]
