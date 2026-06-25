@@ -23,7 +23,6 @@
 [ext_resource type="Script" uid="uid://bjogephvbxjiw" path="res://Script/audio_hechizos.gd" id="17_0tcp2"]
 [ext_resource type="PackedScene" uid="uid://bjahk0e8c34q7" path="res://Comercio/comer/EscenasComercio/monedas.tscn" id="22_bc6bn"]
 [ext_resource type="PackedScene" uid="uid://byg4haw4n017e" path="res://Escenas/CocinaMenuBotones.tscn" id="23_phr1r"]
-[ext_resource type="Texture2D" uid="uid://dyw2t2776xxhd" path="res://Sprites/Nuevos sprites/Boton re re roll.png" id="24_54gm1"]
 [ext_resource type="Texture2D" uid="uid://dkbwuw8o1c82l" path="res://Sprites/Nuevos sprites/boton mejoras 1.png" id="25_706pu"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_phr1r"]
@@ -75,7 +74,21 @@ nombre_ingrediente = "Chorizo"
 limite_izq = 1091.0
 limite_der = 1742.0
 
+[node name="chorizo2" parent="." unique_id=291164411 instance=ExtResource("2_ti2xv")]
+position = Vector2(1256.001, 248)
+scale = Vector2(0.3164233, 0.35585502)
+nombre_ingrediente = "Chorizo"
+limite_izq = 1091.0
+limite_der = 1742.0
+
 [node name="papa" parent="." unique_id=1255283446 instance=ExtResource("3_jqnxx")]
+position = Vector2(1479.5394, 340)
+scale = Vector2(0.3164233, 0.35585502)
+nombre_ingrediente = "Papa"
+limite_izq = 1091.0
+limite_der = 1742.0
+
+[node name="papa2" parent="." unique_id=333190005 instance=ExtResource("3_jqnxx")]
 position = Vector2(1479.5394, 340)
 scale = Vector2(0.3164233, 0.35585502)
 nombre_ingrediente = "Papa"
@@ -91,7 +104,23 @@ limite_izq = 1091.0
 limite_der = 1742.0
 limite_abajo = 630.0
 
+[node name="pan2" parent="." unique_id=1203602277 instance=ExtResource("5_h561l")]
+position = Vector2(1465.5394, 323)
+scale = Vector2(0.3164233, 0.35585502)
+nombre_ingrediente = "Pan"
+velocidad = 100.0
+limite_izq = 1091.0
+limite_der = 1742.0
+limite_abajo = 630.0
+
 [node name="Tomate" parent="." unique_id=2089289063 instance=ExtResource("6_jqnxx")]
+position = Vector2(1288.001, 331)
+scale = Vector2(3.2775996, 4.1541266)
+nombre_ingrediente = "Tomate"
+limite_izq = 1091.0
+limite_der = 1742.0
+
+[node name="Tomate2" parent="." unique_id=1766163908 instance=ExtResource("6_jqnxx")]
 position = Vector2(1288.001, 331)
 scale = Vector2(3.2775996, 4.1541266)
 nombre_ingrediente = "Tomate"
@@ -262,15 +291,22 @@ layout_mode = 2
 icon = ExtResource("9_bc6bn")
 flat = true
 
-[node name="BotonReroll" type="Button" parent="CocinaMenuBotones" unique_id=1740178041]
-layout_mode = 2
-icon = ExtResource("24_54gm1")
-flat = true
-
 [node name="BotonMejoras" type="Button" parent="CocinaMenuBotones" unique_id=1226806769]
 layout_mode = 2
 icon = ExtResource("25_706pu")
 flat = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1215517295]
+position = Vector2(1719.001, 136)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=1787511574]
+position = Vector2(1107.0009, 133)
+
+[node name="Marker2D3" type="Marker2D" parent="." unique_id=999245325]
+position = Vector2(1107.0009, 1016)
+
+[node name="Marker2D4" type="Marker2D" parent="." unique_id=1195523638]
+position = Vector2(1716.0013, 1016)
 
 [connection signal="input_event" from="Node2D/AreaCambio" to="Node2D/AreaCambio" method="_on_input_event"]
 [connection signal="pressed" from="BotonAtencion" to="." method="_on_boton_atencion_pressed"]

@@ -2,10 +2,10 @@ extends Area2D
 
 @export var nombre_ingrediente: String = ""
 @export var velocidad: float = 180.0
-@export var limite_izq: float = 6.0
-@export var limite_der: float = 921.0
-@export var limite_arriba: float = 39.0
-@export var limite_abajo: float = 629.0
+@export var limite_izq: float = 1107.0
+@export var limite_der: float = 1600.0
+@export var limite_arriba: float = 133.0
+@export var limite_abajo: float = 1016.0
 
 @onready var sprite = $Sprite2D
 

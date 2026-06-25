@@ -8,9 +8,9 @@ var monedas_vendedor := 100.0
 var ingredientes : Dictionary[String,int] = {
 	"carne": 1,
 	"chorizo": 2,
-	"pan": 3,
-	"papa": 4,
-	"tomate": 5
+	"pan": 2,
+	"papa": 2,
+	"tomate": 2
 }
 
 
