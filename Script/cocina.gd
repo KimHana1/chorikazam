@@ -39,6 +39,8 @@ func _ready():
 	pasos_completados.clear()
 	ingredientes_en_plato.clear()
 	listo_para_entregar = false
+
+	actualizar_ingredientes_visibles()
 	
 	
 	if inventario:
@@ -356,6 +358,33 @@ func obtener_nodo_ingrediente(nombre_ingrediente: String):
 	if nodo != null:
 		return nodo
 	return get_node_or_null(nombre_ingrediente.capitalize())
+
+func actualizar_ingredientes_visibles():
+
+	var contador = {}
+
+	for ingrediente in get_tree().get_nodes_in_group("ingredientes"):
+
+		var nombre = ingrediente.nombre_ingrediente.to_lower()
+
+		if not contador.has(nombre):
+			contador[nombre] = 0
+
+		var cantidad_global = Global.ingredientes.get(nombre, 0)
+
+		if contador[nombre] < min(cantidad_global, 2):
+
+			ingrediente.visible = true
+			ingrediente.monitoring = true
+			ingrediente.monitorable = true
+
+			contador[nombre] += 1
+
+		else:
+
+			ingrediente.visible = false
+			ingrediente.monitoring = false
+			ingrediente.monitorable = false
 
 func marcar_ingrediente_correcto(nombre_ingrediente: String):
 	var nodo = obtener_nodo_ingrediente(nombre_ingrediente)
