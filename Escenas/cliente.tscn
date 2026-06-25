@@ -7,15 +7,34 @@
 [ext_resource type="FontFile" uid="uid://c1dgrcg0mmcth" path="res://fuente/Biro_Script_reduced.otf" id="4_vo5fx"]
 [ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="4_wd6nn"]
 [ext_resource type="Texture2D" uid="uid://d132m6gqtyeng" path="res://Sprites/Nuevos sprites/boton rectangular.png" id="6_kcrf7"]
+[ext_resource type="PackedScene" uid="uid://bjahk0e8c34q7" path="res://Comercio/comer/EscenasComercio/monedas.tscn" id="8_7uf5d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_puucq"]
 font = ExtResource("4_wd6nn")
 font_size = 35
 font_color = Color(0.39540777, 0.19101903, 0.16719764, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7uf5d"]
+border_color = Color(2.3736357e-09, 0.0020808259, 0.0004679445, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yuvmj"]
+bg_color = Color(1, 1, 0, 1)
+border_color = Color(0.3529412, 0.101960786, 0.003921569, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 10
+
 [sub_resource type="LabelSettings" id="LabelSettings_yuvmj"]
+font = ExtResource("4_wd6nn")
 font_size = 26
-font_color = Color(1.0107458e-06, 0.5319785, 0.44265088, 1)
 
 [sub_resource type="Theme" id="Theme_dffsu"]
 default_base_scale = 0.48
@@ -130,16 +149,26 @@ scale = Vector2(1, 1.7333338)
 texture = ExtResource("3_yuvmj")
 
 [node name="BarraTiempo" type="ProgressBar" parent="CanvasLayer" unique_id=933280775]
-offset_left = 1730.0
-offset_top = 144.0
-offset_right = 1766.0
-offset_bottom = 559.0
+offset_left = 1686.0001
+offset_top = 31.0
+offset_right = 1722.0001
+offset_bottom = 446.0
+rotation = 1.5707964
+theme_override_colors/font_color = Color(7.354554, 7.334081, 9.857178e-05, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_7uf5d")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yuvmj")
+max_value = 40.0
+fill_mode = 3
+show_percentage = false
 
 [node name="LabelDia" type="Label" parent="CanvasLayer" unique_id=1829077094]
-offset_left = 1728.0
-offset_top = 59.0
-offset_right = 1768.0
-offset_bottom = 82.0
+offset_left = 1475.0
+offset_top = 6.0
+offset_right = 1515.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("4_wd6nn")
+theme_override_font_sizes/font_size = 25
 label_settings = SubResource("LabelSettings_yuvmj")
 
 [node name="ButtonCocinar" type="Button" parent="CanvasLayer" unique_id=1641141922]
@@ -227,6 +256,13 @@ position = Vector2(-112.000114, 172.99992)
 
 [node name="Pos5" type="Marker2D" parent="FilaClientes" unique_id=79403196]
 position = Vector2(119.00007, 159.99992)
+
+[node name="Monedas" parent="." unique_id=838206148 instance=ExtResource("8_7uf5d")]
+offset_left = 1400.0011
+offset_top = -463.99988
+offset_right = 1600.0011
+offset_bottom = -263.99988
+scale = Vector2(0.352, 0.356)
 
 [connection signal="pressed" from="CanvasLayer/ButtonCocinar" to="." method="_on_button_cocinar_pressed"]
 [connection signal="pressed" from="CanvasLayer/ButtonTomarPedido" to="." method="_on_button_tomar_pedido_pressed"]

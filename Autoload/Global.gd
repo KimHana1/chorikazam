@@ -2,7 +2,7 @@ extends Node
 
 var tiempo_dia := 300.0
 
-var monedas_jugador := 200.0
+var monedas_jugador := 800.0
 var monedas_vendedor := 100.0
 
 var ingredientes : Dictionary[String,int] = {
