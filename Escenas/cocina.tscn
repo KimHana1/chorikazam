@@ -30,7 +30,6 @@ initial_velocity_max = 360.22
 gravity = Vector3(0, 98, 0)
 scale_min = 5.0
 scale_max = 6.0
-color = Color(1, 1, 0.101960786, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqnxx"]
 
@@ -102,6 +101,7 @@ scale = Vector2(0.8033979, 1.2278367)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=578913103]
 emitting = false
 amount = 100
+lifetime = 0.9
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_phr1r")

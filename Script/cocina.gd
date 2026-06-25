@@ -11,10 +11,10 @@ extends Control
 @onready var paciencia_cliente = $VisorTicketGrande/PacienciaCliente
 @onready var identificador_color = $VisorTicketGrande/IdentificadorColor
 @onready var audio_hechizos = $AudioHechizos
-
+@onready var particulas = $GPUParticles2D
 @onready var inventario = $"UI Inventario Global"
-# -------------------------------------
 
+var centro_emplatar: Vector2 = Vector2.ZERO
 var ticket_scene = preload("res://Escenas/ticket.tscn")
 
 var ingredientes_en_plato := []
@@ -256,7 +256,14 @@ func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 	else:
 		print("Paso incorrecto para ", nombre_ingrediente)
 		marcar_ingrediente_incorrecto(nombre_ingrediente)
+func lanzar_particulas_emplatado():
 
+	particulas.modulate = Color.ORANGE
+
+	particulas.global_position = Vector2(640,360)
+
+	particulas.restart()
+	particulas.emitting = true
 func ingrediente_terminado(nombre_ingrediente: String) -> bool:
 	nombre_ingrediente = nombre_ingrediente.to_lower()
 	var pedido = PedidoManager.pedido_actual
@@ -275,6 +282,15 @@ func ingrediente_terminado(nombre_ingrediente: String) -> bool:
 func intentar_finalizar_pedido():
 	if listo_para_entregar and todos_en_plato():
 		audio_hechizos.reproducir_paso("emplatar")
+		lanzar_particulas_emplatado()
+
+		particulas.modulate = Color.ORANGE
+
+		particulas.global_position = centro_emplatar
+		particulas.restart()
+		particulas.emitting = true
+		
+		
 		await get_tree().create_timer(0.8).timeout
 
 		finalizar_pedido()
