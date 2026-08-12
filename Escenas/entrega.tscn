@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dtuuxhryojl2e"]
+
+[ext_resource type="Script" path="res://entrega.gd" id="1_ktrn0"]
+[ext_resource type="Texture2D" path="res://Sprites/cocinaYTicket/fondo entrega.png" id="2_fa828"]
+[ext_resource type="Texture2D" uid="uid://ci6yql7nnvxn7" path="res://Sprites/Dialogo/burbujaDialogo.png" id="3_8asxu"]
+[ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="3_kuibo"]
+[ext_resource type="Texture2D" path="res://Sprites/cocinaYTicket/caja registradora.png" id="5_6l6gt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6l6gt"]
+font = ExtResource("3_kuibo")
+font_size = 46
+
+[sub_resource type="LabelSettings" id="LabelSettings_vtysf"]
+font = ExtResource("3_kuibo")
+font_size = 41
+
+[node name="Entrega" type="Control" unique_id=1309239585]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ktrn0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=565015211]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_fa828")
+
+[node name="DialogoFinal" type="Sprite2D" parent="." unique_id=1845310212]
+position = Vector2(1117, 497.00003)
+scale = Vector2(3.64903, 3.4906821)
+texture = ExtResource("3_8asxu")
+
+[node name="SpriteCliente" type="Sprite2D" parent="." unique_id=489115253]
+position = Vector2(413, 689)
+
+[node name="IconoComida" type="Sprite2D" parent="." unique_id=601504158]
+position = Vector2(685, 864)
+
+[node name="LabelResultado" type="Label" parent="." unique_id=864899300]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 367.0
+offset_right = 927.0
+offset_bottom = 437.0
+label_settings = SubResource("LabelSettings_6l6gt")
+
+[node name="BotonContinuar" type="Button" parent="." unique_id=1151836573]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 859.0
+offset_right = 146.0
+offset_bottom = 867.0
+
+[node name="CajaRegistradora" type="TextureRect" parent="." unique_id=1590753792]
+layout_mode = 0
+offset_left = 965.0
+offset_top = 584.0
+offset_right = 1425.0
+offset_bottom = 1083.0
+texture = ExtResource("5_6l6gt")
+
+[node name="LabelGanancia" type="Label" parent="." unique_id=1057799483]
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 657.0
+offset_right = 1096.0
+offset_bottom = 680.0
+label_settings = SubResource("LabelSettings_vtysf")
+
+[connection signal="pressed" from="BotonContinuar" to="." method="_on_boton_continuar_pressed"]

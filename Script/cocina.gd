@@ -19,7 +19,7 @@ var ticket_scene = preload("res://Escenas/ticket.tscn")
 
 var ingredientes_en_plato := []
 var escena_comercio = "res://Comercio/comer/EscenasComercio/Comercio.tscn"
-var escena_cliente = "res://Escenas/cliente.tscn"
+var escena_cliente = "res://Escenas/entrega.tscn"
 
 var pasos_completados = {}
 var listo_para_entregar: bool = false
@@ -32,7 +32,8 @@ var velocidad_paciencia: float = 1.0
 var tickets_grandes = {
 	"Choripán": preload("res://Sprites/Tickets/TickectChoripan.png"),
 	"Ensalada": preload("res://Sprites/Tickets/TickectEnsalada.png"),
-	"Papa Frita": preload("res://Sprites/Tickets/TickectPapasFritas.png")
+	"papitas fritas": preload("res://Sprites/Tickets/TickectPapasFritas.png"),
+	"carne con papas": preload("res://Sprites/Tickets/TickectCarnePapas.png")
 }
 
 func _ready():
@@ -42,11 +43,9 @@ func _ready():
 
 	actualizar_ingredientes_visibles()
 	
-	
 	if inventario:
 		inventario.visible = true
 		inventario.actualizar_inventario()
-
 	
 	if visor_grande:
 		visor_grande.visible = false
@@ -145,11 +144,8 @@ func mostrar_ticket_chiquito():
 		indice += 1
 
 func _on_ticket_seleccionado(datos_pedido):
-	
 	print("¡La cocina recibió la señal del ticket! Datos: ", datos_pedido)
 	
-	if visor_grande == null:
-		return
 	if visor_grande == null:
 		return
 		
@@ -209,10 +205,8 @@ func descontar_ingredientes_del_pedido():
 		var nombre = ingrediente.to_lower()
 		Global.quitar_ingrediente(nombre, 1)
 		
-	
 	if inventario:
 		inventario.actualizar_inventario()
-	
 
 func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 	nombre_ingrediente = nombre_ingrediente.to_lower()
@@ -258,163 +252,8 @@ func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 	else:
 		print("Paso incorrecto para ", nombre_ingrediente)
 		marcar_ingrediente_incorrecto(nombre_ingrediente)
+
 func lanzar_particulas_emplatado():
-
-	particulas.modulate = Color.ORANGE
-
-	particulas.global_position = Vector2(640,360)
-
-	particulas.restart()
-	particulas.emitting = true
-func ingrediente_terminado(nombre_ingrediente: String) -> bool:
-	nombre_ingrediente = nombre_ingrediente.to_lower()
-	var pedido = PedidoManager.pedido_actual
-	if pedido.is_empty():
-		return false
-	if not pedido["ingredientes"].has(nombre_ingrediente):
-		return false
-	if not pasos_completados.has(nombre_ingrediente):
-		return false
-	var pasos_necesarios = pedido["ingredientes"][nombre_ingrediente]
-	for paso in pasos_necesarios:
-		if paso not in pasos_completados[nombre_ingrediente]:
-			return false
-	return true
-
-func intentar_finalizar_pedido():
-	if listo_para_entregar and todos_en_plato():
-		audio_hechizos.reproducir_paso("emplatar")
-		lanzar_particulas_emplatado()
-
+	if particulas:
 		particulas.modulate = Color.ORANGE
-
-		particulas.global_position = centro_emplatar
-		particulas.restart()
 		particulas.emitting = true
-		
-		
-		await get_tree().create_timer(0.8).timeout
-
-		finalizar_pedido()
-	else:
-		print("Pedido entregado mal")
-		PedidoManager.resultado_cliente = "enojado"
-		PedidoManager.pedido_completado = true
-		get_tree().change_scene_to_file(escena_cliente)
-
-func todos_en_plato() -> bool:
-	var pedido = PedidoManager.pedido_actual
-	if pedido.is_empty() or not pedido.has("ingredientes"):
-		return false
-	for ingrediente in pedido["ingredientes"].keys():
-		if ingrediente.to_lower() not in ingredientes_en_plato:
-			return false
-	return true
-
-func verificar_progreso():
-	var pedido = PedidoManager.pedido_actual
-	if pedido.is_empty():
-		return
-	var todos_listos = true
-	for ingrediente in pedido["ingredientes"]:
-		var pasos_necesarios = pedido["ingredientes"][ingrediente]
-		if not pasos_completados.has(ingrediente):
-			todos_listos = false
-			continue
-		for paso in pasos_necesarios:
-			if paso not in pasos_completados[ingrediente]:
-				todos_listos = false
-	if todos_listos:
-		listo_para_entregar = true
-		print("Listo. Dibuja un circulo para emplatar")
-
-func finalizar_pedido():
-	var pedido = PedidoManager.pedido_actual
-	var paciencia = pedido.get("paciencia_actual", paciencia_actual)
-
-	if paciencia >= 70:
-		PedidoManager.resultado_cliente = "feliz"
-	elif paciencia >= 35:
-		PedidoManager.resultado_cliente = "medio"
-	else:
-		PedidoManager.resultado_cliente = "enojado"
-
-	descontar_ingredientes_del_pedido()
-
-	PedidoManager.eliminar_pedido_por_id(
-		PedidoManager.pedido_actual["id"]
-	)
-
-	PedidoManager.pedido_completado = true
-
-	print("CAMBIANDO A CLIENTE")
-	print("Resultado:", PedidoManager.resultado_cliente)
-
-	get_tree().change_scene_to_file(escena_cliente)
-
-func obtener_nodo_ingrediente(nombre_ingrediente: String):
-	nombre_ingrediente = nombre_ingrediente.to_lower()
-	var nodo = get_node_or_null(nombre_ingrediente)
-	if nodo != null:
-		return nodo
-	return get_node_or_null(nombre_ingrediente.capitalize())
-
-func actualizar_ingredientes_visibles():
-
-	var contador = {}
-
-	for ingrediente in get_tree().get_nodes_in_group("ingredientes"):
-
-		var nombre = ingrediente.nombre_ingrediente.to_lower()
-
-		if not contador.has(nombre):
-			contador[nombre] = 0
-
-		var cantidad_global = Global.ingredientes.get(nombre, 0)
-
-		if contador[nombre] < min(cantidad_global, 2):
-
-			ingrediente.visible = true
-			ingrediente.monitoring = true
-			ingrediente.monitorable = true
-
-			contador[nombre] += 1
-
-		else:
-
-			ingrediente.visible = false
-			ingrediente.monitoring = false
-			ingrediente.monitorable = false
-
-func marcar_ingrediente_correcto(nombre_ingrediente: String):
-	var nodo = obtener_nodo_ingrediente(nombre_ingrediente)
-	if nodo != null and nodo.has_method("correcto"):
-		nodo.correcto()
-
-func marcar_ingrediente_incorrecto(nombre_ingrediente: String):
-	var nodo = obtener_nodo_ingrediente(nombre_ingrediente)
-	if nodo != null and nodo.has_method("incorrecto"):
-		nodo.incorrecto()
-
-func mover_ingrediente_al_plato(ingrediente, nombre_ingrediente):
-	nombre_ingrediente = nombre_ingrediente.to_lower()
-	print("MOVIENDO AL PLATO: ", nombre_ingrediente)
-	if plato == null:
-		print("ERROR: no encontre el nodo Plato")
-		return
-
-	ingrediente.terminado = true
-	ingrediente.congelado = true
-	var offset = Vector2(randf_range(-30, 30), randf_range(-15, 15))
-	var tween = create_tween()
-	tween.tween_property(ingrediente, "global_position", plato.global_position + offset, 0.4)
-
-	if nombre_ingrediente not in ingredientes_en_plato:
-		ingredientes_en_plato.append(nombre_ingrediente)
-	print("LISTO, fue al plato")
-
-func _on_botoncompra_pressed() -> void:
-	get_tree().change_scene_to_file(escena_comercio)
-
-func _on_boton_atencion_pressed() -> void:
-	get_tree().change_scene_to_file(escena_cliente)

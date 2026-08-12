@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bdxr4n5uwcyky" path="res://Sprites/botones/flecha come back foward.png" id="14_2xkeu"]
 [ext_resource type="Texture2D" uid="uid://pifcv4qgfqfg" path="res://Sprites/cocinaYTicket/soga.png" id="15_0obbl"]
 [ext_resource type="PackedScene" uid="uid://ldesc7fy78pa" path="res://Comercio/comer/EscenasComercio/InventarioGlobal.tscn" id="16_0j7s7"]
+[ext_resource type="PackedScene" uid="uid://bjahk0e8c34q7" path="res://Comercio/comer/EscenasComercio/monedas.tscn" id="22_bc6bn"]
 [ext_resource type="Script" uid="uid://bjogephvbxjiw" path="res://Script/audio_hechizos.gd" id="17_0tcp2"]
 [ext_resource type="PackedScene" uid="uid://bjahk0e8c34q7" path="res://Comercio/comer/EscenasComercio/monedas.tscn" id="22_bc6bn"]
 [ext_resource type="PackedScene" uid="uid://byg4haw4n017e" path="res://Escenas/CocinaMenuBotones.tscn" id="23_phr1r"]
@@ -278,6 +279,7 @@ offset_right = 1920.0
 offset_bottom = 207.0
 scale = Vector2(0.352, 0.346)
 
+[node name="CocinaMenuBotones" parent="." unique_id=1696188397]
 [node name="CocinaMenuBotones" parent="." unique_id=1696188397 instance=ExtResource("23_phr1r")]
 layout_mode = 0
 offset_left = 1748.0013
@@ -287,6 +289,9 @@ offset_bottom = 1096.0
 scale = Vector2(0.2596105, 0.23576787)
 
 [node name="Botoncompra" type="Button" parent="CocinaMenuBotones" unique_id=644952575]
+flat = true
+
+[node name="BotonMejoras" type="Button" parent="CocinaMenuBotones" unique_id=1226806769]
 layout_mode = 2
 icon = ExtResource("9_bc6bn")
 flat = true
@@ -307,6 +312,18 @@ position = Vector2(1107.0009, 1016)
 
 [node name="Marker2D4" type="Marker2D" parent="." unique_id=1195523638]
 position = Vector2(1716.0013, 1016)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=236230711]
+layout_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=410878544]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer" unique_id=184366776]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer" unique_id=52907053]
+layout_mode = 2
 
 [connection signal="input_event" from="Node2D/AreaCambio" to="Node2D/AreaCambio" method="_on_input_event"]
 [connection signal="pressed" from="BotonAtencion" to="." method="_on_boton_atencion_pressed"]
