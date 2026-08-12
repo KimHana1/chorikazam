@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://47tw43tiuta8"
-path="res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"
+uid="uid://cmmgq4t6xwpjd"
+path="res://.godot/imported/chorizo cortado.png-61fe22b533d7326067f4f84e26f83353.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clientes/Mujer/Principal.png"
-dest_files=["res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"]
+source_file="res://Sprites/Nuevos sprites/chorizo cortado.png"
+dest_files=["res://.godot/imported/chorizo cortado.png-61fe22b533d7326067f4f84e26f83353.ctex"]
 
 [params]
 

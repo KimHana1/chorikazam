@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://47tw43tiuta8"
-path="res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"
+uid="uid://cbaglq1r1i0ya"
+path="res://.godot/imported/Boton 1 comerciar.png-4a856b43c404fe932ae8bf3888632bd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clientes/Mujer/Principal.png"
-dest_files=["res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"]
+source_file="res://Sprites/Nuevos sprites/Boton 1 comerciar.png"
+dest_files=["res://.godot/imported/Boton 1 comerciar.png-4a856b43c404fe932ae8bf3888632bd1.ctex"]
 
 [params]
 

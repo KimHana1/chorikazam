@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://47tw43tiuta8"
-path="res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"
+uid="uid://dk02cg47dm08r"
+path="res://.godot/imported/PlatoCocina.png-5bcd07e4657dea866c44e7ab1136d91c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clientes/Mujer/Principal.png"
-dest_files=["res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"]
+source_file="res://Sprites/Nuevos sprites/PlatoCocina.png"
+dest_files=["res://.godot/imported/PlatoCocina.png-5bcd07e4657dea866c44e7ab1136d91c.ctex"]
 
 [params]
 

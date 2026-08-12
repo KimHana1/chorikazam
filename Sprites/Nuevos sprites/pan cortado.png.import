@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://47tw43tiuta8"
-path="res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"
+uid="uid://brpm2e4decspk"
+path="res://.godot/imported/pan cortado.png-7a128e89622803fb0afeefa1ee3a8bf9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clientes/Mujer/Principal.png"
-dest_files=["res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"]
+source_file="res://Sprites/Nuevos sprites/pan cortado.png"
+dest_files=["res://.godot/imported/pan cortado.png-7a128e89622803fb0afeefa1ee3a8bf9.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://47tw43tiuta8"
-path="res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"
+uid="uid://bdqws55c8p7b"
+path="res://.godot/imported/Plato pan chorizo 2.png-4b40fd1bb70a4af2cabcd4096460fe19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clientes/Mujer/Principal.png"
-dest_files=["res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"]
+source_file="res://Sprites/Nuevos sprites/Plato pan chorizo 2.png"
+dest_files=["res://.godot/imported/Plato pan chorizo 2.png-4b40fd1bb70a4af2cabcd4096460fe19.ctex"]
 
 [params]
 

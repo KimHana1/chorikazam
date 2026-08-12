@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cscr2j76dx8am"
-path="res://.godot/imported/medio.png-776f600bf16cc2ce9f253aa65acf93ae.ctex"
+path="res://.godot/imported/Medio.png-dc2717cb91fc43bbb5eec5f8e648ae2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/clientes/Mujer/medio.png"
-dest_files=["res://.godot/imported/medio.png-776f600bf16cc2ce9f253aa65acf93ae.ctex"]
+source_file="res://Sprites/Clientes/Mujer/Medio.png"
+dest_files=["res://.godot/imported/Medio.png-dc2717cb91fc43bbb5eec5f8e648ae2a.ctex"]
 
 [params]
 

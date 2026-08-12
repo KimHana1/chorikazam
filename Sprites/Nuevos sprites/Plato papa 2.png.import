@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://47tw43tiuta8"
-path="res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"
+uid="uid://cu1pd0s1hjxtv"
+path="res://.godot/imported/Plato papa 2.png-31787125aa6093716df5845678526f57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clientes/Mujer/Principal.png"
-dest_files=["res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"]
+source_file="res://Sprites/Nuevos sprites/Plato papa 2.png"
+dest_files=["res://.godot/imported/Plato papa 2.png-31787125aa6093716df5845678526f57.ctex"]
 
 [params]
 

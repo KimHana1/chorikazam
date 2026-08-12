@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://47tw43tiuta8"
-path="res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"
+uid="uid://bhgvylf030hid"
+path="res://.godot/imported/plato carne cortada.png-8c6c7bd077df62981a4c113ebe1f9087.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clientes/Mujer/Principal.png"
-dest_files=["res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"]
+source_file="res://Sprites/Nuevos sprites/plato carne cortada.png"
+dest_files=["res://.godot/imported/plato carne cortada.png-8c6c7bd077df62981a4c113ebe1f9087.ctex"]
 
 [params]
 

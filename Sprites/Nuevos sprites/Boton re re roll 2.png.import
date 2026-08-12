@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://47tw43tiuta8"
-path="res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"
+uid="uid://bba8rc8214p0r"
+path="res://.godot/imported/Boton re re roll 2.png-e34db0e9645302c9444b2f286a5d6fe2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clientes/Mujer/Principal.png"
-dest_files=["res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"]
+source_file="res://Sprites/Nuevos sprites/Boton re re roll 2.png"
+dest_files=["res://.godot/imported/Boton re re roll 2.png-e34db0e9645302c9444b2f286a5d6fe2.ctex"]
 
 [params]
 

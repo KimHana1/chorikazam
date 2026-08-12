@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://47tw43tiuta8"
-path="res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"
+uid="uid://b00fs02ttijpn"
+path="res://.godot/imported/chorizo mas rozado.png-7bd0f33b91864d74dcfc926b0f949017.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clientes/Mujer/Principal.png"
-dest_files=["res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"]
+source_file="res://Sprites/Nuevos sprites/chorizo mas rozado.png"
+dest_files=["res://.godot/imported/chorizo mas rozado.png-7bd0f33b91864d74dcfc926b0f949017.ctex"]
 
 [params]
 

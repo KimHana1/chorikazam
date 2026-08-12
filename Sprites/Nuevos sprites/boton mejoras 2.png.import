@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://47tw43tiuta8"
-path="res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"
+uid="uid://d0lsn3xa3ixr0"
+path="res://.godot/imported/boton mejoras 2.png-a57ff042411ee9847fe35a9c59eb715f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clientes/Mujer/Principal.png"
-dest_files=["res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"]
+source_file="res://Sprites/Nuevos sprites/boton mejoras 2.png"
+dest_files=["res://.godot/imported/boton mejoras 2.png-a57ff042411ee9847fe35a9c59eb715f.ctex"]
 
 [params]
 

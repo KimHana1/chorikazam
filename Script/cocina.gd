@@ -10,9 +10,11 @@ extends Control
 @onready var ok3 = $VisorTicketGrande/Ok3
 @onready var paciencia_cliente = $VisorTicketGrande/PacienciaCliente
 @onready var identificador_color = $VisorTicketGrande/IdentificadorColor
-
+@onready var audio_hechizos = $AudioHechizos
+@onready var particulas = $GPUParticles2D
 @onready var inventario = $"UI Inventario Global"
 
+var centro_emplatar: Vector2 = Vector2.ZERO
 var ticket_scene = preload("res://Escenas/ticket.tscn")
 
 var ingredientes_en_plato := []
@@ -32,18 +34,18 @@ var tickets_grandes = {
 	"Ensalada": preload("res://Sprites/Tickets/TickectEnsalada.png"),
 	"papitas fritas": preload("res://Sprites/Tickets/TickectPapasFritas.png"),
 	"carne con papas": preload("res://Sprites/Tickets/TickectCarnePapas.png")
-	
 }
 
 func _ready():
 	pasos_completados.clear()
 	ingredientes_en_plato.clear()
 	listo_para_entregar = false
+
+	actualizar_ingredientes_visibles()
 	
 	if inventario:
 		inventario.visible = true
 		inventario.actualizar_inventario()
-	
 	
 	if visor_grande:
 		visor_grande.visible = false
@@ -142,11 +144,8 @@ func mostrar_ticket_chiquito():
 		indice += 1
 
 func _on_ticket_seleccionado(datos_pedido):
-	
 	print("¡La cocina recibió la señal del ticket! Datos: ", datos_pedido)
 	
-	if visor_grande == null:
-		return
 	if visor_grande == null:
 		return
 		
@@ -206,10 +205,8 @@ func descontar_ingredientes_del_pedido():
 		var nombre = ingrediente.to_lower()
 		Global.quitar_ingrediente(nombre, 1)
 		
-	
 	if inventario:
 		inventario.actualizar_inventario()
-	
 
 func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 	nombre_ingrediente = nombre_ingrediente.to_lower()
@@ -247,7 +244,7 @@ func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 		if paso not in pasos_completados[nombre_ingrediente]:
 			pasos_completados[nombre_ingrediente].append(paso)
 			print(nombre_ingrediente, " paso correcto: ", paso)
-
+			audio_hechizos.reproducir_paso(paso)
 			if ingrediente_terminado(nombre_ingrediente):
 				marcar_ingrediente_correcto(nombre_ingrediente)
 
@@ -256,116 +253,7 @@ func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 		print("Paso incorrecto para ", nombre_ingrediente)
 		marcar_ingrediente_incorrecto(nombre_ingrediente)
 
-func ingrediente_terminado(nombre_ingrediente: String) -> bool:
-	nombre_ingrediente = nombre_ingrediente.to_lower()
-	var pedido = PedidoManager.pedido_actual
-	if pedido.is_empty():
-		return false
-	if not pedido["ingredientes"].has(nombre_ingrediente):
-		return false
-	if not pasos_completados.has(nombre_ingrediente):
-		return false
-	var pasos_necesarios = pedido["ingredientes"][nombre_ingrediente]
-	for paso in pasos_necesarios:
-		if paso not in pasos_completados[nombre_ingrediente]:
-			return false
-	return true
-
-func intentar_finalizar_pedido():
-	if listo_para_entregar and todos_en_plato():
-		finalizar_pedido()
-	else:
-		print("Pedido entregado mal")
-		PedidoManager.resultado_cliente = "enojado"
-		PedidoManager.pedido_completado = true
-		get_tree().change_scene_to_file(escena_cliente)
-
-func todos_en_plato() -> bool:
-	var pedido = PedidoManager.pedido_actual
-	if pedido.is_empty() or not pedido.has("ingredientes"):
-		return false
-	for ingrediente in pedido["ingredientes"].keys():
-		if ingrediente.to_lower() not in ingredientes_en_plato:
-			return false
-	return true
-
-func verificar_progreso():
-	var pedido = PedidoManager.pedido_actual
-	if pedido.is_empty():
-		return
-	var todos_listos = true
-	for ingrediente in pedido["ingredientes"]:
-		var pasos_necesarios = pedido["ingredientes"][ingrediente]
-		if not pasos_completados.has(ingrediente):
-			todos_listos = false
-			continue
-		for paso in pasos_necesarios:
-			if paso not in pasos_completados[ingrediente]:
-				todos_listos = false
-	if todos_listos:
-		listo_para_entregar = true
-		print("Listo. Dibuja un circulo para emplatar")
-
-func finalizar_pedido():
-	var pedido = PedidoManager.pedido_actual
-	var paciencia = pedido.get("paciencia_actual", paciencia_actual)
-
-	if paciencia >= 70:
-		PedidoManager.resultado_cliente = "feliz"
-	elif paciencia >= 35:
-		PedidoManager.resultado_cliente = "medio"
-	else:
-		PedidoManager.resultado_cliente = "enojado"
-
-	descontar_ingredientes_del_pedido()
-
-	PedidoManager.eliminar_pedido_por_id(
-		PedidoManager.pedido_actual["id"]
-	)
-
-	PedidoManager.pedido_completado = true
-
-	print("CAMBIANDO A CLIENTE")
-	print("Resultado:", PedidoManager.resultado_cliente)
-
-	get_tree().change_scene_to_file(escena_cliente)
-
-func obtener_nodo_ingrediente(nombre_ingrediente: String):
-	nombre_ingrediente = nombre_ingrediente.to_lower()
-	var nodo = get_node_or_null(nombre_ingrediente)
-	if nodo != null:
-		return nodo
-	return get_node_or_null(nombre_ingrediente.capitalize())
-
-func marcar_ingrediente_correcto(nombre_ingrediente: String):
-	var nodo = obtener_nodo_ingrediente(nombre_ingrediente)
-	if nodo != null and nodo.has_method("correcto"):
-		nodo.correcto()
-
-func marcar_ingrediente_incorrecto(nombre_ingrediente: String):
-	var nodo = obtener_nodo_ingrediente(nombre_ingrediente)
-	if nodo != null and nodo.has_method("incorrecto"):
-		nodo.incorrecto()
-
-func mover_ingrediente_al_plato(ingrediente, nombre_ingrediente):
-	nombre_ingrediente = nombre_ingrediente.to_lower()
-	print("MOVIENDO AL PLATO: ", nombre_ingrediente)
-	if plato == null:
-		print("ERROR: no encontre el nodo Plato")
-		return
-
-	ingrediente.terminado = true
-	ingrediente.congelado = true
-	var offset = Vector2(randf_range(-30, 30), randf_range(-15, 15))
-	var tween = create_tween()
-	tween.tween_property(ingrediente, "global_position", plato.global_position + offset, 0.4)
-
-	if nombre_ingrediente not in ingredientes_en_plato:
-		ingredientes_en_plato.append(nombre_ingrediente)
-	print("LISTO, fue al plato")
-
-func _on_botoncompra_pressed() -> void:
-	get_tree().change_scene_to_file(escena_comercio)
-
-func _on_boton_atencion_pressed() -> void:
-	get_tree().change_scene_to_file(escena_cliente)
+func lanzar_particulas_emplatado():
+	if particulas:
+		particulas.modulate = Color.ORANGE
+		particulas.emitting = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://47tw43tiuta8"
-path="res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"
+uid="uid://ckpxss18f51pv"
+path="res://.godot/imported/Plato tomate cortada.png-d0af5ceb2e941871203039c99470f10d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Clientes/Mujer/Principal.png"
-dest_files=["res://.godot/imported/Principal.png-548c61931abd54a5b9d0f84cd5e0cce2.ctex"]
+source_file="res://Sprites/Nuevos sprites/Plato tomate cortada.png"
+dest_files=["res://.godot/imported/Plato tomate cortada.png-d0af5ceb2e941871203039c99470f10d.ctex"]
 
 [params]
 
