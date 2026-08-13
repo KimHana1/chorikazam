@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bxbmbwelwwv6b"]
+
+[ext_resource type="Script" uid="uid://bj5s6ogcfp6we" path="res://Script/control.gd" id="1_jffye"]
+[ext_resource type="Texture2D" uid="uid://chdh1sgcapjbc" path="res://Sprites/DecoTicket/menu.png" id="2_jffye"]
+[ext_resource type="Texture2D" uid="uid://b6tpte3jmshco" path="res://Sprites/botones/chorikazanLogo.png" id="4_050l1"]
+[ext_resource type="Script" uid="uid://fcmxfyuao5gh" path="res://Escenas/button.gd" id="4_jffye"]
+
+[node name="main" type="Control" unique_id=1314962120]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jffye")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=797687351]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jffye")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="TextureRect" unique_id=1157045585]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 197.0
+offset_right = 1591.0
+offset_bottom = 508.0
+icon = ExtResource("4_050l1")
+flat = true
+script = ExtResource("4_jffye")
+
+[connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]

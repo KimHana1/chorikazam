@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://6drm0i28x5t8"]
+
+[resource]
+default_base_scale = 0.24
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0.83379155, 0.67255, 0.47452688, 1)
+Button/constants/align_to_largest_stylebox = -1
+Button/constants/h_separation = 11
+Button/constants/icon_max_width = 3
+Button/constants/line_spacing = 4
+Button/icons/icon = null

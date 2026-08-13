@@ -1,0 +1,42 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="juegochori"
+run/main_scene="uid://bxbmbwelwwv6b"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+
+[autoload]
+
+PedidoManager="*uid://danhfqfuljsa8"
+Global="*uid://dqm3lma626gqc"
+GameManager="*uid://de7da0cvinl11"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
+window/stretch/mode="canvas_items"
+
+[global_group]
+
+ingrediente_global=""
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

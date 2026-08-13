@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://84x0artroy6u"]
+
+[ext_resource type="Texture2D" uid="uid://ci6yql7nnvxn7" path="res://Sprites/Dialogo/burbujaDialogo.png" id="1_aojy0"]
+[ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="2_vb7sq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i3ft5"]
+font = ExtResource("2_vb7sq")
+font_size = 35
+font_color = Color(0.39540777, 0.19101903, 0.16719764, 1)
+
+[node name="ClienteFila" type="Node2D" unique_id=1375216835]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1400360303]
+z_index = 1
+position = Vector2(558.3333, 106.66669)
+
+[node name="GloboPedido" type="Control" parent="." unique_id=1178944812]
+z_index = 20
+layout_mode = 3
+anchors_preset = 0
+offset_left = -23.333334
+offset_top = -183.33333
+offset_right = 16.666666
+offset_bottom = -143.33333
+metadata/_edit_use_anchors_ = true
+
+[node name="FondoGlobo" type="TextureRect" parent="GloboPedido" unique_id=110231716]
+layout_mode = 0
+offset_left = 654.99994
+offset_top = -438.3333
+offset_right = 1356.6666
+offset_bottom = 375.00006
+texture = ExtResource("1_aojy0")
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelPedido" type="Label" parent="GloboPedido" unique_id=606862155]
+layout_mode = 0
+offset_left = 914.99994
+offset_top = -220.0
+offset_right = 955.0
+offset_bottom = -174.0
+label_settings = SubResource("LabelSettings_i3ft5")
+metadata/_edit_use_anchors_ = true
+
+[node name="IconoComida" type="TextureRect" parent="GloboPedido" unique_id=1139692595]
+z_index = -1
+custom_minimum_size = Vector2(0.5, 0.5)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.066647336
+anchor_top = 0.7666683
+anchor_right = -0.066647336
+anchor_bottom = 0.7666683
+offset_left = 934.99994
+offset_top = -193.33333
+offset_right = 939.99994
+offset_bottom = -188.33333
+scale = Vector2(0.2, 0.2)
+metadata/_edit_use_anchors_ = true

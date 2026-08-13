@@ -1,0 +1,326 @@
+[gd_scene format=3 uid="uid://dxymuu1cg4gty"]
+
+[ext_resource type="Script" uid="uid://cknrka585n484" path="res://Script/draw_manager.gd" id="1_r5ydy"]
+[ext_resource type="Script" uid="uid://mo2j80exb42o" path="res://Script/cocina.gd" id="1_ti2xv"]
+[ext_resource type="Texture2D" uid="uid://c85nj48xk1u55" path="res://Sprites/cocinaYTicket/cocinasinreceta.png" id="2_b5anw"]
+[ext_resource type="PackedScene" uid="uid://cqp7a7ejar5no" path="res://Escenas/chorizo.tscn" id="2_ti2xv"]
+[ext_resource type="PackedScene" uid="uid://b6eyitsql3lea" path="res://Escenas/papa.tscn" id="3_jqnxx"]
+[ext_resource type="AudioStream" uid="uid://sii4cwmtfbhp" path="res://Sonidos/Emplatar.ogg" id="5_3hswh"]
+[ext_resource type="PackedScene" uid="uid://co7qus1c8rpcm" path="res://Escenas/pan.tscn" id="5_h561l"]
+[ext_resource type="PackedScene" uid="uid://0et0ieu0v3re" path="res://tomate.tscn" id="6_jqnxx"]
+[ext_resource type="AudioStream" uid="uid://cgk6whre8boor" path="res://Sonidos/CorteVertical.ogg" id="9_t875h"]
+[ext_resource type="AudioStream" uid="uid://oeta0qaciiva" path="res://Sonidos/Pelar.ogg" id="10_3hswh"]
+[ext_resource type="Script" uid="uid://beb3jfy62fpyo" path="res://Script/boton.gd" id="10_3j4mf"]
+[ext_resource type="Texture2D" uid="uid://bxhrtpagwftyb" path="res://Sprites/Platos/Plato png.png" id="10_s4ijj"]
+[ext_resource type="Texture2D" uid="uid://bojvum4c5v573" path="res://Sprites/libro/libroDePasos2.png" id="11_2xkeu"]
+[ext_resource type="AudioStream" uid="uid://bwl5uo5c3n36p" path="res://Sonidos/Cocinar1.ogg" id="11_unjm0"]
+[ext_resource type="Texture2D" uid="uid://du4ns11k7t85o" path="res://Sprites/libro/libroDePasos.png" id="12_0obbl"]
+[ext_resource type="Script" uid="uid://d3eq4oo7cqf6w" path="res://Script/area_cambio.gd" id="13_0j7s7"]
+[ext_resource type="Texture2D" uid="uid://bdxr4n5uwcyky" path="res://Sprites/botones/flecha come back foward.png" id="14_2xkeu"]
+[ext_resource type="Texture2D" uid="uid://pifcv4qgfqfg" path="res://Sprites/cocinaYTicket/soga.png" id="15_0obbl"]
+[ext_resource type="PackedScene" uid="uid://ldesc7fy78pa" path="res://Comercio/comer/EscenasComercio/InventarioGlobal.tscn" id="16_0j7s7"]
+[ext_resource type="Script" uid="uid://bjogephvbxjiw" path="res://Script/audio_hechizos.gd" id="17_0tcp2"]
+[ext_resource type="PackedScene" uid="uid://bjahk0e8c34q7" path="res://Comercio/comer/EscenasComercio/monedas.tscn" id="22_bc6bn"]
+[ext_resource type="Texture2D" uid="uid://kfha6vbap4oy" path="res://Sprites/botones/boton mejoras 2.png" id="23_k4f73"]
+[ext_resource type="PackedScene" uid="uid://bs6hese3mknwc" path="res://Escenas/CocinaMenuBotones.tscn" id="23_phr1r"]
+[ext_resource type="Texture2D" uid="uid://bvhm052yuq06v" path="res://Sprites/botones/Boton 1 comerciar.png" id="24_54gm1"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_phr1r"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 360.22
+gravity = Vector3(0, 98, 0)
+scale_min = 5.0
+scale_max = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqnxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3j4mf"]
+
+[node name="Cocina" type="Control" unique_id=588022032]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9999992, 1)
+script = ExtResource("1_ti2xv")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_vertical_guides_ = [1742.0, 6.0, 1092.0, -237.0, 864.0, 242.0, 234.0, 254.0, 1059.0, 860.0]
+metadata/_edit_horizontal_guides_ = [653.0, 629.0, 42.0, 141.0, 558.0, 141.0, 144.0, 156.0, 488.0, 551.0]
+
+[node name="ColorRect" type="TextureRect" parent="." unique_id=2031791963]
+custom_minimum_size = Vector2(1150, 653)
+layout_mode = 0
+offset_right = 1972.9198
+offset_bottom = 1164.2852
+scale = Vector2(0.9815377, 0.92000055)
+mouse_filter = 2
+texture = ExtResource("2_b5anw")
+
+[node name="chorizo" parent="." unique_id=1661543503 instance=ExtResource("2_ti2xv")]
+z_index = 1
+position = Vector2(1256.001, 248)
+scale = Vector2(0.3164233, 0.35585502)
+nombre_ingrediente = "Chorizo"
+limite_izq = 1091.0
+limite_der = 1742.0
+
+[node name="chorizo2" parent="." unique_id=291164411 instance=ExtResource("2_ti2xv")]
+z_index = 1
+position = Vector2(1256.001, 248)
+scale = Vector2(0.3164233, 0.35585502)
+nombre_ingrediente = "Chorizo2"
+limite_izq = 1091.0
+limite_der = 1742.0
+
+[node name="papa" parent="." unique_id=1255283446 instance=ExtResource("3_jqnxx")]
+z_index = 1
+position = Vector2(1479.5394, 340)
+scale = Vector2(0.3164233, 0.35585502)
+nombre_ingrediente = "Papa"
+limite_izq = 1091.0
+limite_der = 1742.0
+
+[node name="papa2" parent="." unique_id=333190005 instance=ExtResource("3_jqnxx")]
+z_index = 1
+position = Vector2(1479.5394, 340)
+scale = Vector2(0.3164233, 0.35585502)
+nombre_ingrediente = "Papa2"
+limite_izq = 1091.0
+limite_der = 1742.0
+
+[node name="pan" parent="." unique_id=393561602 instance=ExtResource("5_h561l")]
+z_index = 1
+position = Vector2(1465.5394, 323)
+scale = Vector2(0.3164233, 0.35585502)
+nombre_ingrediente = "Pan"
+velocidad = 100.0
+limite_izq = 1091.0
+limite_der = 1742.0
+limite_abajo = 630.0
+
+[node name="pan2" parent="." unique_id=1203602277 instance=ExtResource("5_h561l")]
+z_index = 1
+position = Vector2(1465.5394, 323)
+scale = Vector2(0.3164233, 0.35585502)
+nombre_ingrediente = "Pan2"
+velocidad = 100.0
+limite_izq = 1091.0
+limite_der = 1742.0
+limite_abajo = 630.0
+
+[node name="Tomate" parent="." unique_id=2089289063 instance=ExtResource("6_jqnxx")]
+z_index = 1
+position = Vector2(1288.001, 331)
+scale = Vector2(3.2775996, 4.1541266)
+nombre_ingrediente = "Tomate"
+limite_izq = 1091.0
+limite_der = 1742.0
+
+[node name="Tomate2" parent="." unique_id=1766163908 instance=ExtResource("6_jqnxx")]
+z_index = 1
+position = Vector2(1288.001, 331)
+scale = Vector2(3.2775996, 4.1541266)
+nombre_ingrediente = "Tomate2"
+limite_izq = 1091.0
+limite_der = 1742.0
+
+[node name="Plato" type="Node2D" parent="." unique_id=731763546]
+z_index = -1
+position = Vector2(361.00027, 876)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plato" unique_id=1058538306]
+z_index = 1
+position = Vector2(18, 36)
+texture = ExtResource("10_s4ijj")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=2060014531]
+position = Vector2(487.00076, 246)
+scale = Vector2(0.8033979, 1.2278367)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=578913103]
+emitting = false
+amount = 100
+lifetime = 1.12
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_phr1r")
+
+[node name="DrawManager" type="Node" parent="." unique_id=486436348]
+script = ExtResource("1_r5ydy")
+
+[node name="LabelEstado" type="Label" parent="." unique_id=71653673]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="FlowContainer" type="FlowContainer" parent="." unique_id=1803215763]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1808495487]
+position = Vector2(1904.0015, 531)
+scale = Vector2(2.9673996, 32.8242)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=284189482]
+shape = SubResource("RectangleShape2D_jqnxx")
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=112995019]
+position = Vector2(-6.730769, 320.99997)
+scale = Vector2(2.9673996, 32.8242)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=807860612]
+shape = SubResource("RectangleShape2D_jqnxx")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1008569136]
+position = Vector2(437.5, 651.99994)
+rotation = -1.5711962
+scale = Vector2(2.9673996, 45.46348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=620437484]
+shape = SubResource("RectangleShape2D_jqnxx")
+
+[node name="Area2D4" type="Area2D" parent="." unique_id=1170804453]
+position = Vector2(437.5001, 5.999939)
+rotation = -1.5711962
+scale = Vector2(2.9673996, 45.46348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=305020257]
+shape = SubResource("RectangleShape2D_jqnxx")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=471806195]
+position = Vector2(844.0006, 873.00006)
+scale = Vector2(0.7200007, 0.6008905)
+script = ExtResource("10_3j4mf")
+
+[node name="Pagina1" type="Sprite2D" parent="Node2D" unique_id=1014963935]
+texture = ExtResource("11_2xkeu")
+
+[node name="Pagina2" type="Sprite2D" parent="Node2D" unique_id=1707193682]
+texture = ExtResource("12_0obbl")
+
+[node name="AreaCambio" type="Area2D" parent="Node2D" unique_id=846194126]
+position = Vector2(-12.499996, 227.99487)
+script = ExtResource("13_0j7s7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/AreaCambio" unique_id=1970787023]
+position = Vector2(8.477104e-05, -179.73326)
+scale = Vector2(24.944445, 10.386069)
+shape = SubResource("RectangleShape2D_3j4mf")
+
+[node name="soga" type="TextureRect" parent="." unique_id=1347590912]
+layout_mode = 0
+offset_left = 6.0000052
+offset_top = 146.00003
+offset_right = 1840.6046
+offset_bottom = 8801346.0
+scale = Vector2(0.5886832, -9.0897083e-07)
+mouse_filter = 2
+texture = ExtResource("15_0obbl")
+
+[node name="PosicionesTickets" type="Node2D" parent="soga" unique_id=1533705140]
+position = Vector2(504.51627, 55007304)
+
+[node name="Pos1" type="Marker2D" parent="soga/PosicionesTickets" unique_id=1595895451]
+position = Vector2(162.88376, 8801147)
+
+[node name="Pos2" type="Marker2D" parent="soga/PosicionesTickets" unique_id=871931194]
+position = Vector2(-12.08316, 9901292)
+
+[node name="Pos3" type="Marker2D" parent="soga/PosicionesTickets" unique_id=137660051]
+position = Vector2(404.10025, 8801147)
+
+[node name="Pos4" type="Marker2D" parent="soga/PosicionesTickets" unique_id=1678891338]
+position = Vector2(658.9065, 12101583)
+
+[node name="Pos5" type="Marker2D" parent="soga/PosicionesTickets" unique_id=1286410200]
+position = Vector2(888.23206, 18702456)
+
+[node name="BotonAtencion" type="Button" parent="." unique_id=1918147483]
+layout_mode = 0
+offset_left = 48.00004
+offset_top = 21.0
+offset_right = 656.00006
+offset_bottom = 329.0
+scale = Vector2(0.31999958, 0.43999982)
+icon = ExtResource("14_2xkeu")
+flat = true
+
+[node name="UI  Inventario Global" parent="." unique_id=134098735 instance=ExtResource("16_0j7s7")]
+layout_mode = 0
+offset_left = 1352.0
+offset_top = 14.0
+offset_right = 2244.0
+offset_bottom = 234.0
+scale = Vector2(0.305, 0.305)
+
+[node name="AudioHechizos" type="AudioStreamPlayer2D" parent="." unique_id=1900255918]
+volume_db = 0.105
+script = ExtResource("17_0tcp2")
+sonido_cortar = ExtResource("9_t875h")
+sonido_pelar = ExtResource("10_3hswh")
+sonido_calentar = ExtResource("11_unjm0")
+sonido_emplatar = ExtResource("5_3hswh")
+
+[node name="Monedas" parent="." unique_id=838206148 instance=ExtResource("22_bc6bn")]
+layout_mode = 0
+offset_left = 1720.0
+offset_top = 7.0
+offset_right = 1920.0
+offset_bottom = 207.0
+scale = Vector2(0.352, 0.346)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1215517295]
+position = Vector2(1719.001, 136)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=1787511574]
+position = Vector2(1107.0009, 133)
+
+[node name="Marker2D3" type="Marker2D" parent="." unique_id=999245325]
+position = Vector2(1107.0009, 1016)
+
+[node name="Marker2D4" type="Marker2D" parent="." unique_id=1195523638]
+position = Vector2(1716.0013, 1016)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=236230711]
+layout_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=410878544]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer" unique_id=184366776]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer" unique_id=52907053]
+layout_mode = 2
+
+[node name="CocinaMenuBotones" parent="." unique_id=1290063942 instance=ExtResource("23_phr1r")]
+layout_mode = 0
+offset_left = 1752.0013
+offset_top = 243.0
+offset_right = 2113.0015
+offset_bottom = 961.0
+scale = Vector2(0.3266445, 0.3247157)
+
+[node name="botonmejoras" type="Button" parent="CocinaMenuBotones/UI Pan2/MarginContainer" parent_id_path=PackedInt32Array(1290063942, 1262480959) index="0" unique_id=228156327]
+layout_mode = 2
+icon = ExtResource("23_k4f73")
+
+[node name="botoncompra" type="Button" parent="CocinaMenuBotones/UI Pan4/MarginContainer" parent_id_path=PackedInt32Array(1290063942, 1167722935) index="0" unique_id=1618585387]
+layout_mode = 2
+icon = ExtResource("24_54gm1")
+
+[connection signal="input_event" from="Node2D/AreaCambio" to="Node2D/AreaCambio" method="_on_input_event"]
+[connection signal="pressed" from="BotonAtencion" to="." method="_on_boton_atencion_pressed"]
+[connection signal="pressed" from="CocinaMenuBotones/UI Pan4/MarginContainer/botoncompra" to="." method="_on_botoncompra_pressed"]
+
+[editable path="CocinaMenuBotones"]
