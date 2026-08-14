@@ -27,6 +27,30 @@ const ESTADO_ENOJADO = "enojado"
 	$FilaClientes/Pos4,
 	$FilaClientes/Pos5
 ]
+@onready var video_tutorial = $CanvasLayer/VideoTutorial
+@onready var boton_cerrar_tutorial = $CanvasLayer/BotonCerrarTutorial 
+
+
+
+func _on_button_tomar_pedido_pressed() -> void:
+	if is_instance_valid(boton_tomar_pedido):
+		boton_tomar_pedido.visible = false
+	if is_instance_valid(boton_cocinar):
+		boton_cocinar.visible = false
+
+	await get_tree().create_timer(1.0).timeout
+	mostrar_globo_pedido()
+	var pedido_actual_dict = PedidoManager.obtener_pedido_por_id(id_pedido_actual)
+	if pedido_actual_dict and pedido_actual_dict.has("nombre"):
+		label_globo.text = "Quiero " + str(pedido_actual_dict["nombre"])
+	
+	
+	await get_tree().create_timer(0.5).timeout
+
+	
+	if is_instance_valid(boton_cocinar):
+		boton_cocinar.visible = true
+
 var escena_cliente_fila = preload("res://Escenas/cliente_fila.tscn")
 var fila_visual = []
 var timer_spawn: float = 0.0
@@ -94,6 +118,8 @@ func _ready():
 		mostrar_resultado_cliente()
 	else:
 		atendiendo = false
+	if is_instance_valid(boton_cocinar):
+		boton_cocinar.visible = false 
 
 func ocultar_toda_la_ui():
 	if plato_preparado: plato_preparado.visible = false
@@ -127,7 +153,7 @@ func _process(delta):
 	
 	if fila_visual.size() < posiciones_espera.size() and not dia_finalizado:
 		timer_spawn += delta
-		if timer_spawn >= 2.5: 
+		if timer_spawn >= 1.5: 
 			timer_spawn = 0.0
 			spawnear_en_fila()
 
@@ -185,28 +211,19 @@ func avanzar_fila():
 func flujo_nuevo_cliente():
 	if GameManager.clientes_restantes <= 0: return
 	GameManager.clientes_restantes -= 1
-	ocultar_toda_la_ui()
 	
+	
+	ocultar_toda_la_ui()
 	PedidoManager.cliente_actual_tipo = cliente_actual_tipo
 	cambiar_sprite_cliente(ESTADO_PRINCIPAL)
 	
 	var receta_random = pedidos[randi() % pedidos.size()]
 	var nuevo_pedido = PedidoManager.registrar_nuevo_pedido(receta_random, clientes[cliente_actual_tipo]["color"])
 	id_pedido_actual = nuevo_pedido["id"]
-
+	
+	
 	if boton_tomar_pedido:
 		boton_tomar_pedido.visible = true
-
-func _on_button_tomar_pedido_pressed() -> void:
-	boton_tomar_pedido.visible = false
-
-	mostrar_globo_pedido()
-
-	label_globo.text = "Quiero " + PedidoManager.obtener_pedido_por_id(id_pedido_actual)["nombre"]
-
-	await get_tree().create_timer(1.0).timeout
-
-	boton_cocinar.visible = true
 
 func mostrar_globo_pedido():
 	var pedido = PedidoManager.obtener_pedido_por_id(id_pedido_actual)

@@ -26,7 +26,7 @@ var tickets_grandes = {
 }
 
 func _ready():
-	ticket_mini.visible = true
+	#ticket_mini.visible = true
 	if visor_grande:
 		visor_grande.visible = false
 		visor_grande.offset = Vector2(1065, 300)
@@ -49,24 +49,31 @@ func configurar_barra():
 func cargar_ticket(datos):
 	if datos == null or not datos.has("id"):
 		return
-
+		
 	id_pedido = datos["id"]
 	datos_actuales = datos
-
-	if tickets_bebe.has(datos["nombre"]):
-		ticket_mini.texture_normal = tickets_bebe[datos["nombre"]]
-		
+	
+	
+	if tickets_bebe.has(datos["nombre"]) and ticket_mini != null:
+		if ticket_mini.has_method("set_texture_normal"):
+			ticket_mini.texture_normal = tickets_bebe[datos["nombre"]]
+		elif "texture" in ticket_mini:
+			ticket_mini.texture = tickets_bebe[datos["nombre"]]
+		elif "texture_under" in ticket_mini:
+			ticket_mini.texture_under = tickets_bebe[datos["nombre"]]
+			
 	if tickets_grandes.has(datos["nombre"]) and imagen_grande:
 		imagen_grande.texture = tickets_grandes[datos["nombre"]]
 		
 	if datos.has("color") and identificador_color:
 		identificador_color.color = datos["color"]
 		
-	if datos.has("paciencia_actual"):
+	if datos.has("paciencia_actual") and paciencia_cliente:
 		paciencia_cliente.value = datos["paciencia_actual"]
 		actualizar_color_barra(datos["paciencia_actual"])
-	
-	ticket_mini.visible = true
+		
+	self.visible = true
+
 
 func _process(_delta):
 	 

@@ -167,14 +167,31 @@ func hay_ingredientes_para_pedido() -> bool:
 	return true
 
 func descontar_ingredientes_del_pedido():
-	var pedido = PedidoManager.pedido_actual
-	if pedido.is_empty() or not pedido.has("ingredientes"):
-		return
-	for ingrediente in pedido["ingredientes"].keys():
+	var pedido = PedidoManager.pedido_actual 
+	if pedido.is_empty() or not pedido.has("ingredientes"): 
+		return 
+
+	for ingrediente in pedido["ingredientes"].keys(): 
 		var nombre = ingrediente.to_lower()
-		Global.quitar_ingrediente(nombre, 1)
-	if inventario:
-		inventario.actualizar_inventario()
+		Global.quitar_ingrediente(nombre, 1) 
+	for nodo_ingrediente in get_tree().get_nodes_in_group("ingredientes"):
+		if "nombre_ingrediente" in nodo_ingrediente:
+			var nombre_limpio = nodo_ingrediente.nombre_ingrediente.to_lower()
+			
+	
+			if not Global.tiene_ingrediente(nombre_limpio, 1):
+	
+				nodo_ingrediente.hide()
+				if "congelado" in nodo_ingrediente:
+					nodo_ingrediente.congelado = true
+				if nodo_ingrediente is Area2D:
+					nodo_ingrediente.monitorable = false
+					nodo_ingrediente.monitoring = false
+					
+	
+	if inventario: 
+		inventario.actualizar_inventario() 
+
 
 func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 	var nombre_original_con_numero = nombre_ingrediente.to_lower()
@@ -209,7 +226,7 @@ func verificar_ingrediente(nombre_ingrediente: String, paso: String):
 			pasos_completados[nombre_base].append(paso)
 			print(nombre_base, " paso correcto: ", paso)
 			
-			# ESCUDO DE VALIDACIÓN: Solo viaja al plato si completó el 100% de los pasos
+			
 			if ingrediente_terminado(nombre_base):
 				marcar_ingrediente_correcto(nombre_original_con_numero)
 				
@@ -224,19 +241,27 @@ func ingrediente_terminado(nombre_ingrediente: String) -> bool:
 	nombre_ingrediente = nombre_ingrediente.to_lower()
 	var pedido = PedidoManager.pedido_actual
 	
-	if pedido.is_empty() or not pedido["ingredientes"].has(nombre_ingrediente):
-		return false
-	if not pasos_completados.has(nombre_ingrediente):
+	
+	var nombre_base = nombre_ingrediente
+	if nombre_base.ends_with("2") or nombre_base.ends_with("3"):
+		nombre_base = nombre_base.left(-1)
+	
+	if pedido.is_empty() or not pedido.has("ingredientes") or not pedido["ingredientes"].has(nombre_base):
 		return false
 		
-	var pasos_necesarios = pedido["ingredientes"][nombre_ingrediente]
 	
+	if not pasos_completados.has(nombre_base):
+		return false
+		
+	var pasos_necesarios = pedido["ingredientes"][nombre_base]
+	var pasos_hechos = pasos_completados[nombre_base]
 	
 	for p in pasos_necesarios:
-		if p not in pasos_completados[nombre_ingrediente]:
+		if p not in pasos_hechos:
 			return false
 			
-	return true 
+	return true
+
 
 func obtener_nodo_ingrediente(nombre_ingrediente: String):
 	nombre_ingrediente = nombre_ingrediente.to_lower()

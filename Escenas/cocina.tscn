@@ -138,10 +138,12 @@ position = Vector2(18, 36)
 texture = ExtResource("10_s4ijj")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=2060014531]
+z_index = 5
 position = Vector2(487.00076, 246)
 scale = Vector2(0.8033979, 1.2278367)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=578913103]
+z_index = 5
 emitting = false
 amount = 100
 lifetime = 1.12

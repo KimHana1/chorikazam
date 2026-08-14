@@ -10,6 +10,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 41.0
+offset_right = 19.0
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jffye")
@@ -33,5 +37,14 @@ offset_bottom = 508.0
 icon = ExtResource("4_050l1")
 flat = true
 script = ExtResource("4_jffye")
+
+[node name="Button" type="Button" parent="." unique_id=1902542340]
+layout_mode = 0
+offset_left = 815.0
+offset_top = 627.0
+offset_right = 884.0
+offset_bottom = 658.0
+text = "Tutorial"
+flat = true
 
 [connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]

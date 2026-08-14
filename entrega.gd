@@ -67,7 +67,7 @@ func _ready():
 			label_ganancia.modulate = Color.YELLOW
 			
 	else:
-		pago = 5
+		pago = 1
 		if label_resultado:
 			label_resultado.text = "Mi perro cocina mejor"
 			label_resultado.modulate = Color.RED
@@ -84,3 +84,22 @@ func _on_boton_continuar_pressed() -> void:
 	PedidoManager.pedido_completado = false
 	
 	get_tree().change_scene_to_file(escena_cliente)
+
+func _on_boton_regresar_mouse_exited() -> void:
+	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property($BotonRegresar, "scale", Vector2(0.5, 0.5), 0.5)
+
+func _on_boton_regresar_pressed() -> void:
+	print("Regresando a la escena del cliente...")
+	
+
+	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.tween_property($BotonRegresar, "scale", Vector2(0.9, 0.9), 0.08)
+	
+
+	await tween.finished
+	
+	if "pedido_completado" in PedidoManager:
+		PedidoManager.pedido_completado = false
+		
+	get_tree().change_scene_to_file("res://Escenas/cliente.tscn")
