@@ -14,7 +14,7 @@ var ingredientes : Dictionary[String,int] = {
 	"tomate": 2
 }
 
-# FUNCIÓN AUXILIAR: Quita los números de variante de forma segura (ej: "papa2" -> "papa")
+
 func _obtener_nombre_base(nombre: String) -> String:
 	var nombre_limpio = nombre.to_lower().strip_edges()
 	if nombre_limpio.ends_with("2") or nombre_limpio.ends_with("3"):

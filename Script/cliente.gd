@@ -70,17 +70,17 @@ var comidas_cocinadas = {
 
 var clientes = {
 	"mujer": {
-		ESTADO_ENOJADO: preload("res://Sprites/clientes/Mujer/enojada.png"),
-		ESTADO_FELIZ: preload("res://Sprites/clientes/Mujer/feliz.png"),
-		ESTADO_MEDIO: preload("res://Sprites/clientes/Mujer/medio.png"),
-		ESTADO_PRINCIPAL: preload("res://Sprites/clientes/Mujer/principal.png"),
+		ESTADO_ENOJADO: preload("res://Sprites/Clientes/Mujer/Enojada.png"),
+		ESTADO_FELIZ: preload("res://Sprites/Clientes/Mujer/Feliz.png"),
+		ESTADO_MEDIO: preload("res://Sprites/Clientes/Mujer/Medio.png"),
+		ESTADO_PRINCIPAL: preload("res://Sprites/Clientes/Mujer/Principal.png"),
 		"color": Color.BROWN
 	},
 	"hombre": {
-		ESTADO_ENOJADO: preload("res://Sprites/clientes/Hombre/enojado.png"),
-		ESTADO_FELIZ: preload("res://Sprites/clientes/Hombre/feliz.png"),
-		ESTADO_MEDIO: preload("res://Sprites/clientes/Hombre/medio.png"),
-		ESTADO_PRINCIPAL: preload("res://Sprites/clientes/Hombre/principal.png"),
+		ESTADO_ENOJADO: preload("res://Sprites/Clientes/Hombre/Enojado.png"),
+		ESTADO_FELIZ: preload("res://Sprites/Clientes/Hombre/Feliz.png"),
+		ESTADO_MEDIO: preload("res://Sprites/Clientes/Hombre/Medio.png"),
+		ESTADO_PRINCIPAL: preload("res://Sprites/Clientes/Hombre/Principal.png"),
 		"color": Color.GRAY
 	}
 }

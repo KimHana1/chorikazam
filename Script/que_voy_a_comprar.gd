@@ -3,7 +3,7 @@ extends Control
 @onready var chorizo =$ChorizoCantidad
 @onready var pan = $PanCantidad
 @onready var papa = $PapaCantidad
-@onready var tomate = $TomateCantidad
+@onready var tomate = $tomateCantidad
 
 func actualizar_carrito(carrito):
 
@@ -15,4 +15,4 @@ func actualizar_carrito(carrito):
 
 	papa.text = str(carrito["papa"]) + " Papa"
 
-	tomate.text = str(carrito["tomate"]) +  " Tomate"
+	tomate.text = str(carrito["tomate"]) +  " tomate"

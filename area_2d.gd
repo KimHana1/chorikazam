@@ -118,13 +118,17 @@ func incorrecto():
 func _on_mouse_entered():
 	if terminado or congelado:
 		return
-
 	if not puede_congelarse:
 		return
 
 	congelado = true
 	puede_congelarse = false
 	sprite.scale = escala_original * 1.15
+	
+	# --- NUEVO: Registramos este nodo exacto en la cocina ---
+	var cocina = obtener_cocina()
+	if cocina:
+		cocina.ingrediente_actual_enfocado = self
 
 	get_tree().create_timer(1.0).timeout.connect(_on_descongelar)
 
@@ -135,6 +139,10 @@ func _on_descongelar():
 	congelado = false
 	sprite.scale = escala_original
 	reiniciar_direccion_aleatoria()
+	
+	var cocina = obtener_cocina()
+	if cocina and cocina.ingrediente_actual_enfocado == self:
+		cocina.ingrediente_actual_enfocado = null
 
 	get_tree().create_timer(2.0).timeout.connect(_on_cooldown_terminado)
 

@@ -2,8 +2,23 @@
 
 [ext_resource type="Script" uid="uid://bj5s6ogcfp6we" path="res://Script/control.gd" id="1_jffye"]
 [ext_resource type="Texture2D" uid="uid://chdh1sgcapjbc" path="res://Sprites/DecoTicket/menu.png" id="2_jffye"]
-[ext_resource type="Texture2D" uid="uid://b6tpte3jmshco" path="res://Sprites/botones/chorikazanLogo.png" id="4_050l1"]
+[ext_resource type="Texture2D" uid="uid://7i0dl5dcuauy" path="res://Sprites/Nuevos sprites/boton rectangular 2.png" id="3_ef3n6"]
 [ext_resource type="Script" uid="uid://fcmxfyuao5gh" path="res://Escenas/button.gd" id="4_jffye"]
+[ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="5_gwn7a"]
+[ext_resource type="Texture2D" uid="uid://d132m6gqtyeng" path="res://Sprites/Nuevos sprites/boton rectangular.png" id="6_tmfcw"]
+[ext_resource type="VideoStream" uid="uid://707nyqdjs7wl" path="res://videos/Proyecto.ogv" id="7_1fi5v"]
+[ext_resource type="Script" uid="uid://1k7fh30kf52c" path="res://Escenas/boton_tutorial.gd" id="7_tmfcw"]
+[ext_resource type="Texture2D" uid="uid://dca8mdrysgbq4" path="res://Sprites/botones/Ticket (1).png" id="9_1fi5v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rwdjl"]
+font = ExtResource("5_gwn7a")
+font_size = 115
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nbm5q"]
+font = ExtResource("5_gwn7a")
+font_size = 102
+font_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
 
 [node name="main" type="Control" unique_id=1314962120]
 layout_mode = 3
@@ -30,21 +45,65 @@ expand_mode = 1
 
 [node name="Button" type="Button" parent="TextureRect" unique_id=1157045585]
 layout_mode = 0
-offset_left = 212.0
-offset_top = 197.0
-offset_right = 1591.0
-offset_bottom = 508.0
-icon = ExtResource("4_050l1")
+offset_left = 667.0
+offset_top = 561.0
+offset_right = 1157.0
+offset_bottom = 777.0
+icon = ExtResource("3_ef3n6")
 flat = true
 script = ExtResource("4_jffye")
 
-[node name="Button" type="Button" parent="." unique_id=1902542340]
+[node name="Label" type="Label" parent="TextureRect/Button" unique_id=1007745570]
 layout_mode = 0
-offset_left = 815.0
-offset_top = 627.0
-offset_right = 884.0
-offset_bottom = 658.0
-text = "Tutorial"
+offset_left = 126.0
+offset_top = 35.0
+offset_right = 384.0
+offset_bottom = 182.0
+text = "Jugar"
+label_settings = SubResource("LabelSettings_rwdjl")
+
+[node name="BotonTutorial" type="Button" parent="." unique_id=1902542340]
+layout_mode = 0
+offset_left = 687.0
+offset_top = 825.0
+offset_right = 1236.0
+offset_bottom = 1020.0
+icon = ExtResource("6_tmfcw")
 flat = true
+script = ExtResource("7_tmfcw")
+
+[node name="Label" type="Label" parent="BotonTutorial" unique_id=1072161682]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 38.0
+offset_right = 412.0
+offset_bottom = 169.0
+text = "Tutorial"
+label_settings = SubResource("LabelSettings_nbm5q")
+
+[node name="VideoTutorial" type="VideoStreamPlayer" parent="." unique_id=1104028796]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("7_1fi5v")
+expand = true
+loop = true
+
+[node name="BotonCerrarVideo" type="Button" parent="." unique_id=43005963]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+icon = ExtResource("9_1fi5v")
 
 [connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BotonTutorial" to="." method="_on_boton_tutorial_pressed"]
+[connection signal="pressed" from="BotonCerrarVideo" to="." method="_on_boton_cerrar_video_pressed"]

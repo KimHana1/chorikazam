@@ -3,7 +3,6 @@ extends Control
 @onready var sprite_cliente = $SpriteCliente
 @onready var icono_comida = $IconoComida
 @onready var label_resultado = $LabelResultado
-
 @onready var label_ganancia = $LabelGanancia
 
 var escena_cliente = "res://Escenas/cliente.tscn"
@@ -12,26 +11,26 @@ var comidas_cocinadas = {
 	"Choripán": preload("res://Sprites/cocinado/choripan.png"),
 	"Ensalada": preload("res://Sprites/cocinado/ensaladapatoma.png"),
 	"Papa Frita": preload("res://Sprites/cocinado/papa frita.png"),
-	"carne con papas": preload("res://Sprites/ComidaCocinada/papaCarneCocinada.png")
+	#"carne con papas": preload("res://Sprites/ComidaCocinada/papaCarneCocinada.png")
 }
 
 var clientes = {
 	"mujer": {
-		"enojado": preload("res://Sprites/clientes/Mujer/enojada.png"),
-		"feliz": preload("res://Sprites/clientes/Mujer/feliz.png"),
-		"medio": preload("res://Sprites/clientes/Mujer/medio.png")
+		"enojado": preload("res://Sprites/Clientes/Mujer/Enojada.png"),
+		"feliz": preload("res://Sprites/Clientes/Mujer/Feliz.png"),
+		"medio": preload("C:/Users/Administrador/Documents/mainprobar/Sprites/Clientes/Mujer/Medio.png")
 	},
 	"hombre": {
-		"enojado": preload("res://Sprites/clientes/Hombre/enojado.png"),
-		"feliz": preload("res://Sprites/clientes/Hombre/feliz.png"),
-		"medio": preload("res://Sprites/clientes/Hombre/medio.png")
+		"enojado": preload("res://Sprites/Clientes/Hombre/Enojado.png"),
+		"feliz": preload("res://Sprites/Clientes/Hombre/Feliz.png"),
+		"medio": preload("res://Sprites/Clientes/Hombre/Medio.png")
 	},
-	"niña": {
-		"enojado": preload("res://Sprites/clientes/niña/enojada.png"),
-		"feliz": preload("res://Sprites/clientes/niña/NiñaFeliz.png"),
-		"medio": preload("res://Sprites/clientes/niña/NiñaMedio.png"),
-		
-		"color": Color.DARK_RED}
+	#"niña": {
+	#	"enojado": preload("res://Sprites/clientes/niña/enojada.png"),
+	#	"feliz": preload("res://Sprites/clientes/niña/NiñaFeliz.png"),
+	#	"medio": preload("res://Sprites/clientes/niña/NiñaMedio.png"),
+	#	"color": Color.DARK_RED
+	#}
 }
 
 func _ready():
@@ -45,7 +44,6 @@ func _ready():
 	if sprite_cliente and clientes.has(tipo) and clientes[tipo].has(resultado):
 		sprite_cliente.texture = clientes[tipo][resultado]
 
-	
 	var pago = 0
 	
 	if resultado == "feliz":
@@ -78,28 +76,24 @@ func _ready():
 	Global.monedas_jugador += pago
 	get_tree().call_group("hud_monedas", "actualizar_info")
 
-
 func _on_boton_continuar_pressed() -> void:
-	PedidoManager.eliminar_pedido_por_id(PedidoManager.pedido_actual["id"])
-	PedidoManager.pedido_completado = false
+	if PedidoManager.pedido_actual and PedidoManager.pedido_actual.has("id"):
+		PedidoManager.eliminar_pedido_por_id(PedidoManager.pedido_actual["id"])
+
+	PedidoManager.pedido_completado = true
 	
 	get_tree().change_scene_to_file(escena_cliente)
 
 func _on_boton_regresar_mouse_exited() -> void:
 	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property($BotonRegresar, "scale", Vector2(0.5, 0.5), 0.5)
+	tween.tween_property($BotonRegresar, "scale", Vector2(1.0, 1.0), 0.15) # Retorno prolijo a tamaño normal
 
 func _on_boton_regresar_pressed() -> void:
 	print("Regresando a la escena del cliente...")
-	
-
 	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	tween.tween_property($BotonRegresar, "scale", Vector2(0.9, 0.9), 0.08)
-	
 
 	await tween.finished
-	
-	if "pedido_completado" in PedidoManager:
-		PedidoManager.pedido_completado = false
-		
+
+	PedidoManager.pedido_completado = true
 	get_tree().change_scene_to_file("res://Escenas/cliente.tscn")

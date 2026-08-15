@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://ci6yql7nnvxn7" path="res://Sprites/Dialogo/burbujaDialogo.png" id="3_8asxu"]
 [ext_resource type="FontFile" uid="uid://dudv2hdvdaykx" path="res://fuente/Vanilla Caramel.otf" id="3_kuibo"]
 [ext_resource type="Texture2D" uid="uid://xp5f1cdphr7d" path="res://Sprites/cocinaYTicket/mezon.png" id="3_ts3px"]
-[ext_resource type="Texture2D" uid="uid://c2pupmw7bpw11" path="res://Comercio/comer/AssetsComercio/flecha come back foward.png" id="3_yr5bq"]
+[ext_resource type="Texture2D" uid="uid://kfha6vbap4oy" path="res://Sprites/botones/boton mejoras 2.png" id="3_yr5bq"]
+[ext_resource type="Script" uid="uid://by3efi1le8ucv" path="res://Escenas/boton_regresar.gd" id="4_t4qvg"]
 [ext_resource type="Texture2D" uid="uid://w2h2epcd6fvt" path="res://Sprites/cocinaYTicket/caja registradora.png" id="5_6l6gt"]
 [ext_resource type="Texture2D" uid="uid://ckilu5kjk0gn2" path="res://Sprites/botones/frasco.png" id="7_yr5bq"]
 
@@ -34,14 +35,16 @@ texture = ExtResource("2_fa828")
 
 [node name="BotonRegresar" type="Button" parent="." unique_id=1166285098]
 layout_mode = 0
-offset_left = 27.999998
-offset_top = 2.9999998
-offset_right = 636.0
-offset_bottom = 311.0
+offset_left = -154.0
+offset_top = -85.00003
+offset_right = 615.2474
+offset_bottom = 271.99997
+rotation = -1.5628076
 scale = Vector2(0.32885724, 0.5827746)
 pivot_offset = Vector2(304, 154)
 icon = ExtResource("3_yr5bq")
 flat = true
+script = ExtResource("4_t4qvg")
 
 [node name="DialogoFinal" type="Sprite2D" parent="." unique_id=1845310212]
 z_index = 3
